@@ -13,7 +13,7 @@ import {
   BalanceLeavesIcon, BankGardenIcon, ShieldLeafIcon, CakeBlossomIcon,
   HeartLeafIcon, DocumentLeafIcon, SeedlingIcon,
   QueueScrollIcon, LightbulbPetalIcon, WrenchVineIcon,
-  TulipIcon, PersonFloralIcon,
+  TulipIcon, PersonFloralIcon, ChatBubbleLeafIcon,
   CrownFloralIcon, SparkleAccent, MoneyLeafIcon,
   MedicalHerbIcon, SunflowerHomeIcon, RoseSOSIcon,
   NewsScrollIcon, PendingBudIcon, WiltIcon,
@@ -68,6 +68,7 @@ const SERVICE_CATEGORIES = [
   {
     title: 'Finance', titleAr: 'المالية', dotColor: c.gold,
     items: [
+      { key: 'finance-welcome', label: 'AI Plan', labelAr: 'تخطيط ذكي', Icon: ChatBubbleLeafIcon, color: c.gold },
       { key: 'reservoir', label: 'Reservoir', labelAr: 'الخزنة', Icon: BankGardenIcon, color: c.mint },
       { key: 'settlement', label: 'Settle', labelAr: 'التسوية', Icon: BalanceLeavesIcon, color: c.muted },
       { key: 'pulse', label: 'Pulse', labelAr: 'النبض', Icon: ChartBloomIcon, color: c.mint },
