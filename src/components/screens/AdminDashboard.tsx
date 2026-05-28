@@ -271,7 +271,7 @@ export default function AdminDashboard() {
                           key={item.key}
                           className="service-card"
                           style={{ borderLeftColor: item.color + '60' }}
-                          onClick={() => navigate(item.key as any)}
+                          onClick={() => navigate(item.key as any, { service: item.key })}
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.97 }}
                         >

@@ -221,10 +221,10 @@ export default function BrotherDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <button className="btn btn-primary btn-lg" style={{ flex: 1 }} onClick={() => navigate('mother-request')}>
-            <TulipIcon size={20} /> {isAr ? 'طلب مبلغ' : 'Request Money'}
+          <button className="btn btn-primary btn-lg" style={{ flex: 1 }} onClick={() => navigate('brother-audit' as any)}>
+            <TulipIcon size={20} /> {isAr ? 'مراجعة الخطة' : 'View Plan'}
           </button>
-          <button className="btn btn-peach btn-lg" style={{ flex: 1 }}>
+          <button className="btn btn-peach btn-lg" style={{ flex: 1 }} onClick={() => navigate('brother-contribution' as any)}>
             <BouquetIcon size={20} /> {isAr ? 'دفع مباشر' : 'Pay Direct'}
           </button>
         </motion.div>

@@ -241,6 +241,184 @@ body {
   margin: 0;
 }
 
+/* ─── Role Selector Panel (right of phone) ─── */
+.role-panel {
+  max-width: 280px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.role-panel-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFCF2;
+  margin: 0;
+}
+
+.role-panel-subtitle {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+}
+
+.role-panel-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.role-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 252, 242, 0.05);
+  border: 1px solid rgba(255, 252, 242, 0.08);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+}
+
+.role-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(135deg,
+    rgba(184, 218, 196, 0.08),
+    rgba(245, 203, 167, 0.06)
+  );
+}
+
+.role-card:hover {
+  background: rgba(255, 252, 242, 0.1);
+  border-color: rgba(255, 252, 242, 0.15);
+  transform: translateY(-1px);
+}
+
+.role-card:hover::before {
+  opacity: 1;
+}
+
+.role-card.active {
+  background: rgba(184, 218, 196, 0.12);
+  border-color: rgba(184, 218, 196, 0.35);
+  box-shadow: 0 0 20px rgba(184, 218, 196, 0.1),
+              inset 0 0 20px rgba(184, 218, 196, 0.03);
+}
+
+.role-card.active::before {
+  opacity: 1;
+  background: linear-gradient(135deg,
+    rgba(184, 218, 196, 0.12),
+    rgba(245, 203, 167, 0.08)
+  );
+}
+
+.role-card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 252, 242, 0.06);
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.role-card.active .role-card-icon {
+  background: rgba(184, 218, 196, 0.15);
+}
+
+.role-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.role-card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFCF2;
+}
+
+.role-card-desc {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.role-card-active-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mint);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--mint);
+  animation: role-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes role-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+/* Language toggle */
+.role-panel-lang {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  background: rgba(255, 252, 242, 0.04);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.role-lang-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-light);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.role-lang-btn.active {
+  background: rgba(184, 218, 196, 0.15);
+  color: #FFFCF2;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.role-lang-btn:hover:not(.active) {
+  background: rgba(255, 252, 242, 0.06);
+}
+
+/* Responsive: hide role panel on narrow screens */
+@media (max-width: 1100px) {
+  .role-panel {
+    display: none;
+  }
+}
+
 /* ─── Phone Frame (iPhone 15 Pro — exact) ─── */
 .phone-frame {
   width: 375px;
@@ -1469,6 +1647,40 @@ body {
   background: var(--mint);
   color: white;
   border-color: var(--mint);
+}
+
+/* Auto-play button */
+.demo-autoplay-btn {
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255, 252, 242, 0.06);
+  border: 1px solid rgba(255, 252, 242, 0.12);
+  color: #e8dfd0;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-autoplay-btn:hover {
+  background: rgba(255, 252, 242, 0.12);
+}
+
+.demo-autoplay-btn.active {
+  background: rgba(127, 200, 169, 0.2);
+  border-color: var(--mint);
+  color: var(--mint);
+  animation: autoplay-pulse 2s ease-in-out infinite;
+}
+
+@keyframes autoplay-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(127,200,169,0.2); }
+  50% { box-shadow: 0 0 12px rgba(127,200,169,0.4); }
 }
 
 /* ─── Shimmer Loading ─── */
@@ -3007,6 +3219,7 @@ body {
   }
 
   .demo-info-panel { display: none; }
+  .role-panel { display: none; }
 
   .phone-frame {
     width: 100%;
@@ -3014,4 +3227,51 @@ body {
     height: 90vh;
     max-height: 812px;
   }
+}
+
+/* ─── Mother Request Screen ─── */
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.amount-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--br-lg);
+  padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+
+.amount-input-row:focus-within {
+  border-color: var(--mint);
+}
+
+.amount-input {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-family: var(--font-display);
+}
+
+.amount-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+.amount-currency {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
 }

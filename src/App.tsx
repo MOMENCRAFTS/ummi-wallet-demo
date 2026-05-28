@@ -2,19 +2,75 @@
  * Ummi Wallet — Interactive Demo App
  * momencrafts.com/ummi-wallet/
  *
- * Phone-frame wrapped app simulator with demo controls
- * Bilingual info panel respects navigation language
+ * Three-column layout: Info Panel | Phone | Role Selector
  * Zero emoji — all SVG FloralIcons
  */
-import { NavigationProvider, useNavigation } from './navigation';
+import { NavigationProvider, useNavigation, type AppRole } from './navigation';
 import PhoneFrame from './components/PhoneFrame';
 import ScreenRouter from './components/ScreenRouter';
 import DemoControls from './components/DemoControls';
 import {
   WalletRoseIcon, ChartBloomIcon, PersonFloralIcon,
-  GlobeFlowerIcon, RoseSOSIcon,
+  GlobeFlowerIcon, RoseSOSIcon, CrownFloralIcon,
+  HeartLeafIcon, EyeLeafIcon,
 } from './components/icons/FloralIcons';
 
+/* ─── Role Selector Panel (right side) ─── */
+const ROLES: { id: AppRole; label: string; labelAr: string; desc: string; descAr: string; Icon: React.ComponentType<{ size?: number }> }[] = [
+  { id: 'admin', label: 'Admin', labelAr: 'المسؤول', desc: 'Manages budget, approves requests, oversees the family plan', descAr: 'يدير الميزانية ويوافق على الطلبات ويشرف على خطة العائلة', Icon: CrownFloralIcon },
+  { id: 'mother', label: 'Mother', labelAr: 'الوالدة', desc: 'Requests money, pays bills, sends gratitude', descAr: 'تطلب مبالغ وتدفع الفواتير وترسل الشكر', Icon: HeartLeafIcon },
+  { id: 'brother', label: 'Contributor', labelAr: 'المساهم', desc: 'Pays his share, views pending approvals', descAr: 'يدفع حصّته ويتابع الطلبات المعلّقة', Icon: PersonFloralIcon },
+  { id: 'observer', label: 'Observer', labelAr: 'المراقب', desc: 'Views family feed, celebrations, gratitude', descAr: 'يتابع أخبار العائلة والمناسبات', Icon: EyeLeafIcon },
+];
+
+function RolePanel() {
+  const { role, setRole, lang, setLang } = useNavigation();
+  const isAr = lang === 'ar';
+
+  return (
+    <div className="role-panel">
+      <h3 className="role-panel-title">{isAr ? 'اختر الدور' : 'Choose Role'}</h3>
+      <p className="role-panel-subtitle">{isAr ? 'شوف التطبيق من زاوية كل فرد' : 'See the app from each family member\'s perspective'}</p>
+
+      <div className="role-panel-grid">
+        {ROLES.map(r => (
+          <button
+            key={r.id}
+            className={`role-card ${role === r.id ? 'active' : ''}`}
+            onClick={() => setRole(r.id)}
+          >
+            <div className="role-card-icon">
+              <r.Icon size={24} />
+            </div>
+            <div className="role-card-text">
+              <span className="role-card-label">{isAr ? r.labelAr : r.label}</span>
+              <span className="role-card-desc">{isAr ? r.descAr : r.desc}</span>
+            </div>
+            {role === r.id && <div className="role-card-active-dot" />}
+          </button>
+        ))}
+      </div>
+
+      {/* Language toggle */}
+      <div className="role-panel-lang">
+        <button
+          className={`role-lang-btn ${lang === 'ar' ? 'active' : ''}`}
+          onClick={() => setLang('ar')}
+        >
+          عربي
+        </button>
+        <button
+          className={`role-lang-btn ${lang === 'en' ? 'active' : ''}`}
+          onClick={() => setLang('en')}
+        >
+          English
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Info Panel (left side) ─── */
 function InfoPanel() {
   const { lang } = useNavigation();
   const isAr = lang === 'ar';
@@ -78,7 +134,7 @@ export default function App() {
   return (
     <NavigationProvider>
       <div className="demo-container">
-        {/* Left: Info panel (bilingual) */}
+        {/* Left: Info panel */}
         <InfoPanel />
 
         {/* Center: Phone */}
@@ -86,7 +142,10 @@ export default function App() {
           <ScreenRouter />
         </PhoneFrame>
 
-        {/* Demo Controls (floating) */}
+        {/* Right: Role selector */}
+        <RolePanel />
+
+        {/* Floating advanced controls */}
         <DemoControls />
       </div>
     </NavigationProvider>

@@ -423,7 +423,7 @@ export function PersonFloralIcon({ size = 24, color = c.muted }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
       <circle cx="12" cy="7" r="4" fill={color} opacity="0.2" stroke={color} strokeWidth="1.5"/>
-      <path d="M4 21 Q4 15 12 13 Q20 15 20 21" fill={color} opacity="0.15" stroke={color} strokeWidth="1.5" fill-rule="nonzero"/>
+      <path d="M4 21 Q4 15 12 13 Q20 15 20 21" fill={color} opacity="0.15" stroke={color} strokeWidth="1.5" fillRule="nonzero"/>
       <circle cx="9" cy="4" r="1.5" fill={c.peach} opacity="0.7"/>
       <circle cx="12" cy="3" r="1.5" fill={c.pink} opacity="0.7"/>
       <circle cx="15" cy="4" r="1.5" fill={c.peach} opacity="0.7"/>

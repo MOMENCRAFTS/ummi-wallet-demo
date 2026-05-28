@@ -3,7 +3,7 @@
  * Role switcher, language toggle, screen selector, music controls
  * Zero emoji — all SVG FloralIcons
  */
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigation, type AppRole, type ScreenName } from '../navigation';
 import { audioService } from '../lib/audioService';
 import {
@@ -29,8 +29,14 @@ const QUICK_SCREENS: { label: string; screen: ScreenName; group: string }[] = [
   { label: 'Waiting Room', screen: 'finance-waiting', group: 'Finance' },
   { label: 'Celebration', screen: 'finance-celebration', group: 'Finance' },
   { label: 'Mother Home', screen: 'mother-dashboard', group: 'Mother' },
+  { label: 'Request Money', screen: 'mother-request', group: 'Mother' },
+  { label: 'Bills', screen: 'mother-bills', group: 'Mother' },
+  { label: 'History', screen: 'mother-history', group: 'Mother' },
+  { label: 'Gratitude', screen: 'mother-gratitude', group: 'Mother' },
   { label: 'SOS', screen: 'mother-sos', group: 'Mother' },
   { label: 'Brother Home', screen: 'brother-dashboard', group: 'Brother' },
+  { label: 'Plan Audit', screen: 'brother-audit', group: 'Brother' },
+  { label: 'Pay Direct', screen: 'brother-contribution', group: 'Brother' },
   { label: 'Observer Home', screen: 'observer-dashboard', group: 'Observer' },
 ];
 
@@ -49,6 +55,21 @@ export default function DemoControls() {
   const [expanded, setExpanded] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(audioService.isEnabled());
   const [currentTrack, setCurrentTrack] = useState(audioService.getCurrentTrack());
+  const [autoPlay, setAutoPlay] = useState(false);
+  const autoPlayRef = useRef(autoPlay);
+  const autoPlayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoPlayIndex = useRef(0);
+
+  // Happy-path auto-play sequence
+  const AUTO_SCREENS: ScreenName[] = [
+    'landing', 'login', 'admin-dashboard',
+    'finance-welcome', 'finance-chat', 'finance-summary',
+    'finance-waiting', 'finance-celebration',
+    'mother-dashboard', 'mother-request', 'mother-bills', 'mother-gratitude',
+    'mother-sos',
+    'brother-dashboard', 'brother-audit', 'brother-contribution',
+    'observer-dashboard',
+  ];
 
   // Subscribe to audio state changes
   useEffect(() => {
@@ -58,6 +79,34 @@ export default function DemoControls() {
     });
     return unsubscribe;
   }, []);
+
+  // Keep ref in sync
+  useEffect(() => { autoPlayRef.current = autoPlay; }, [autoPlay]);
+
+  // Auto-play timer
+  useEffect(() => {
+    if (!autoPlay) {
+      if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current);
+      return;
+    }
+
+    const tick = () => {
+      if (!autoPlayRef.current) return;
+      autoPlayIndex.current = (autoPlayIndex.current + 1) % AUTO_SCREENS.length;
+      navigate(AUTO_SCREENS[autoPlayIndex.current]);
+      autoPlayTimer.current = setTimeout(tick, 4000);
+    };
+
+    autoPlayTimer.current = setTimeout(tick, 4000);
+    return () => { if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current); };
+  }, [autoPlay, navigate]);
+
+  // Pause auto-play on manual interaction
+  const pauseAutoPlay = useCallback(() => {
+    if (autoPlay) {
+      setAutoPlay(false);
+    }
+  }, [autoPlay]);
 
   const toggleMusic = useCallback(() => {
     const newVal = !musicEnabled;
@@ -81,6 +130,30 @@ export default function DemoControls() {
       {expanded && (
         <div className="demo-controls-panel">
           <h3 className="demo-controls-title">Demo Controls</h3>
+
+          {/* Auto-Play */}
+          <div className="demo-section">
+            <label className="demo-section-label">Auto-Play</label>
+            <button
+              className={`demo-autoplay-btn ${autoPlay ? 'active' : ''}`}
+              onClick={() => {
+                if (!autoPlay) {
+                  autoPlayIndex.current = AUTO_SCREENS.indexOf(screen as ScreenName);
+                  if (autoPlayIndex.current < 0) autoPlayIndex.current = 0;
+                }
+                setAutoPlay(!autoPlay);
+              }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                {autoPlay ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                )}
+                {autoPlay ? 'Playing...' : 'Start Tour'}
+              </span>
+            </button>
+          </div>
 
           {/* Music Controls */}
           <div className="demo-section">
@@ -125,7 +198,7 @@ export default function DemoControls() {
                 <button
                   key={r.id}
                   className={`demo-role-btn ${role === r.id ? 'active' : ''}`}
-                  onClick={() => setRole(r.id)}
+                  onClick={() => { pauseAutoPlay(); setRole(r.id); }}
                 >
                   <span><r.Icon size={18} /></span>
                   <span>{r.label}</span>
@@ -161,7 +234,7 @@ export default function DemoControls() {
                 <button
                   key={s.screen}
                   className={`demo-screen-btn ${screen === s.screen ? 'active' : ''}`}
-                  onClick={() => navigate(s.screen)}
+                  onClick={() => { pauseAutoPlay(); navigate(s.screen); }}
                 >
                   <span className="demo-screen-group">{s.group}</span>
                   <span>{s.label}</span>

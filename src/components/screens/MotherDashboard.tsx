@@ -9,7 +9,7 @@ import { useNavigation } from '../../navigation';
 import {
   WalletRoseIcon, FloatingPetals, MoneyLeafIcon, MedicalHerbIcon,
   SeedlingIcon, RoseSOSIcon, HeartLeafIcon, TulipIcon,
-  SparkleAccent, PendingBudIcon, c,
+  SparkleAccent, PendingBudIcon, LeafBillIcon, NewsScrollIcon, c,
 } from '../icons/FloralIcons';
 
 const BALANCE = 4825;
@@ -118,9 +118,17 @@ export default function MotherDashboard() {
             <TulipIcon size={44} />
             <span className="mother-action-label">{isAr ? 'طلب مبلغ' : 'Request Money'}</span>
           </button>
+          <button className="mother-action-card" style={{ background: c.blue + '15', borderColor: c.blue }} onClick={() => navigate('mother-bills' as any)}>
+            <LeafBillIcon size={44} />
+            <span className="mother-action-label">{isAr ? 'الفواتير' : 'Bills'}</span>
+          </button>
+          <button className="mother-action-card" style={{ background: c.peach + '15', borderColor: c.peach }} onClick={() => navigate('mother-history' as any)}>
+            <NewsScrollIcon size={44} />
+            <span className="mother-action-label">{isAr ? 'السجل' : 'History'}</span>
+          </button>
           <button className="mother-action-card" style={{ background: c.yellow + '15', borderColor: c.yellow }} onClick={() => navigate('mother-gratitude' as any)}>
             <HeartLeafIcon size={44} />
-            <span className="mother-action-label">{isAr ? 'أمنياتي' : 'My Wishes'}</span>
+            <span className="mother-action-label">{isAr ? 'شكر وامتنان' : 'Gratitude'}</span>
           </button>
         </motion.div>
 

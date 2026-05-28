@@ -19,8 +19,15 @@ import WaitingRoomScreen from './screens/WaitingRoomScreen';
 import CelebrationScreen from './screens/CelebrationScreen';
 import MotherDashboard from './screens/MotherDashboard';
 import MotherSOSScreen from './screens/MotherSOSScreen';
+import MotherRequestScreen from './screens/MotherRequestScreen';
+import MotherBillsScreen from './screens/MotherBillsScreen';
+import MotherHistoryScreen from './screens/MotherHistoryScreen';
+import MotherGratitudeScreen from './screens/MotherGratitudeScreen';
 import BrotherDashboard from './screens/BrotherDashboard';
+import BrotherAuditScreen from './screens/BrotherAuditScreen';
+import BrotherContributionScreen from './screens/BrotherContributionScreen';
 import ObserverDashboard from './screens/ObserverDashboard';
+import ServiceScreen from './screens/ServiceScreen';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import SplashVideo from './videos/SplashVideo';
 
@@ -35,7 +42,13 @@ const screenMap: Record<string, React.ComponentType> = {
   'finance-celebration': CelebrationScreen,
   'mother-dashboard': MotherDashboard,
   'mother-sos': MotherSOSScreen,
+  'mother-request': MotherRequestScreen,
+  'mother-bills': MotherBillsScreen,
+  'mother-history': MotherHistoryScreen,
+  'mother-gratitude': MotherGratitudeScreen,
   'brother-dashboard': BrotherDashboard,
+  'brother-audit': BrotherAuditScreen,
+  'brother-contribution': BrotherContributionScreen,
   'observer-dashboard': ObserverDashboard,
 };
 
@@ -89,7 +102,7 @@ export default function ScreenRouter() {
     setShowSplash(false);
   }, []);
 
-  const ScreenComponent = screenMap[screen] || PlaceholderScreen;
+  const ScreenComponent = screenMap[screen] || ServiceScreen;
 
   return (
     <div className="screen-router">

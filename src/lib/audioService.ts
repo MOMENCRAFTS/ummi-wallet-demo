@@ -55,6 +55,7 @@ let enabled = true;
 let globalVolume = DEFAULT_VOLUME;
 let initialized = false;
 let unlocked = false; // Browser autoplay gate
+let crossfadeId = 0;  // Cancellation counter for stale crossfades
 
 // ─── Listeners for UI updates ───
 type Listener = () => void;
@@ -193,10 +194,14 @@ export const audioService = {
 
   /**
    * Crossfade from the current track to a new one.
+   * Sequential: fade out old → then fade in new (no overlap).
    */
   async crossfadeTo(track: TrackName): Promise<void> {
     if (!enabled) return;
     if (track === currentTrack) return;
+
+    // Bump crossfade generation so stale transitions abort
+    const thisId = ++crossfadeId;
 
     const oldTrack = currentTrack;
     const oldPlayer = oldTrack ? players[oldTrack] : null;
@@ -205,27 +210,26 @@ export const audioService = {
     if (!newPlayer) return;
 
     try {
-      // Start new track at volume 0
+      // 1. Fade OUT old track first (if any)
+      if (oldPlayer) {
+        const currentVol = oldPlayer.volume || globalVolume;
+        await rampVolume(oldPlayer, currentVol, 0, CROSSFADE_OUT_MS);
+        if (thisId !== crossfadeId) return; // cancelled
+        try { oldPlayer.pause(); } catch {}
+      }
+
+      if (thisId !== crossfadeId) return; // cancelled
+
+      // 2. Now start and fade IN new track
       newPlayer.currentTime = 0;
       newPlayer.volume = 0;
       await newPlayer.play().catch(() => {});
       currentTrack = track;
       notifyListeners();
 
-      // Asymmetric crossfade: fast out for old, slow in for new
-      const fadePromises: Promise<void>[] = [];
+      if (thisId !== crossfadeId) return; // cancelled
 
-      if (oldPlayer) {
-        fadePromises.push(
-          rampVolume(oldPlayer, globalVolume, 0, CROSSFADE_OUT_MS).then(() => {
-            try { oldPlayer.pause(); } catch {}
-          })
-        );
-      }
-
-      fadePromises.push(rampVolume(newPlayer, 0, globalVolume, CROSSFADE_IN_MS));
-
-      await Promise.all(fadePromises);
+      await rampVolume(newPlayer, 0, globalVolume, CROSSFADE_IN_MS);
     } catch (err) {
       console.warn(`[Audio] Crossfade to ${track} failed:`, err);
     }
