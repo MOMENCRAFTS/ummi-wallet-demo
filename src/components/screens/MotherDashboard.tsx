@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
 import {
   WalletRoseIcon, FloatingPetals, MoneyLeafIcon, MedicalHerbIcon,
-  SeedlingIcon, RoseSOSIcon, HeartLeafIcon, TulipIcon,
+  SeedlingIcon, RoseSOSIcon, HeartLeafIcon, TulipIcon, ArrowLeafIcon,
   SparkleAccent, PendingBudIcon, LeafBillIcon, NewsScrollIcon, c,
 } from '../icons/FloralIcons';
 
@@ -35,6 +35,9 @@ export default function MotherDashboard() {
   return (
     <div className="screen mother-dashboard-true" dir={isAr ? 'rtl' : 'ltr'}>
       <FloatingPetals count={4} />
+      <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
+        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+      </button>
 
       <div className="mother-scroll">
         {/* ═══ Daily Barakah ═══ */}

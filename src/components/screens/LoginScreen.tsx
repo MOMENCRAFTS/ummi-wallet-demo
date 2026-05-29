@@ -15,7 +15,7 @@ import OAuthTransition from '../videos/OAuthTransition';
 import { audioService } from '../../lib/audioService';
 
 export default function LoginScreen() {
-  const { navigate, lang, setLang } = useNavigation();
+  const { navigate, role, lang, setLang } = useNavigation();
   const isAr = lang === 'ar';
   const [showTransition, setShowTransition] = useState(false);
 
@@ -30,9 +30,15 @@ export default function LoginScreen() {
   }, []);
 
   const handleTransitionComplete = useCallback(() => {
+    const dashboards: Record<string, string> = {
+      admin: 'admin-dashboard',
+      mother: 'mother-dashboard',
+      brother: 'brother-dashboard',
+      observer: 'observer-dashboard',
+    };
     setShowTransition(false);
-    navigate('admin-dashboard');
-  }, [navigate]);
+    navigate((dashboards[role] || 'admin-dashboard') as any);
+  }, [navigate, role]);
 
   return (
     <div className="screen login-screen" dir={isAr ? 'rtl' : 'ltr'}>

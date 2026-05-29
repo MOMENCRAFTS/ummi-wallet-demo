@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
 import {
   CakeBlossomIcon, NewsScrollIcon, SeedlingIcon, HeartLeafIcon,
-  EyeLeafIcon, SparkleStarIcon,
+  EyeLeafIcon, SparkleStarIcon, ArrowLeafIcon,
 } from '../icons/FloralIcons';
 
 const CELEBRATIONS = [
@@ -29,11 +29,14 @@ const PROJECTS = [
 ];
 
 export default function ObserverDashboard() {
-  const { lang } = useNavigation();
+  const { navigate, lang } = useNavigation();
   const isAr = lang === 'ar';
 
   return (
     <div className="screen observer-dashboard" dir={isAr ? 'rtl' : 'ltr'}>
+      <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
+        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+      </button>
       {/* Header */}
       <div className="dashboard-header observer-header">
         <motion.div

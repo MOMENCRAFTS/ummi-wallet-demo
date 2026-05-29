@@ -7,7 +7,7 @@
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
 import {
-  CrownFloralIcon, MoneyLeafIcon, HeartLeafIcon, TulipIcon,
+  CrownFloralIcon, MoneyLeafIcon, HeartLeafIcon, TulipIcon, ArrowLeafIcon,
   CheckLeafIcon, PendingBudIcon, WiltIcon, HandPetalIcon,
   BouquetIcon, SeedlingIcon, SparkleAccent, c,
 } from '../icons/FloralIcons';
@@ -60,6 +60,9 @@ export default function BrotherDashboard() {
 
   return (
     <div className="screen brother-dashboard-true" dir={isAr ? 'rtl' : 'ltr'}>
+      <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
+        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+      </button>
       <div className="brother-scroll">
 
         {/* ═══ Stats Row ═══ */}

@@ -11,7 +11,7 @@ import { useNavigation } from '../../navigation';
 import {
   WalletRoseIcon, ChartBloomIcon, PayrollLeafIcon, LeafBillIcon,
   BalanceLeavesIcon, BankGardenIcon, ShieldLeafIcon, CakeBlossomIcon,
-  HeartLeafIcon, DocumentLeafIcon, SeedlingIcon,
+  HeartLeafIcon, DocumentLeafIcon, SeedlingIcon, ArrowLeafIcon,
   QueueScrollIcon, LightbulbPetalIcon, WrenchVineIcon,
   TulipIcon, PersonFloralIcon, ChatBubbleLeafIcon,
   CrownFloralIcon, SparkleAccent, MoneyLeafIcon,
@@ -108,6 +108,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="screen admin-dashboard-true" dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Logout */}
+      <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
+        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+      </button>
       {/* ═══ Reservoir Card ═══ */}
       <motion.div
         className="card glass flourish reservoir-card"

@@ -13,8 +13,19 @@ import {
   RoseSOSIcon,
 } from '../icons/FloralIcons';
 
+const ROLE_DASHBOARDS: Record<string, string> = {
+  admin: 'admin-dashboard', mother: 'mother-dashboard',
+  brother: 'brother-dashboard', observer: 'observer-dashboard',
+};
+const ROLE_LABELS: Record<string, { en: string; ar: string }> = {
+  admin: { en: 'Responsible Son', ar: 'الابن المسؤول' },
+  mother: { en: 'Mother', ar: 'الوالدة' },
+  brother: { en: 'Contributing Brother', ar: 'الأخ المساهم' },
+  observer: { en: 'Observing Sister', ar: 'الأخت المتابعة' },
+};
+
 export default function LandingScreen() {
-  const { navigate, lang } = useNavigation();
+  const { navigate, role, lang } = useNavigation();
   const isAr = lang === 'ar';
 
   return (
@@ -103,10 +114,10 @@ export default function LandingScreen() {
           </button>
           <button
             className="btn btn-ghost"
-            onClick={() => { audioService.unlock(); navigate('admin-dashboard'); }}
+            onClick={() => { audioService.unlock(); navigate((ROLE_DASHBOARDS[role] || 'admin-dashboard') as any); }}
             style={{ width: '100%', marginTop: 8 }}
           >
-            <CrownFloralIcon size={18} /> {isAr ? 'دخول مباشر — المسؤول' : 'Skip to Admin'}
+            <CrownFloralIcon size={18} /> {isAr ? `دخول مباشر — ${ROLE_LABELS[role]?.ar}` : `Skip to ${ROLE_LABELS[role]?.en}`}
           </button>
         </motion.div>
 

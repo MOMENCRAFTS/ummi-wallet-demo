@@ -19,26 +19,7 @@ const ROLE_OPTIONS: { id: AppRole; label: string; Icon: React.ComponentType<{ si
   { id: 'observer', label: 'Observer', Icon: EyeLeafIcon },
 ];
 
-const QUICK_SCREENS: { label: string; screen: ScreenName; group: string }[] = [
-  { label: 'Landing', screen: 'landing', group: 'Auth' },
-  { label: 'Login', screen: 'login', group: 'Auth' },
-  { label: 'Admin Hub', screen: 'admin-dashboard', group: 'Admin' },
-  { label: 'Finance Welcome', screen: 'finance-welcome', group: 'Finance' },
-  { label: 'AI Chat', screen: 'finance-chat', group: 'Finance' },
-  { label: 'Summary', screen: 'finance-summary', group: 'Finance' },
-  { label: 'Waiting Room', screen: 'finance-waiting', group: 'Finance' },
-  { label: 'Celebration', screen: 'finance-celebration', group: 'Finance' },
-  { label: 'Mother Home', screen: 'mother-dashboard', group: 'Mother' },
-  { label: 'Request Money', screen: 'mother-request', group: 'Mother' },
-  { label: 'Bills', screen: 'mother-bills', group: 'Mother' },
-  { label: 'History', screen: 'mother-history', group: 'Mother' },
-  { label: 'Gratitude', screen: 'mother-gratitude', group: 'Mother' },
-  { label: 'SOS', screen: 'mother-sos', group: 'Mother' },
-  { label: 'Brother Home', screen: 'brother-dashboard', group: 'Brother' },
-  { label: 'Plan Audit', screen: 'brother-audit', group: 'Brother' },
-  { label: 'Pay Direct', screen: 'brother-contribution', group: 'Brother' },
-  { label: 'Observer Home', screen: 'observer-dashboard', group: 'Observer' },
-];
+
 
 // Track name to display label
 const TRACK_LABELS: Record<string, string> = {
@@ -93,7 +74,8 @@ export default function DemoControls() {
     const tick = () => {
       if (!autoPlayRef.current) return;
       autoPlayIndex.current = (autoPlayIndex.current + 1) % AUTO_SCREENS.length;
-      navigate(AUTO_SCREENS[autoPlayIndex.current]);
+      const nextScreen = AUTO_SCREENS[autoPlayIndex.current];
+      navigate(nextScreen);
       autoPlayTimer.current = setTimeout(tick, 4000);
     };
 
@@ -226,22 +208,7 @@ export default function DemoControls() {
             </div>
           </div>
 
-          {/* Screen Selector */}
-          <div className="demo-section">
-            <label className="demo-section-label">Jump to Screen</label>
-            <div className="demo-screen-list">
-              {QUICK_SCREENS.map(s => (
-                <button
-                  key={s.screen}
-                  className={`demo-screen-btn ${screen === s.screen ? 'active' : ''}`}
-                  onClick={() => { pauseAutoPlay(); navigate(s.screen); }}
-                >
-                  <span className="demo-screen-group">{s.group}</span>
-                  <span>{s.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
+
 
           {/* Current */}
           <div className="demo-current">
