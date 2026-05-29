@@ -95,6 +95,14 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  // Expose role-only setter for E2E tests (no navigation side-effect)
+  const setRoleOnly = useCallback((role: AppRole) => {
+    setState(prev => ({ ...prev, role }));
+  }, []);
+  if (typeof window !== 'undefined') {
+    (window as any).__setDemoRole__ = setRoleOnly;
+  }
+
   const setLang = useCallback((lang: 'en' | 'ar') => {
     setState(prev => ({ ...prev, lang }));
   }, []);
