@@ -17,10 +17,10 @@ import {
 
 /* ─── Role Selector Panel (right side) ─── */
 const ROLES: { id: AppRole; label: string; labelAr: string; desc: string; descAr: string; Icon: React.ComponentType<{ size?: number }> }[] = [
-  { id: 'admin', label: 'Admin', labelAr: 'المسؤول', desc: 'Manages budget, approves requests, oversees the family plan', descAr: 'يدير الميزانية ويوافق على الطلبات ويشرف على خطة العائلة', Icon: CrownFloralIcon },
+  { id: 'admin', label: 'Responsible Son', labelAr: 'الابن المسؤول', desc: 'Manages budget, approves requests, oversees the family plan', descAr: 'يدير الميزانية ويوافق على الطلبات ويشرف على خطة العائلة', Icon: CrownFloralIcon },
   { id: 'mother', label: 'Mother', labelAr: 'الوالدة', desc: 'Requests money, pays bills, sends gratitude', descAr: 'تطلب مبالغ وتدفع الفواتير وترسل الشكر', Icon: HeartLeafIcon },
-  { id: 'brother', label: 'Contributor', labelAr: 'المساهم', desc: 'Pays his share, views pending approvals', descAr: 'يدفع حصّته ويتابع الطلبات المعلّقة', Icon: PersonFloralIcon },
-  { id: 'observer', label: 'Observer', labelAr: 'المراقب', desc: 'Views family feed, celebrations, gratitude', descAr: 'يتابع أخبار العائلة والمناسبات', Icon: EyeLeafIcon },
+  { id: 'brother', label: 'Contributing Brother', labelAr: 'الأخ المساهم', desc: 'Pays his share, views pending approvals', descAr: 'يدفع حصّته ويتابع الطلبات المعلّقة', Icon: PersonFloralIcon },
+  { id: 'observer', label: 'Observing Sister', labelAr: 'الأخت المتابعة', desc: 'Views family feed, celebrations, gratitude', descAr: 'تتابع أخبار العائلة والمناسبات', Icon: EyeLeafIcon },
 ];
 
 function RolePanel() {
@@ -100,7 +100,7 @@ function InfoPanel() {
             <span><PersonFloralIcon size={24} /></span>
             <div>
               <strong>{isAr ? '٤ أدوار، ٢٨ خدمة' : '4 Roles, 28 Modules'}</strong>
-              <p>{isAr ? 'المسؤول، الوالدة، المساهم، المراقب' : 'Admin, Mother, Contributor, Observer'}</p>
+              <p>{isAr ? 'الابن المسؤول، الوالدة، الأخ المساهم، الأخت المتابعة' : 'Responsible Son, Mother, Contributing Brother, Observing Sister'}</p>
             </div>
           </div>
           <div className="demo-feature">

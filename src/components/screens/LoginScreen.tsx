@@ -5,7 +5,7 @@
  * Zero emoji — fully custom visual language
  */
 import { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
 import {
   WalletRoseIcon, GlobeFlowerIcon, FloatingPetals, SparkleAccent,
@@ -17,19 +17,9 @@ import { audioService } from '../../lib/audioService';
 export default function LoginScreen() {
   const { navigate, lang, setLang } = useNavigation();
   const isAr = lang === 'ar';
-  const [email, setEmail] = useState('');
-  const [step, setStep] = useState<'email' | 'otp'>('email');
-  const [otp, setOtp] = useState('');
   const [showTransition, setShowTransition] = useState(false);
 
   const toggleLang = () => setLang(lang === 'en' ? 'ar' : 'en');
-
-  const handleSendOtp = () => {
-    if (email) {
-      audioService.playOneShot('step_complete', 0.4);
-      setStep('otp');
-    }
-  };
 
   const handleAuth = useCallback(() => {
     // Unlock audio on user gesture then show transition
@@ -112,73 +102,8 @@ export default function LoginScreen() {
         </motion.div>
 
         {/* Or divider */}
-        <motion.div
-          className="or-divider"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <div className="line" />
-          <span className="text">{isAr ? 'أو بالبريد' : 'OR EMAIL'}</span>
-          <div className="line" />
-        </motion.div>
 
-        {/* Email OTP Form */}
-        <motion.div
-          className="login-form"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          <AnimatePresence mode="wait">
-            {step === 'email' ? (
-              <motion.div
-                key="email-step"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <label className="login-label">{isAr ? 'البريد الإلكتروني' : 'Email address'}</label>
-                <input
-                  className="input"
-                  type="email"
-                  placeholder={isAr ? 'أدخلي البريد...' : 'mother@family.com'}
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                />
-                <button className="btn btn-primary btn-lg btn-full" onClick={handleSendOtp}>
-                  {isAr ? 'إرسال رمز الدخول' : 'Send Login Code'}
-                </button>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="otp-step"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <label className="login-label">{isAr ? 'رمز التحقق' : 'Verification Code'}</label>
-                <p className="login-otp-sent">{isAr ? `أُرسل إلى ${email}` : `Sent to ${email}`}</p>
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="• • • • • •"
-                  value={otp}
-                  onChange={e => setOtp(e.target.value)}
-                  maxLength={6}
-                />
-                <button className="btn btn-primary btn-lg btn-full" onClick={handleAuth}>
-                  {isAr ? 'تحقق' : 'Verify'}
-                </button>
-                <button className="btn btn-ghost" onClick={() => setStep('email')} style={{ marginTop: 8, width: '100%' }}>
-                  {isAr ? 'إعادة الإرسال' : 'Resend code'}
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+
 
         {/* Vine Divider */}
         <VineDivider />
