@@ -12,7 +12,7 @@ import {
 } from '../icons/FloralIcons';
 import FlowerVideo from '../videos/FlowerVideo';
 
-const ROLE_AR: Record<string, string> = { admin: 'المسؤول', contributor: 'مساهم', observer: 'مراقبة', 'care-receiver': 'مستقبل الرعاية' };
+const ROLE_AR: Record<string, string> = { admin: 'الابن المسؤول', contributor: 'الأخ المساهم', observer: 'الأخت المتابعة', 'care-receiver': 'الوالدة' };
 
 const MEMBERS = [
   { name: 'Ahmed', nameAr: 'أحمد', role: 'admin', status: 'dispatched', Icon: CrownFloralIcon },

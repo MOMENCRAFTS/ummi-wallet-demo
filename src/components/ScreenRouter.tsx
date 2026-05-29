@@ -27,6 +27,7 @@ import BrotherDashboard from './screens/BrotherDashboard';
 import BrotherAuditScreen from './screens/BrotherAuditScreen';
 import BrotherContributionScreen from './screens/BrotherContributionScreen';
 import ObserverDashboard from './screens/ObserverDashboard';
+import OnboardingScreen from './screens/OnboardingScreen';
 import ServiceScreen from './screens/ServiceScreen';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import SplashVideo from './videos/SplashVideo';
@@ -50,11 +51,12 @@ const screenMap: Record<string, React.ComponentType> = {
   'brother-audit': BrotherAuditScreen,
   'brother-contribution': BrotherContributionScreen,
   'observer-dashboard': ObserverDashboard,
+  'onboarding': OnboardingScreen,
 };
 
 // Map screens to their ambient music tracks
 function getTrackForScreen(screen: ScreenName): TrackName | null {
-  if (screen === 'landing' || screen === 'login') return 'pearl_gate';
+  if (screen === 'landing' || screen === 'login' || screen === 'onboarding') return 'pearl_gate';
   if (screen.startsWith('admin') || screen.startsWith('brother') || screen.startsWith('observer')) return 'pulse_in_the_hall';
   if (screen.startsWith('mother')) return 'mothers_embrace';
   if (screen.startsWith('finance')) return 'blessing_hush';

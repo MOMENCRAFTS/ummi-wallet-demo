@@ -10,7 +10,7 @@ export type ScreenName =
   // Auth
   | 'landing' | 'login' | 'oauth' | 'oauth-transition'
   // Onboarding
-  | 'onboarding-role' | 'onboarding-mother' | 'onboarding-complete'
+  | 'onboarding' | 'onboarding-role' | 'onboarding-mother' | 'onboarding-complete'
   // Admin
   | 'admin-dashboard'
   // Finance

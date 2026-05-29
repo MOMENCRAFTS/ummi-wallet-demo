@@ -138,7 +138,7 @@ export default function MotherRequestScreen() {
               }
             </p>
             <p style={{ color: c.muted, marginTop: 4, fontSize: 13 }}>
-              {isAr ? 'بيوصل إشعار للمسؤول — الله يسهّل' : 'The admin will be notified'}
+              {isAr ? 'بيوصل إشعار للابن المسؤول — الله يسهّل' : 'The responsible son will be notified'}
             </p>
             <button className="btn btn-glass btn-md" onClick={goBack} style={{ marginTop: 20 }}>
               {isAr ? 'رجوع' : 'Go Back'}

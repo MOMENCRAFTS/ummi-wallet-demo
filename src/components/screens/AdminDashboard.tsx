@@ -50,7 +50,7 @@ const FEED = [
   { id: '1', message: 'Mother requested 280 SAR for pharmacy', messageAr: 'الوالدة طلبت ٢٨٠ ر.س للصيدلية', time: '2h ago', timeAr: 'قبل ساعتين' },
   { id: '2', message: 'Mohammed approved the support plan', messageAr: 'محمد وافق على خطة الدعم — الله يوفقه', time: '1d ago', timeAr: 'أمس' },
   { id: '3', message: 'Electricity bill auto-paid — 320 SAR', messageAr: 'انسددت فاتورة الكهرباء — ٣٢٠ ر.س', time: '3d ago', timeAr: 'قبل ٣ أيام' },
-  { id: '4', message: 'Sarah joined as Observer', messageAr: 'سارة انضمّت كمراقبة — أهلاً وسهلاً', time: '5d ago', timeAr: 'قبل ٥ أيام' },
+  { id: '4', message: 'Sarah joined as Observing Sister', messageAr: 'سارة انضمّت كأخت متابعة — أهلاً وسهلاً', time: '5d ago', timeAr: 'قبل ٥ أيام' },
 ];
 
 // Service categories for the manage grid

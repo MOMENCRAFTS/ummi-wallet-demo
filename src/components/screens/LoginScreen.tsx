@@ -30,15 +30,9 @@ export default function LoginScreen() {
   }, []);
 
   const handleTransitionComplete = useCallback(() => {
-    const dashboards: Record<string, string> = {
-      admin: 'admin-dashboard',
-      mother: 'mother-dashboard',
-      brother: 'brother-dashboard',
-      observer: 'observer-dashboard',
-    };
     setShowTransition(false);
-    navigate((dashboards[role] || 'admin-dashboard') as any);
-  }, [navigate, role]);
+    navigate('onboarding');
+  }, [navigate]);
 
   return (
     <div className="screen login-screen" dir={isAr ? 'rtl' : 'ltr'}>

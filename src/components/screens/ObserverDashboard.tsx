@@ -49,7 +49,7 @@ export default function ObserverDashboard() {
             <EyeLeafIcon size={28} />
             <SparkleStarIcon size={14} />
           </div>
-          <p className="observer-greeting">{isAr ? 'أهلاً بالمراقب' : 'Observer View'}</p>
+          <p className="observer-greeting">{isAr ? 'أهلاً يا أختي' : 'Welcome, Sister'}</p>
           <p className="observer-subtitle">{isAr ? 'يمكنك تتابع الخطة وتشارك التقدير' : 'Follow the plan and share gratitude'}</p>
         </motion.div>
       </div>

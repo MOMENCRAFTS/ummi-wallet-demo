@@ -13,10 +13,10 @@ import {
 } from './icons/FloralIcons';
 
 const ROLE_OPTIONS: { id: AppRole; label: string; Icon: React.ComponentType<{ size?: number }> }[] = [
-  { id: 'admin', label: 'Admin (Lead)', Icon: CrownFloralIcon },
+  { id: 'admin', label: 'Responsible Son', Icon: CrownFloralIcon },
   { id: 'mother', label: 'Mother', Icon: HeartLeafIcon },
-  { id: 'brother', label: 'Contributor', Icon: PersonFloralIcon },
-  { id: 'observer', label: 'Observer', Icon: EyeLeafIcon },
+  { id: 'brother', label: 'Contributing Brother', Icon: PersonFloralIcon },
+  { id: 'observer', label: 'Observing Sister', Icon: EyeLeafIcon },
 ];
 
 
@@ -43,7 +43,7 @@ export default function DemoControls() {
 
   // Happy-path auto-play sequence
   const AUTO_SCREENS: ScreenName[] = [
-    'landing', 'login', 'admin-dashboard',
+    'landing', 'login', 'onboarding', 'admin-dashboard',
     'finance-welcome', 'finance-chat', 'finance-summary',
     'finance-waiting', 'finance-celebration',
     'mother-dashboard', 'mother-request', 'mother-bills', 'mother-gratitude',
