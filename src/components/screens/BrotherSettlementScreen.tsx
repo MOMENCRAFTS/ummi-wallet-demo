@@ -20,7 +20,7 @@ export default function BrotherSettlementScreen() {
 
   return (
     <div className="screen" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="screen-header"><button className="back-btn" onClick={goBack}><ArrowLeafIcon size={20} /></button><span className="header-title"><BalanceLeavesIcon size={20} /> {isAr ? 'تسويتي' : 'My Settlement'}</span></div>
+      <div className="screen-header"><button className="back-btn" onClick={goBack}><ArrowLeafIcon size={20} /></button><span className="header-title"><BalanceLeavesIcon size={20} /> {isAr ? 'تسوية مساهمتي' : 'My Settlement'}</span></div>
       <div className="screen-body">
         <motion.div className="card glass" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>

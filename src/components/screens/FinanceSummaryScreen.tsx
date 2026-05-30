@@ -46,7 +46,7 @@ export default function FinanceSummaryScreen() {
           <div className="budget-legend">
             <span><span className="legend-dot" style={{ background: c.mint }} /> {isAr ? 'الاحتياجات' : 'Needs'}</span>
             <span><span className="legend-dot" style={{ background: c.yellow }} /> {isAr ? 'الرغبات' : 'Wants'}</span>
-            <span><span className="legend-dot" style={{ background: c.blue }} /> {isAr ? 'الاحتياط' : 'Safety'}</span>
+            <span><span className="legend-dot" style={{ background: c.blue }} /> {isAr ? 'الاحتياطي' : 'Safety'}</span>
           </div>
         </motion.div>
 

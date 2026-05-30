@@ -28,7 +28,7 @@ export default function FinanceWelcomeScreen() {
           <WalletRoseIcon size={32} />
         </div>
         <h2 className="screen-title-ar">أمي شاركت احتياجاتها الشهرية</h2>
-        <p className="screen-subtitle">{isAr ? 'خلّنا نبني خطة دعمها' : "Let's build her support plan"}</p>
+        <p className="screen-subtitle">{isAr ? 'لننشئ خطة الدعم الخاصة بها' : "Let's build her support plan"}</p>
         <div className="card glass flourish">
           <h3 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <QueueScrollIcon size={18} /> {isAr ? 'ما ذكرته الوالدة' : "What Mother told us"}

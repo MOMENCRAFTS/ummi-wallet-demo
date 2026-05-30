@@ -26,7 +26,7 @@ export default function ObserverCelebrationsScreen() {
           <motion.div key={e.name} className="card" style={{ marginBottom: 8, display: 'flex', alignItems: 'center', gap: 12 }} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.08 }}>
             <div style={{ width: 36, height: 36, borderRadius: '50%', background: c.pink + '20', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><HeartLeafIcon size={18} color={c.pink} /></div>
             <div style={{ flex: 1 }}><p style={{ fontWeight: 600, color: c.brown, fontSize: 14 }}>{isAr ? e.nameAr : e.name}</p><p style={{ color: c.muted, fontSize: 12 }}>{e.dateAr}</p></div>
-            <div style={{ textAlign: 'center' }}><span style={{ fontSize: 18, fontWeight: 800, color: e.days <= 14 ? c.emergency : c.brown }}>{e.days}</span><br /><span style={{ fontSize: 10, color: c.muted }}>{isAr ? 'يوم' : 'days'}</span></div>
+            <div style={{ textAlign: 'center' }}><span style={{ fontSize: 18, fontWeight: 800, color: e.days <= 14 ? c.emergency : c.brown }}>{e.days}</span><br /><span style={{ fontSize: 10, color: c.muted }}>{isAr ? 'أيام' : 'days'}</span></div>
           </motion.div>
         ))}
       </div>
