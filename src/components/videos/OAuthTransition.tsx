@@ -2,8 +2,10 @@
  * OAuthTransition — Cinematic flower bloom video after login
  * Port of the real app's OAuthTransition.tsx
  * Plays oauth_success.mp4 full-screen, zooms into last frame on end.
+ * Safety: 6s timeout auto-completes if video fails.
+ * Click anywhere to skip.
  */
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface OAuthTransitionProps {
@@ -13,16 +15,30 @@ interface OAuthTransitionProps {
 export default function OAuthTransition({ onComplete }: OAuthTransitionProps) {
   const [phase, setPhase] = useState<'playing' | 'zooming' | 'done'>('playing');
   const videoRef = useRef<HTMLVideoElement>(null);
+  const completedRef = useRef(false);
 
-  const handleVideoEnd = useCallback(() => {
-    if (phase === 'playing') {
-      setPhase('zooming');
-      setTimeout(() => {
+  const finish = useCallback(() => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    setPhase('zooming');
+    setTimeout(() => {
+      setPhase('done');
+      onComplete();
+    }, 700);
+  }, [onComplete]);
+
+  // Safety timeout — skip after 6s if video doesn't play/end
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!completedRef.current) {
+        console.warn('[OAuthTransition] Safety timeout — skipping');
+        completedRef.current = true;
         setPhase('done');
         onComplete();
-      }, 700);
-    }
-  }, [phase, onComplete]);
+      }
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   if (phase === 'done') return null;
 
@@ -34,6 +50,8 @@ export default function OAuthTransition({ onComplete }: OAuthTransitionProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
+        onClick={finish}
+        style={{ cursor: 'pointer' }}
       >
         <motion.div
           className="oauth-transition-wrap"
@@ -52,8 +70,9 @@ export default function OAuthTransition({ onComplete }: OAuthTransitionProps) {
             ref={videoRef}
             src={`${import.meta.env.BASE_URL}videos/oauth_success.mp4`}
             autoPlay
+            muted
             playsInline
-            onEnded={handleVideoEnd}
+            onEnded={finish}
             className="oauth-transition-video"
           />
         </motion.div>
@@ -61,3 +80,4 @@ export default function OAuthTransition({ onComplete }: OAuthTransitionProps) {
     </AnimatePresence>
   );
 }
+

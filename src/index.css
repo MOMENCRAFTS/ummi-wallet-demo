@@ -5820,3 +5820,123 @@ body {
 [dir="rtl"] .split-counter-form textarea {
   text-align: right;
 }
+
+/* ═══════════ FLOATING PETALS ANIMATION ═══════════ */
+.floating-petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-petals .petal {
+  position: absolute;
+  top: -20px;
+  animation-name: petal-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes petal-float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-15px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ═══════════ PETAL CONFETTI ANIMATION ═══════════ */
+.petal-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.petal-confetti .confetti-petal {
+  position: absolute;
+  top: -16px;
+  animation: confetti-fall 2.5s ease-in forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(calc(100vh + 20px)) rotate(540deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* ═══════════ SPARKLE TWINKLE ANIMATION ═══════════ */
+.login-logo-section .sparkle-accent,
+svg[viewBox="0 0 12 12"] {
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+/* Apply to SparkleAccent wrappers on login */
+.login-logo-section > [style*="position: absolute"] {
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+.login-logo-section > [style*="position: absolute"]:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.login-logo-section > [style*="position: absolute"]:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ═══════════ REDUCE MOTION — ACCESSIBILITY ═══════════ */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all CSS animations */
+  .floating-petals .petal,
+  .petal-confetti .confetti-petal,
+  .login-logo-section > [style*="position: absolute"],
+  .demo-now-playing-dot,
+  .typing-dots span {
+    animation: none !important;
+  }
+
+  /* Make floating petals static but visible */
+  .floating-petals .petal {
+    opacity: 0.3 !important;
+    top: 10%;
+  }
+
+  /* Reduce framer-motion transitions */
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
