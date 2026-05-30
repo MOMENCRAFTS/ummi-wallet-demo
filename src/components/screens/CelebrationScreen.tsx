@@ -76,7 +76,7 @@ export default function CelebrationScreen() {
             animate={{ opacity: videoComplete ? 1 : 0, y: videoComplete ? 0 : 30 }}
             transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 20 }}
           >
-            <p className="celebration-amount">{isAr ? '٥,٣٠٠' : '5,300'} <span>{isAr ? 'ر.س/شهرياً' : 'SAR/month'}</span></p>
+            <p className="celebration-amount">{isAr ? '٥,٣٠٠' : '5,300'} <span>{isAr ? 'ر.س/شهريًا' : 'SAR/month'}</span></p>
             <p className="celebration-detail">{isAr ? '٤ بنود • للوالدة' : '4 items • For أمي'}</p>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function CelebrationScreen() {
             animate={{ opacity: videoComplete ? 1 : 0 }}
             transition={{ delay: 1.5 }}
           >
-            <HomeGardenIcon size={20} /> {isAr ? 'الذهاب للوحة التحكم' : 'Go to Dashboard'}
+            <HomeGardenIcon size={20} /> {isAr ? 'الانتقال إلى لوحة التحكم' : 'Go to Dashboard'}
           </motion.button>
         </motion.div>
       </div>

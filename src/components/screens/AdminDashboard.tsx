@@ -8,6 +8,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigation } from '../../navigation';
+import { useFamilyState } from '../../familyState';
+import SplitProposalSheet from './SplitProposalSheet';
 import {
   WalletRoseIcon, ChartBloomIcon, PayrollLeafIcon, LeafBillIcon,
   BalanceLeavesIcon, BankGardenIcon, ShieldLeafIcon, CakeBlossomIcon,
@@ -35,7 +37,7 @@ const POCKETS = [
   { name: 'Mother Personal', nameAr: 'مصروف الوالدة', allocated: 1200, current: 950 },
   { name: 'Groceries', nameAr: 'البقالة', allocated: 800, current: 320 },
   { name: 'Medical', nameAr: 'الأدوية', allocated: 500, current: 480 },
-  { name: 'Utilities', nameAr: 'الفواتير', allocated: 800, current: 200 },
+  { name: 'Utilities', nameAr: 'الخدمات والفواتير', allocated: 800, current: 200 },
   { name: 'Emergency', nameAr: 'الطوارئ', allocated: 2000, current: 1800 },
 ];
 
@@ -60,16 +62,16 @@ const SERVICE_CATEGORIES = [
     items: [
       { key: 'queue', label: 'Queue', labelAr: 'المتابعة', Icon: QueueScrollIcon, color: c.mint },
       { key: 'payroll', label: 'Payroll', labelAr: 'الرواتب', Icon: PayrollLeafIcon, color: c.yellow },
-      { key: 'bills', label: 'Bills', labelAr: 'الفواتير', Icon: LeafBillIcon, color: c.mint },
+      { key: 'admin-bills', label: 'Bills', labelAr: 'الفواتير', Icon: LeafBillIcon, color: c.mint },
       { key: 'maintenance', label: 'Maint.', labelAr: 'الصيانة', Icon: WrenchVineIcon, color: c.muted },
-      { key: 'mother-sos', label: 'SOS', labelAr: 'طوارئ', Icon: RoseSOSIcon, color: c.emergency },
+      { key: 'mother-sos', label: 'SOS', labelAr: 'الطوارئ', Icon: RoseSOSIcon, color: c.emergency },
     ],
   },
   {
     title: 'Finance', titleAr: 'المالية', dotColor: c.gold,
     items: [
       { key: 'finance-welcome', label: 'AI Plan', labelAr: 'تخطيط ذكي', Icon: ChatBubbleLeafIcon, color: c.gold },
-      { key: 'reservoir', label: 'Reservoir', labelAr: 'الخزنة', Icon: BankGardenIcon, color: c.mint },
+      { key: 'reservoir-detail', label: 'Reservoir', labelAr: 'الخزنة', Icon: BankGardenIcon, color: c.mint },
       { key: 'settlement', label: 'Settle', labelAr: 'التسوية', Icon: BalanceLeavesIcon, color: c.muted },
       { key: 'pulse', label: 'Pulse', labelAr: 'النبض', Icon: ChartBloomIcon, color: c.mint },
       { key: 'reports', label: 'Reports', labelAr: 'التقارير', Icon: ChartBloomIcon, color: c.blue },
@@ -78,11 +80,11 @@ const SERVICE_CATEGORIES = [
   {
     title: 'Family', titleAr: 'العائلة', dotColor: c.peach,
     items: [
-      { key: 'invite', label: 'Members', labelAr: 'الأعضاء', Icon: PersonFloralIcon, color: c.muted },
-      { key: 'projects', label: 'Projects', labelAr: 'المشاريع', Icon: TulipIcon, color: c.peach },
-      { key: 'celebrations', label: 'Events', labelAr: 'المناسبات', Icon: CakeBlossomIcon, color: c.peach },
+      { key: 'members', label: 'Members', labelAr: 'الأعضاء', Icon: PersonFloralIcon, color: c.muted },
+      { key: 'projects-list', label: 'Projects', labelAr: 'المشاريع', Icon: TulipIcon, color: c.peach },
+      { key: 'celebrations-list', label: 'Events', labelAr: 'المناسبات', Icon: CakeBlossomIcon, color: c.peach },
       { key: 'documents', label: 'Docs', labelAr: 'المستندات', Icon: DocumentLeafIcon, color: c.blue },
-      { key: 'suggestions', label: 'Ideas', labelAr: 'أفكار', Icon: LightbulbPetalIcon, color: c.yellow },
+      { key: 'suggestions', label: 'Ideas', labelAr: 'الأفكار', Icon: LightbulbPetalIcon, color: c.yellow },
     ],
   },
 ];
@@ -98,7 +100,15 @@ const confLabelsAr = { high: 'مستقر', medium: 'مقبول', low: 'منخف�
 export default function AdminDashboard() {
   const { navigate, lang } = useNavigation();
   const isAr = lang === 'ar';
+  const { hasPendingForAdmin, hasPendingSplitForAdmin, getPendingRequests, approveRequest, planPublished, publishPlan, chatUnread, splitProposals, forceApproveProposal, requests } = useFamilyState();
+  const totalChatUnread = Object.values(chatUnread).reduce((a, b) => a + b, 0);
   const [manageOpen, setManageOpen] = useState(false);
+  const [splitSheetRequest, setSplitSheetRequest] = useState<{ id: string; amount: number; reason: string; reasonAr: string } | null>(null);
+
+  // Proposals needing admin review (counter-offers)
+  const counterReviewProposals = splitProposals.filter(p => p.status === 'counter_review');
+  // Proposals in-flight (waiting for brothers)
+  const activeProposals = splitProposals.filter(p => p.status === 'proposed' || p.status === 'partially_accepted');
   const confColors = { high: c.success, medium: c.yellow, low: c.emergency };
   const confLabels = { high: 'Healthy', medium: 'Fair', low: 'Low' };
   const prioColors: Record<string, string> = { urgent: c.emergency, high: c.yellow, medium: c.mint, low: c.muted };
@@ -110,7 +120,7 @@ export default function AdminDashboard() {
     <div className="screen admin-dashboard-true" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Logout */}
       <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
-        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+        <ArrowLeafIcon size={14} /> {isAr ? 'تسجيل الخروج' : 'Logout'}
       </button>
       {/* ═══ Reservoir Card ═══ */}
       <motion.div
@@ -120,7 +130,7 @@ export default function AdminDashboard() {
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       >
         <div className="reservoir-header">
-          <h3 className="reservoir-title">{isAr ? 'صحة الخزنة' : 'Reservoir Health'}</h3>
+          <h3 className="reservoir-title">{isAr ? 'حالة الخزنة' : 'Reservoir Health'}</h3>
           <span className="badge badge-approved" style={{ background: confColors[RESERVOIR.confidence] + '20', color: confColors[RESERVOIR.confidence] }}>
             {isAr ? confLabelsAr[RESERVOIR.confidence] : confLabels[RESERVOIR.confidence]}
           </span>
@@ -146,6 +156,134 @@ export default function AdminDashboard() {
         </div>
         <p className="barakah-text">{isAr ? todayQuote.ar : todayQuote.en}</p>
       </motion.div>
+
+      {/* ═══ Pending Request Banner → Opens Split Sheet ═══ */}
+      {hasPendingForAdmin && getPendingRequests().map(req => (
+        <motion.div
+          key={req.id}
+          className="card glass pending-request-banner"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+        >
+          <div className="pending-banner-row">
+            <HeartLeafIcon size={20} color={c.peach} />
+            <div className="pending-banner-info">
+              <span className="pending-banner-title">{isAr ? 'طلب من الوالدة' : 'Request from Mother'}</span>
+              <span className="pending-banner-amount">
+                {req.amount.toLocaleString()} {isAr ? 'ر.س' : 'SAR'} — {isAr ? req.reasonAr : req.reason}
+              </span>
+            </div>
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => setSplitSheetRequest({ id: req.id, amount: req.amount, reason: req.reason, reasonAr: req.reasonAr })}
+            >
+              <BalanceLeavesIcon size={14} color="#fff" />
+              {isAr ? 'قسّم' : 'Split'}
+            </button>
+          </div>
+        </motion.div>
+      ))}
+
+      {/* ═══ Counter-Review Banner ═══ */}
+      {counterReviewProposals.map(p => (
+        <motion.div
+          key={p.id}
+          className="card glass" style={{ borderLeft: `3px solid ${c.peach}`, marginBottom: 8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <div className="pending-banner-row">
+            <ChatBubbleLeafIcon size={18} color={c.peach} />
+            <div className="pending-banner-info">
+              <span className="pending-banner-title">{isAr ? 'عرض بديل من أخ' : 'Counter-offer received'}</span>
+              <span className="pending-banner-amount">
+                {p.items.filter(i => i.status === 'counter').map(i => 
+                  `${isAr ? i.userNameAr : i.userName}: ${i.counterAmount?.toLocaleString()} ${isAr ? 'ر.س' : 'SAR'}`
+                ).join(', ')}
+              </span>
+            </div>
+            <button className="btn btn-peach btn-sm" onClick={() => {
+              const req = requests.find(r => r.id === p.contextId);
+              if (req) setSplitSheetRequest({ id: req.id, amount: req.amount, reason: req.reason, reasonAr: req.reasonAr });
+            }}>
+              {isAr ? 'راجع' : 'Review'}
+            </button>
+          </div>
+        </motion.div>
+      ))}
+
+      {/* ═══ Active Split Proposals Status ═══ */}
+      {activeProposals.map(p => {
+        const accepted = p.items.filter(i => !i.isExempt && (i.status === 'accepted' || i.status === 'auto_accepted')).length;
+        const total = p.items.filter(i => !i.isExempt).length;
+        const canForce = Date.now() >= p.forceApproveAvailableAt;
+        return (
+          <motion.div
+            key={p.id}
+            className="card" style={{ borderLeft: `3px solid ${c.yellow}`, marginBottom: 8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <div className="pending-banner-row">
+              <PendingBudIcon size={16} color={c.yellow} />
+              <div className="pending-banner-info">
+                <span className="pending-banner-title">{isAr ? 'بانتظار الموافقة' : 'Awaiting responses'}</span>
+                <span className="pending-banner-amount">{accepted}/{total} {isAr ? 'وافقوا' : 'accepted'}</span>
+              </div>
+              {canForce && (
+                <button className="btn btn-glass btn-sm" onClick={() => forceApproveProposal(p.id)}>
+                  {isAr ? 'فرض الموافقة' : 'Force'}
+                </button>
+              )}
+            </div>
+          </motion.div>
+        );
+      })}
+
+      {/* Split Proposal Sheet */}
+      {splitSheetRequest && (
+        <SplitProposalSheet
+          requestId={splitSheetRequest.id}
+          requestAmount={splitSheetRequest.amount}
+          requestReason={splitSheetRequest.reason}
+          requestReasonAr={splitSheetRequest.reasonAr}
+          onClose={() => setSplitSheetRequest(null)}
+        />
+      )}
+
+      {/* ═══ Quick Actions: Publish + Chat ═══ */}
+      <div className="admin-quick-row">
+        {!planPublished && (
+          <motion.button
+            className="btn btn-primary glow-mint admin-quick-btn"
+            onClick={publishPlan}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            <ChartBloomIcon size={16} />
+            {isAr ? 'نشر الخطة' : 'Publish Plan'}
+          </motion.button>
+        )}
+        {planPublished && (
+          <span className="admin-plan-published">
+            <CheckLeafIcon size={14} color={c.success} />
+            {isAr ? 'تم نشر الخطة' : 'Plan Published'}
+          </span>
+        )}
+        <motion.button
+          className="btn btn-ghost admin-quick-btn"
+          onClick={() => navigate('chat-list')}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.15 }}
+        >
+          <ChatBubbleLeafIcon size={16} />
+          {isAr ? 'المحادثات' : 'Chat'}
+          {totalChatUnread > 0 && <span className="admin-chat-badge">{totalChatUnread}</span>}
+        </motion.button>
+      </div>
 
       <div className="admin-scroll">
         {/* ═══ Stats Row ═══ */}
@@ -230,7 +368,7 @@ export default function AdminDashboard() {
         >
           <div className="section-header-row">
             <NewsScrollIcon size={20} />
-            <h3 className="section-title" style={{ marginBottom: 0 }}>{isAr ? 'آخر الأخبار' : 'Recent Activity'}</h3>
+            <h3 className="section-title" style={{ marginBottom: 0 }}>{isAr ? 'آخر النشاطات' : 'Recent Activity'}</h3>
           </div>
           {FEED.map((f) => (
             <div key={f.id} className="card feed-card">
@@ -250,7 +388,7 @@ export default function AdminDashboard() {
           <button className="manage-toggle" onClick={() => setManageOpen(!manageOpen)}>
             <div className="manage-toggle-left">
               <WalletRoseIcon size={20} />
-              <span className="manage-toggle-text">{isAr ? 'إدارة الخدمات' : 'Manage'}</span>
+              <span className="manage-toggle-text">{isAr ? 'إدارة' : 'Manage'}</span>
             </div>
             <span className="manage-chevron">{manageOpen ? '▲' : '▼'}</span>
           </button>
@@ -299,13 +437,13 @@ export default function AdminDashboard() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <RefreshPetalIcon size={18} /> {isAr ? 'تحديث اللوحة' : 'Refresh Dashboard'}
+          <RefreshPetalIcon size={18} /> {isAr ? 'تحديث لوحة التحكم' : 'Refresh Dashboard'}
         </motion.button>
 
         {/* Live indicator */}
         <div className="live-footer">
           <LiveDotIcon size={14} />
-          <span className="live-text">{isAr ? 'بيانات مباشرة' : 'Live data'}</span>
+          <span className="live-text">{isAr ? 'بيانات حيّة' : 'Live data'}</span>
         </div>
       </div>
     </div>

@@ -33,6 +33,7 @@ const TRACK_LABELS: Record<string, string> = {
 
 export default function DemoControls() {
   const { role, lang, screen, setRole, setLang, navigate } = useNavigation();
+  const isAr = lang === 'ar';
   const [expanded, setExpanded] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(audioService.isEnabled());
   const [currentTrack, setCurrentTrack] = useState(audioService.getCurrentTrack());
@@ -111,11 +112,11 @@ export default function DemoControls() {
 
       {expanded && (
         <div className="demo-controls-panel">
-          <h3 className="demo-controls-title">Demo Controls</h3>
+          <h3 className="demo-controls-title">{isAr ? 'أدوات العرض التجريبي' : 'Demo Controls'}</h3>
 
           {/* Auto-Play */}
           <div className="demo-section">
-            <label className="demo-section-label">Auto-Play</label>
+            <label className="demo-section-label">{isAr ? 'تشغيل تلقائي' : 'Auto-Play'}</label>
             <button
               className={`demo-autoplay-btn ${autoPlay ? 'active' : ''}`}
               onClick={() => {
@@ -132,14 +133,14 @@ export default function DemoControls() {
                 ) : (
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                 )}
-                {autoPlay ? 'Playing...' : 'Start Tour'}
+                {autoPlay ? (isAr ? 'قيد التشغيل...' : 'Playing...') : (isAr ? 'بدء الجولة' : 'Start Tour')}
               </span>
             </button>
           </div>
 
           {/* Music Controls */}
           <div className="demo-section">
-            <label className="demo-section-label">Music</label>
+            <label className="demo-section-label">{isAr ? 'الموسيقى' : 'Music'}</label>
             <div className="demo-music-controls">
               <button
                 className={`demo-music-btn ${musicEnabled ? 'active' : ''}`}
@@ -159,7 +160,7 @@ export default function DemoControls() {
                     </svg>
                   )}
                 </span>
-                <span>{musicEnabled ? 'On' : 'Off'}</span>
+                <span>{musicEnabled ? (isAr ? 'تشغيل' : 'On') : (isAr ? 'إيقاف' : 'Off')}</span>
               </button>
               {currentTrack && musicEnabled && (
                 <div className="demo-now-playing">
@@ -174,7 +175,7 @@ export default function DemoControls() {
 
           {/* Role Switcher */}
           <div className="demo-section">
-            <label className="demo-section-label">Role</label>
+            <label className="demo-section-label">{isAr ? 'الدور' : 'Role'}</label>
             <div className="demo-role-grid">
               {ROLE_OPTIONS.map(r => (
                 <button
@@ -191,7 +192,7 @@ export default function DemoControls() {
 
           {/* Language */}
           <div className="demo-section">
-            <label className="demo-section-label">Language</label>
+            <label className="demo-section-label">{isAr ? 'اللغة' : 'Language'}</label>
             <div className="demo-lang-toggle">
               <button
                 className={`demo-lang-btn ${lang === 'en' ? 'active' : ''}`}

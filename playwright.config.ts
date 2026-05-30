@@ -2,13 +2,13 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30000,
+  timeout: 60000,
   expect: { timeout: 5000 },
   fullyParallel: false,
   retries: 0,
-  reporter: [['html', { open: 'never' }]],
+  reporter: [['list']],
   use: {
-    baseURL: 'https://ummi-wallet-demo.vercel.app',
+    baseURL: 'http://localhost:8081',
     browserName: 'chromium',
     headless: false,
     viewport: { width: 1280, height: 720 },

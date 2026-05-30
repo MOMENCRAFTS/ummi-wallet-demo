@@ -13,9 +13,9 @@ import {
 } from '../icons/FloralIcons';
 
 const QUICK_MESSAGES = [
-  { en: 'Jazakum Allahu Khairan', ar: 'جزاكم الله خيراً' },
+  { en: 'Jazakum Allahu Khairan', ar: 'جزاكم الله خيرًا' },
   { en: 'May Allah bless you', ar: 'الله يبارك فيكم' },
-  { en: 'You never fall short', ar: 'ما قصّرتوا أبداً' },
+  { en: 'You never fall short', ar: 'ما قصّرتم أبدًا' },
   { en: 'Allah grant you wellness', ar: 'الله يعطيكم العافية' },
   { en: 'From my heart', ar: 'من كل قلبي' },
   { en: 'May Allah reward you', ar: 'الله يجزاكم خير' },
@@ -59,7 +59,7 @@ export default function MotherGratitudeScreen() {
                 {isAr ? 'كلمة شكر للعائلة' : 'A word of thanks'}
               </h2>
               <p style={{ color: c.muted, fontSize: 13, marginTop: 4 }}>
-                {isAr ? 'اختاري كلمة حلوة أو اكتبي وحدة من عندك' : 'Pick a message or write your own'}
+                {isAr ? 'اختاري رسالة جاهزة أو اكتبي رسالتك' : 'Pick a message or write your own'}
               </p>
             </motion.div>
 
@@ -90,10 +90,10 @@ export default function MotherGratitudeScreen() {
               transition={{ delay: 0.2, type: 'spring', stiffness: 260, damping: 20 }}
               style={{ marginTop: 20 }}
             >
-              <label className="form-label">{isAr ? 'أو اكتبي من عندك' : 'Or write your own'}</label>
+              <label className="form-label">{isAr ? 'أو اكتبي رسالتك' : 'Or write your own'}</label>
               <textarea
                 className="sos-textarea"
-                placeholder={isAr ? 'كلمة من القلب...' : 'A heartfelt message...'}
+                placeholder={isAr ? 'رسالة من القلب...' : 'A heartfelt message...'}
                 rows={3}
                 value={custom}
                 onChange={e => setCustom(e.target.value)}
@@ -128,10 +128,10 @@ export default function MotherGratitudeScreen() {
               <HeartLeafIcon size={56} color={c.peach} />
             </motion.div>
             <h2 style={{ marginTop: 16, color: c.brown }}>
-              {isAr ? 'وصلت كلمتك الحلوة!' : 'Your gratitude was sent!'}
+              {isAr ? 'تم إرسال رسالة الشكر!' : 'Your gratitude was sent!'}
             </h2>
             <p style={{ color: c.muted, marginTop: 8, fontSize: 14 }}>
-              {isAr ? 'الله يبارك بهالعيلة الطيّبة' : 'May Allah bless this beautiful family'}
+              {isAr ? 'الله يبارك في هذه العائلة الطيبة' : 'May Allah bless this beautiful family'}
             </p>
             <button className="btn btn-glass btn-md" onClick={goBack} style={{ marginTop: 20 }}>
               {isAr ? 'رجوع' : 'Go Back'}

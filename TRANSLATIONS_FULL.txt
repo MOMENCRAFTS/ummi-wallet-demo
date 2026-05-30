@@ -1,0 +1,1719 @@
+
+============================================================
+App.tsx (12 strings)
+============================================================
+  L  34  EN: Choose Role
+        AR: اختر الدور
+
+  L  35  EN: See the app from each family member\
+        AR: شوف التطبيق من زاوية كل فرد
+
+  L 185  EN: Family support, made clear.
+        AR: رعاية العائلة بوضوح وكرامة
+
+  L 186  EN: رعاية العائلة بوضوح وكرامة
+        AR: كل شي واضح، وكل شي بحبّ
+
+  L 193  EN: AI-Guided Finance
+        AR: تخطيط مالي ذكي
+
+  L 194  EN: Smart budget estimation with AI analysis
+        AR: تقدير ميزانية ذكي بتحليل الذكاء الاصطناعي
+
+  L 200  EN: 4 Roles, 28 Modules
+        AR: ٤ أدوار، ٢٨ خدمة
+
+  L 201  EN: Responsible Son, Mother, Contributing Brother, Observing Sister
+        AR: الابن المسؤول، الوالدة، الأخ المساهم، الأخت المتابعة
+
+  L 207  EN: Bilingual AR/EN
+        AR: ثنائي اللغة عر/EN
+
+  L 208  EN: Arabic-first with full English support
+        AR: العربية أولاً مع دعم إنجليزي كامل
+
+  L 214  EN: Emergency SOS
+        AR: طوارئ SOS
+
+  L 215  EN: Instant family emergency fund requests
+        AR: طلبات صندوق طوارئ العائلة الفورية
+
+
+============================================================
+components\screens\AdminBillsScreen.tsx (7 strings)
+============================================================
+  L  28  EN: Bills
+        AR: الفواتير
+
+  L  34  EN: Total Bills
+        AR: إجمالي الفواتير
+
+  L  35  EN: SAR
+        AR: ر.س
+
+  L  39  EN: Paid
+        AR: مسدّد
+
+  L  59  EN: SAR
+        AR: ر.س
+
+  L  62  EN: Paid
+        AR: مسدّد
+
+  L  65  EN: Pay
+        AR: سدّد
+
+
+============================================================
+components\screens\AdminDashboard.tsx (16 strings)
+============================================================
+  L 116  EN: Logout
+        AR: خروج
+
+  L 126  EN: Reservoir Health
+        AR: صحة الخزنة
+
+  L 134  EN: SAR
+        AR: ر.س
+
+  L 148  EN: DAILY BARAKAH
+        AR: بركة اليوم
+
+  L 164  EN: Request from Mother
+        AR: طلب من الوالدة
+
+  L 166  EN: SAR
+        AR: ر.س
+
+  L 173  EN: Approve
+        AR: موافقة
+
+  L 190  EN: Publish Plan
+        AR: انشر الخطة
+
+  L 196  EN: Plan Published
+        AR: الخطة منشورة
+
+  L 207  EN: Chat
+        AR: المحادثات
+
+  L 237  EN: Virtual Pockets
+        AR: الجيوب الافتراضية
+
+  L 265  EN: Follow-up Queue
+        AR: قائمة المتابعة
+
+  L 295  EN: Recent Activity
+        AR: آخر الأخبار
+
+  L 315  EN: Manage
+        AR: إدارة الخدمات
+
+  L 364  EN: Refresh Dashboard
+        AR: تحديث اللوحة
+
+  L 370  EN: Live data
+        AR: بيانات مباشرة
+
+
+============================================================
+components\screens\BrotherAuditScreen.tsx (9 strings)
+============================================================
+  L  36  EN: Plan Audit
+        AR: مراجعة الخطة
+
+  L  48  EN: Total Monthly Plan
+        AR: المبلغ الشهري الإجمالي
+
+  L  49  EN: SAR
+        AR: ر.س
+
+  L  56  EN: Budget Items
+        AR: تفاصيل البنود
+
+  L  86  EN: SAR
+        AR: ر.س
+
+  L  87  EN: My monthly share
+        AR: حصّتي الشهرية
+
+  L  91  EN: Settled
+        AR: تمّت التسوية
+
+  L  92  EN: Pending
+        AR: معلّق
+
+  L  98  EN: Proof submitted — JazakAllahu Khairan
+        AR: جزاك الله خير — تم تقديم الإثبات
+
+
+============================================================
+components\screens\BrotherContributionScreen.tsx (11 strings)
+============================================================
+  L  37  EN: Pay Direct
+        AR: دفع مباشر
+
+  L  52  EN: Transfer to
+        AR: حوّل على هالحساب
+
+  L  60  EN: Copy IBAN
+        AR: نسخ الآيبان
+
+  L  71  EN: Amount
+        AR: المبلغ
+
+  L  80  EN: SAR
+        AR: ر.س
+
+  L  91  EN: Transfer Proof
+        AR: إثبات التحويل
+
+  L  98  EN: Proof Uploaded
+        AR: تم رفع الإثبات
+
+  L  99  EN: Upload Receipt
+        AR: ارفع صورة الإيصال
+
+  L 114  EN: Confirm Payment
+        AR: تأكيد الدفع
+
+  L 127  EN: Payment Recorded!
+        AR: تم تسجيل الدفع!
+
+  L 136  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\BrotherDashboard.tsx (22 strings)
+============================================================
+  L  69  EN: Logout
+        AR: خروج
+
+  L  79  EN: Plan Not Published Yet
+        AR: الخطة لم تنشر بعد
+
+  L  80  EN: Waiting for the Responsible Son to publish the finance plan
+        AR: بانتظار الابن المسؤول ينشر الخطة المالية
+
+  L  91  EN: Chat
+        AR: المحادثات
+
+  L 102  EN: Logout
+        AR: خروج
+
+  L 116  EN: Total Paid
+        AR: إجمالي المدفوع
+
+  L 126  EN: Approved
+        AR: تمّت الموافقة
+
+  L 136  EN: Pending
+        AR: معلّقة
+
+  L 149  EN: Daily Barakah
+        AR: بركة اليوم
+
+  L 163  EN: Pending Approval
+        AR: بانتظار الموافقة
+
+  L 171  EN: SAR
+        AR: ر.س
+
+  L 190  EN: My Requests
+        AR: طلباتي
+
+  L 197  EN: SAR
+        AR: ر.س
+
+  L 214  EN: Where to Send
+        AR: وين أحوّل؟
+
+  L 220  EN: Copy IBAN
+        AR: نسخ الآيبان
+
+  L 234  EN: My Share
+        AR: حصّتي
+
+  L 240  EN: SAR
+        AR: ر.س
+
+  L 244  EN: Settled
+        AR: تمّت التسوية
+
+  L 244  EN: Pending
+        AR: معلّق
+
+  L 251  EN: Proof submitted
+        AR: تم تقديم الإثبات — جزاك الله خير
+
+  L 266  EN: View Plan
+        AR: مراجعة الخطة
+
+  L 269  EN: Pay Direct
+        AR: دفع مباشر
+
+
+============================================================
+components\screens\BrotherHistoryScreen.tsx (4 strings)
+============================================================
+  L  22  EN: Payment History
+        AR: سجل المدفوعات
+
+  L  25  EN: Total Paid
+        AR: إجمالي المدفوعات
+
+  L  26  EN: SAR
+        AR: ر.س
+
+  L  32  EN: Proof attached
+        AR: إثبات مرفق
+
+
+============================================================
+components\screens\BrotherPayDirectScreen.tsx (6 strings)
+============================================================
+  L  26  EN: Payment Sent!
+        AR: تم الإرسال — جزاك الله خير
+
+  L  27  EN: Go Back
+        AR: رجوع
+
+  L  35  EN: Pay Direct
+        AR: دفع مباشر
+
+  L  37  EN: Select pocket and enter amount
+        AR: اختر الجيب وأدخل المبلغ
+
+  L  45  EN: Amount in SAR
+        AR: المبلغ بالريال
+
+  L  47  EN: Send Payment
+        AR: إرسال
+
+
+============================================================
+components\screens\BrotherProofScreen.tsx (7 strings)
+============================================================
+  L  16  EN: Payment Proof
+        AR: إثبات الدفع
+
+  L  23  EN: Attach transfer screenshot or receipt
+        AR: ارفق صورة الحوالة أو إيصال الدفع
+
+  L  26  EN: Camera
+        AR: الكاميرا
+
+  L  29  EN: Gallery
+        AR: المعرض
+
+  L  36  EN: Proof Uploaded!
+        AR: تم رفع الإثبات — جزاك الله خير
+
+  L  37  EN: Awaiting admin review
+        AR: بانتظار مراجعة المسؤول
+
+  L  38  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\BrotherSettlementScreen.tsx (5 strings)
+============================================================
+  L  23  EN: My Settlement
+        AR: تسويتي
+
+  L  27  EN: Expected
+        AR: المطلوب
+
+  L  28  EN: Paid
+        AR: المدفوع
+
+  L  29  EN: Left
+        AR: المتبقي
+
+  L  44  EN: Settled
+        AR: مسوّى
+
+
+============================================================
+components\screens\BrotherSuggestionsScreen.tsx (5 strings)
+============================================================
+  L  22  EN: Suggestions
+        AR: أفكار واقتراحات
+
+  L  34  EN: Liked
+        AR: أعجبني
+
+  L  34  EN: Like
+        AR: إعجاب
+
+  L  36  EN: likes
+        AR: إعجاب
+
+  L  41  EN: Add Idea
+        AR: أضف فكرة
+
+
+============================================================
+components\screens\CelebrationScreen.tsx (4 strings)
+============================================================
+  L  79  EN: 5,300
+        AR: ٥,٣٠٠
+
+  L  79  EN: SAR/month
+        AR: ر.س/شهرياً
+
+  L  80  EN: 4 items • For أمي
+        AR: ٤ بنود • للوالدة
+
+  L  90  EN: Go to Dashboard
+        AR: الذهاب للوحة التحكم
+
+
+============================================================
+components\screens\CelebrationsScreen.tsx (6 strings)
+============================================================
+  L  29  EN: Celebrations
+        AR: المناسبات
+
+  L  59  EN: days
+        AR: يوم
+
+  L  63  EN: Budget:
+        AR: الميزانية:
+
+  L  63  EN: SAR
+        AR: ر.س
+
+  L  65  EN: Plan
+        AR: خطّط
+
+  L  73  EN: Add Celebration
+        AR: إضافة مناسبة
+
+
+============================================================
+components\screens\ChatListScreen.tsx (4 strings)
+============================================================
+  L  98  EN: ←
+        AR: →
+
+  L 101  EN: Family Chat
+        AR: محادثات العائلة
+
+  L 156  EN: View only — you cannot send messages
+        AR: عرض فقط — لا يمكنك إرسال رسائل
+
+  L 163  EN: Live
+        AR: مباشر
+
+
+============================================================
+components\screens\ChatRoomScreen.tsx (5 strings)
+============================================================
+  L 157  EN: ←
+        AR: →
+
+  L 160  EN: messages
+        AR: رسالة
+
+  L 234  EN: typing...
+        AR: يكتب...
+
+  L 262  EN: Type a message...
+        AR: اكتب هنا...
+
+  L 279  EN: View only — you cannot send messages
+        AR: عرض فقط — لا يمكنك إرسال رسائل
+
+
+============================================================
+components\screens\DocumentsScreen.tsx (4 strings)
+============================================================
+  L  46  EN: Documents
+        AR: المستندات
+
+  L  51  EN: All documents encrypted & secure
+        AR: جميع المستندات مشفّرة ومحمية
+
+  L  79  EN: View
+        AR: عرض
+
+  L  87  EN: Upload Document
+        AR: رفع مستند
+
+
+============================================================
+components\screens\FinanceAuditContributorScreen.tsx (6 strings)
+============================================================
+  L  25  EN: Review Plan
+        AR: مراجعة الخطة
+
+  L  28  EN: Proposed support plan from the responsible son
+        AR: خطة الدعم المقترحة من الابن المسؤول
+
+  L  31  EN: Plan Total
+        AR: إجمالي الخطة
+
+  L  32  EN: SAR
+        AR: ر.س
+
+  L  44  EN: Approve
+        AR: موافقة
+
+  L  47  EN: Request Revision
+        AR: طلب تعديل
+
+
+============================================================
+components\screens\FinanceAuditObserverScreen.tsx (5 strings)
+============================================================
+  L  25  EN: View Plan
+        AR: عرض الخطة
+
+  L  30  EN: View-only mode
+        AR: وضع المشاهدة فقط
+
+  L  34  EN: Plan Total
+        AR: إجمالي الخطة
+
+  L  35  EN: SAR
+        AR: ر.س
+
+  L  46  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\FinanceChatScreen.tsx (31 strings)
+============================================================
+  L 108  EN: Now household staff — maid salary first:
+        AR: تمام! الآن رواتب الموظفين — الخادمة أولاً:
+
+  L 109  EN: Great! And the driver salary?
+        AR: ممتاز. وراتب السائق؟
+
+  L 110  EN: Now utilities — electricity, water, internet. Monthly average?
+        AR: الحين الفواتير — كهرباء، ماء، إنترنت. كم المعدّل الشهري؟
+
+  L 111  EN: Alright, groceries and food supplies:
+        AR: طيب، البقالة والمواد الغذائية:
+
+  L 112  EN: Medical care — monthly budget:
+        AR: الله يشفيها — الرعاية الطبية الشهرية:
+
+  L 113  EN: Finally, emergency buffer. Mother didn't specify — I suggest 500 SAR as a safety net:
+        AR: أخيراً، صندوق الطوارئ. أمي ما حددت مبلغ — أقترح ٥٠٠ ر.س كشبكة أمان:
+
+  L 190  EN: Data Gathering
+        AR: جمع البيانات
+
+  L 191  EN: Analysis
+        AR: التحليل
+
+  L 192  EN: Review
+        AR: المراجعة
+
+  L 203  EN: AI Setup
+        AR: إعداد ذكي
+
+  L 204  EN: Budget Analysis
+        AR: تحليل الميزانية
+
+  L 205  EN: Translation Review
+        AR: مراجعة الترجمة
+
+  L 249  EN: SAR
+        AR: ر.س
+
+  L 272  EN: Mother's estimate:
+        AR: تقدير أمي:
+
+  L 272  EN: SAR
+        AR: ر.س
+
+  L 285  EN: SAR
+        AR: ر.س
+
+  L 291  EN: Confirm
+        AR: تأكيد
+
+  L 309  EN: Analyzing your plan...
+        AR: تحليل خطتك...
+
+  L 310  EN: I'll check the 70/15/15 balance, look for seasonal patterns, and suggest optimizations.
+        AR: راح أفحص توازن ٧٠/١٥/١٥ وأشوف أنماط موسمية واقتراحات.
+
+  L 329  EN: Budget Health
+        AR: صحة الميزانية
+
+  L 339  EN: Needs
+        AR: احتياجات
+
+  L 340  EN: Wants
+        AR: رغبات
+
+  L 341  EN: Safety
+        AR: أمان
+
+  L 375  EN: Review Translations
+        AR: مراجعة الترجمة
+
+  L 378  EN: Skip to Summary
+        AR: تخطي للملخص
+
+  L 424  EN: Accept
+        AR: قبول
+
+  L 443  EN: Accept All
+        AR: قبول الكل
+
+  L 447  EN: View Summary
+        AR: عرض الملخص
+
+  L 475  EN: Running Total
+        AR: الإجمالي
+
+  L 476  EN: items
+        AR: بنود
+
+  L 478  EN: SAR
+        AR: ر.س
+
+
+============================================================
+components\screens\FinanceCurrencyScreen.tsx (3 strings)
+============================================================
+  L  24  EN: Currency
+        AR: العملة
+
+  L  27  EN: Select the base currency for your support plan
+        AR: اختر العملة الأساسية لخطة الدعم
+
+  L  47  EN: Continue
+        AR: متابعة
+
+
+============================================================
+components\screens\FinanceDispatchScreen.tsx (5 strings)
+============================================================
+  L  26  EN: Dispatch Budget
+        AR: توزيع الميزانية
+
+  L  30  EN: Total Distribution
+        AR: إجمالي التوزيع
+
+  L  31  EN: SAR
+        AR: ر.س
+
+  L  41  EN: SAR
+        AR: ر.س
+
+  L  47  EN: Confirm Distribution
+        AR: تأكيد التوزيع
+
+
+============================================================
+components\screens\FinanceFinalApprovalScreen.tsx (5 strings)
+============================================================
+  L  23  EN: Final Approval
+        AR: الموافقة النهائية
+
+  L  26  EN: Approval status from all members
+        AR: حالة الموافقات من جميع الأعضاء
+
+  L  37  EN: Approved
+        AR: موافق
+
+  L  37  EN: Viewed
+        AR: اطلع
+
+  L  43  EN: Finalize Plan
+        AR: تثبيت الخطة
+
+
+============================================================
+components\screens\FinanceReadjustmentScreen.tsx (5 strings)
+============================================================
+  L  32  EN: Readjust
+        AR: إعادة التوزيع
+
+  L  36  EN: New Total
+        AR: الإجمالي الجديد
+
+  L  37  EN: SAR
+        AR: ر.س
+
+  L  46  EN: from original
+        AR: من الأصل
+
+  L  59  EN: Confirm Readjustment
+        AR: تأكيد التعديل
+
+
+============================================================
+components\screens\FinanceReestimationScreen.tsx (7 strings)
+============================================================
+  L  24  EN: Re-estimation
+        AR: إعادة التقدير
+
+  L  28  EN: Total Variance
+        AR: إجمالي الانحراف
+
+  L  30  EN: SAR
+        AR: ر.س
+
+  L  38  EN: Planned
+        AR: المخطط
+
+  L  39  EN: Actual
+        AR: الفعلي
+
+  L  40  EN: Diff
+        AR: الفرق
+
+  L  46  EN: Readjust Budget
+        AR: إعادة ضبط الميزانية
+
+
+============================================================
+components\screens\FinanceRevisionScreen.tsx (6 strings)
+============================================================
+  L  21  EN: Revisions
+        AR: المراجعات
+
+  L  24  EN: Requested changes to the plan
+        AR: التعديلات المطلوبة على الخطة
+
+  L  33  EN: Original
+        AR: الأصلي
+
+  L  37  EN: Revised
+        AR: المعدّل
+
+  L  41  EN: Diff
+        AR: الفرق
+
+  L  51  EN: Submit Revision
+        AR: إرسال المراجعة
+
+
+============================================================
+components\screens\FinanceSummaryScreen.tsx (8 strings)
+============================================================
+  L  29  EN: Plan Summary
+        AR: ملخص الخطة
+
+  L  39  EN: Monthly Total
+        AR: المبلغ الشهري
+
+  L  40  EN: SAR
+        AR: ر.س
+
+  L  47  EN: Needs
+        AR: احتياجات
+
+  L  48  EN: Wants
+        AR: رغبات
+
+  L  49  EN: Safety
+        AR: احتياط
+
+  L  76  EN: Dispatch to Family
+        AR: إرسال للعائلة
+
+  L  79  EN: Edit
+        AR: تعديل
+
+
+============================================================
+components\screens\FinanceWelcomeScreen.tsx (9 strings)
+============================================================
+  L  20  EN: Finance Setup
+        AR: إعداد المالية
+
+  L  31  EN: Let's build her support plan
+        AR: خلّنا نبني خطة الدعم
+
+  L  34  EN: What Mother told us
+        AR: ما أخبرتنا أمي
+
+  L  36  EN: Monthly need: ~5,000 SAR
+        AR: احتياج شهري: ~5,000 ر.س
+
+  L  37  EN: Maid + Driver
+        AR: خادمة + سائق
+
+  L  38  EN: Electric, Water, Internet
+        AR: كهرباء، ماء، إنترنت
+
+  L  39  EN: 1 car
+        AR: سيارة واحدة
+
+  L  43  EN: Start AI-Guided Setup
+        AR: بدء الإعداد بالذكاء الاصطناعي
+
+  L  46  EN: Set Up Manually
+        AR: إعداد يدوي
+
+
+============================================================
+components\screens\HybridOnboardingScreen.tsx (56 strings)
+============================================================
+  L  84  EN: 
+        AR: 
+
+  L 207  EN: Back
+        AR: رجوع
+
+  L 216  EN: Next
+        AR: التالي
+
+  L 246  EN: About You
+        AR: عن الابن المسؤول
+
+  L 247  EN: Your name and preferred language
+        AR: اسمك ولغة التطبيق المفضلة
+
+  L 249  EN: Your name
+        AR: اسمك
+
+  L 250  EN: e.g. Ahmed
+        AR: مثال: أحمد
+
+  L 251  EN: Language
+        AR: اللغة
+
+  L 265  EN: Your Family
+        AR: عائلتك
+
+  L 266  EN: Family name and currency
+        AR: اسم العائلة والعملة
+
+  L 268  EN: Family name
+        AR: اسم العائلة
+
+  L 269  EN: e.g. Al-Mutairi Family
+        AR: مثال: عائلة المطيري
+
+  L 270  EN: Currency
+        AR: العملة
+
+  L 285  EN: Mother's Details
+        AR: بيانات الوالدة
+
+  L 286  EN: To link her account and simplify transfers
+        AR: عشان نربط حسابها ونسهّل التحويلات
+
+  L 288  EN: Mother's name
+        AR: اسم الوالدة
+
+  L 289  EN: e.g. Um Ahmed
+        AR: مثال: أم أحمد
+
+  L 290  EN: Phone number
+        AR: رقم الجوال
+
+  L 295  EN: Email
+        AR: البريد الإلكتروني
+
+  L 295  EN: optional
+        AR: اختياري
+
+  L 300  EN: Bank IBAN
+        AR: الآيبان البنكي
+
+  L 300  EN: optional
+        AR: اختياري
+
+  L 318  EN: Family Contributors
+        AR: أعضاء العائلة
+
+  L 319  EN: Add siblings who will contribute or observe
+        AR: أضف إخوانك وأخواتك — كل واحد بدوره
+
+  L 322  EN: Equal
+        AR: متساوي
+
+  L 323  EN: Custom
+        AR: مخصص
+
+  L 329  EN: Remove
+        AR: حذف
+
+  L 333  EN: Contributor
+        AR: مساهم
+
+  L 336  EN: Observer
+        AR: متابع
+
+  L 339  EN: Name
+        AR: الاسم
+
+  L 340  EN: Email
+        AR: البريد
+
+  L 354  EN: Add Member
+        AR: أضف عضو
+
+  L 373  EN: Household Staff
+        AR: طاقم المنزل
+
+  L 374  EN: Select staff and set their salaries
+        AR: اختر الموظفين وحدد الرواتب
+
+  L 387  EN: Salary
+        AR: الراتب
+
+  L 389  EN: mo
+        AR: شهر
+
+  L 403  EN: Staff Total
+        AR: إجمالي الرواتب
+
+  L 420  EN: Budget Assistant
+        AR: مساعد الميزانية
+
+  L 423  EN: AI Mode
+        AR: ذكاء اصطناعي
+
+  L 455  EN: Monthly Expenses
+        AR: المصاريف الشهرية
+
+  L 476  EN: Total
+        AR: الإجمالي
+
+  L 492  EN: Type here...
+        AR: اكتب هنا...
+
+  L 503  EN: Back
+        AR: رجوع
+
+  L 511  EN: View Plan
+        AR: عرض الخطة
+
+  L 521  EN: Monthly Support Plan
+        AR: خطة الدعم الشهرية
+
+  L 525  EN: Item
+        AR: البند
+
+  L 526  EN: Amount
+        AR: المبلغ
+
+  L 544  EN: Monthly Total
+        AR: الإجمالي الشهري
+
+  L 555  EN: You
+        AR: أنت
+
+  L 555  EN: Admin
+        AR: المسؤول
+
+  L 566  EN: Confirm & Start
+        AR: تأكيد وبدء
+
+  L 578  EN: You're All Set!
+        AR: كل شي جاهز!
+
+  L 581  EN: Your dashboard is ready. Explore everything at your own pace.
+        AR: لوحة التحكم جاهزة. استكشف كل شي بوقتك.
+
+  L 590  EN: Open Dashboard
+        AR: افتح لوحة التحكم
+
+  L 605  EN: Create Your Family
+        AR: إعداد العائلة
+
+  L 606  EN: Set up Ummi Wallet for your family circle
+        AR: خطة رعاية الوالدة
+
+
+============================================================
+components\screens\LandingScreen.tsx (9 strings)
+============================================================
+  L  71  EN: Family support, made clear.
+        AR: رعاية العائلة بوضوح وكرامة
+
+  L  73  EN: رعاية العائلة بوضوح وكرامة
+        AR: كل شي واضح، وكل شي بحبّ
+
+  L  85  EN: 28
+        AR: ٢٨
+
+  L  86  EN: Modules
+        AR: خدمة
+
+  L  90  EN: 4
+        AR: ٤
+
+  L  91  EN: Roles
+        AR: أدوار
+
+  L  95  EN: AR/EN
+        AR: عر/EN
+
+  L  96  EN: Bilingual
+        AR: ثنائي اللغة
+
+  L 113  EN: Explore the App
+        AR: استكشف التطبيق
+
+
+============================================================
+components\screens\LoginScreen.tsx (6 strings)
+============================================================
+  L  84  EN: Family support, made clear.
+        AR: رعاية العائلة بوضوح وكرامة
+
+  L  96  EN: Sign in with Apple
+        AR: الدخول بـ Apple
+
+  L 100  EN: Sign in with Google
+        AR: الدخول بـ Google
+
+  L 119  EN: crafted by
+        AR: صُنعت بواسطة
+
+  L 122  EN: Privacy Policy
+        AR: سياسة الخصوصية
+
+  L 124  EN: Terms of Service
+        AR: الشروط والأحكام
+
+
+============================================================
+components\screens\MaintenanceScreen.tsx (3 strings)
+============================================================
+  L  30  EN: Maintenance
+        AR: الصيانة
+
+  L  49  EN: SAR
+        AR: ر.س
+
+  L  70  EN: New Request
+        AR: طلب صيانة جديد
+
+
+============================================================
+components\screens\MembersScreen.tsx (2 strings)
+============================================================
+  L  23  EN: Family Members
+        AR: أعضاء العائلة
+
+  L  54  EN: Invite Member
+        AR: دعوة عضو جديد
+
+
+============================================================
+components\screens\MotherBalanceScreen.tsx (4 strings)
+============================================================
+  L  22  EN: Balance Details
+        AR: تفاصيل الرصيد
+
+  L  31  EN: Allocated
+        AR: المخصص
+
+  L  32  EN: Spent
+        AR: المصروف
+
+  L  33  EN: Remaining
+        AR: المتبقي
+
+
+============================================================
+components\screens\MotherBillsScreen.tsx (7 strings)
+============================================================
+  L  41  EN: Bills
+        AR: الفواتير
+
+  L  54  EN: Total Upcoming
+        AR: إجمالي القادم
+
+  L  56  EN: SAR
+        AR: ر.س
+
+  L  65  EN: Upcoming
+        AR: فواتير قادمة
+
+  L  79  EN: SAR
+        AR: ر.س
+
+  L  94  EN: Paid
+        AR: مدفوعة
+
+  L 108  EN: SAR
+        AR: ر.س
+
+
+============================================================
+components\screens\MotherCelebrationsScreen.tsx (3 strings)
+============================================================
+  L  19  EN: Celebrations
+        AR: المناسبات
+
+  L  25  EN: days
+        AR: يوم
+
+  L  29  EN: Send Blessing
+        AR: إرسال دعوة
+
+
+============================================================
+components\screens\MotherDashboard.tsx (15 strings)
+============================================================
+  L  42  EN: Logout
+        AR: خروج
+
+  L  55  EN: Daily Barakah
+        AR: بركة اليوم
+
+  L  67  EN: Available This Month
+        AR: رصيدك لهالشهر
+
+  L  71  EN: SAR
+        AR: ر.س
+
+  L  96  EN: Add Your Bank Details
+        AR: أضيفي بيانات البنك
+
+  L  97  EN: Go to Settings to add your IBAN so your family can transfer directly.
+        AR: روحي للإعدادات وضيفي الآيبان عشان يقدرون يحوّلون لك مباشرة
+
+  L  99  EN: Settings
+        AR: الإعدادات
+
+  L 112  EN: Last received: 5,300 SAR — 5d ago
+        AR: آخر تحويل: ٥,٣٠٠ ر.س — قبل ٥ أيام
+
+  L 125  EN: Request Money
+        AR: طلب مبلغ
+
+  L 129  EN: Bills
+        AR: الفواتير
+
+  L 133  EN: History
+        AR: السجل
+
+  L 137  EN: Gratitude
+        AR: شكر وامتنان
+
+  L 141  EN: Chat
+        AR: المحادثات
+
+  L 152  EN: Family Feed
+        AR: أخبار العيلة
+
+  L 179  EN: Emergency
+        AR: طوارئ
+
+
+============================================================
+components\screens\MotherFeedScreen.tsx (1 strings)
+============================================================
+  L  21  EN: Family Feed
+        AR: أخبار العيلة
+
+
+============================================================
+components\screens\MotherGratitudeScreen.tsx (9 strings)
+============================================================
+  L  42  EN: Gratitude
+        AR: شكر وامتنان
+
+  L  59  EN: A word of thanks
+        AR: كلمة شكر للعائلة
+
+  L  62  EN: Pick a message or write your own
+        AR: اختاري كلمة حلوة أو اكتبي وحدة من عندك
+
+  L  93  EN: Or write your own
+        AR: أو اكتبي من عندك
+
+  L  96  EN: A heartfelt message...
+        AR: كلمة من القلب...
+
+  L 113  EN: Send Gratitude
+        AR: إرسال الشكر
+
+  L 131  EN: Your gratitude was sent!
+        AR: وصلت كلمتك الحلوة!
+
+  L 134  EN: May Allah bless this beautiful family
+        AR: الله يبارك بهالعيلة الطيّبة
+
+  L 137  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\MotherHealthScreen.tsx (5 strings)
+============================================================
+  L  24  EN: Health
+        AR: الصحة
+
+  L  26  EN: Daily Medications
+        AR: الأدوية اليومية
+
+  L  30  EN: Taken
+        AR: تمّ
+
+  L  30  EN: Pending
+        AR: لم يؤخذ
+
+  L  34  EN: Upcoming Appointments
+        AR: المواعيد القادمة
+
+
+============================================================
+components\screens\MotherHistoryScreen.tsx (2 strings)
+============================================================
+  L  55  EN: Transaction History
+        AR: سجل المعاملات
+
+  L  89  EN: SAR
+        AR: ر.س
+
+
+============================================================
+components\screens\MotherHomeCarScreen.tsx (2 strings)
+============================================================
+  L  20  EN: Home & Car
+        AR: البيت والسيارة
+
+  L  34  EN: New Request
+        AR: طلب صيانة جديد
+
+
+============================================================
+components\screens\MotherRequestScreen.tsx (11 strings)
+============================================================
+  L  54  EN: Request Money
+        AR: طلب مبلغ
+
+  L  67  EN: How much do you need?
+        AR: كم تحتاجين؟
+
+  L  73  EN: 0
+        AR: 0
+
+  L  77  EN: SAR
+        AR: ر.س
+
+  L  88  EN: Category
+        AR: نوع الطلب
+
+  L 110  EN: Note (optional)
+        AR: ملاحظة (اختياري)
+
+  L 113  EN: Add a note if needed...
+        AR: اكتبي ملاحظة إذا تبين...
+
+  L 130  EN: Submit Request
+        AR: إرسال الطلب
+
+  L 144  EN: Request Sent!
+        AR: تم إرسال الطلب!
+
+  L 153  EN: The responsible son will be notified
+        AR: بيوصل إشعار للابن المسؤول — الله يسهّل
+
+  L 156  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\MotherSOSScreen.tsx (8 strings)
+============================================================
+  L  32  EN: Emergency Request
+        AR: طلب طوارئ
+
+  L  51  EN: Select emergency type
+        AR: حدد نوع الطوارئ
+
+  L  59  EN: Medical
+        AR: طبي
+
+  L  60  EN: Repair
+        AR: صيانة
+
+  L  61  EN: Transport
+        AR: نقل
+
+  L  62  EN: Other
+        AR: أخرى
+
+  L  67  EN: Describe the situation...
+        AR: اشرحي الموقف...
+
+  L  82  EN: Send Emergency Request
+        AR: إرسال طلب الطوارئ
+
+
+============================================================
+components\screens\MotherSettingsScreen.tsx (8 strings)
+============================================================
+  L  13  EN: Settings
+        AR: الإعدادات
+
+  L  17  EN: Bank Details
+        AR: بيانات البنك
+
+  L  21  EN: Edit IBAN
+        AR: تعديل الآيبان
+
+  L  26  EN: Notifications
+        AR: الإشعارات
+
+  L  34  EN: Language
+        AR: اللغة
+
+  L  35  EN: English
+        AR: العربية
+
+  L  40  EN: Security
+        AR: الأمان
+
+  L  41  EN: Biometric On
+        AR: بصمة مفعّلة
+
+
+============================================================
+components\screens\MotherWishesScreen.tsx (3 strings)
+============================================================
+  L  29  EN: Wishes
+        AR: الأمنيات
+
+  L  37  EN: SAR
+        AR: ر.س
+
+  L  46  EN: Add Wish
+        AR: أضيفي أمنية
+
+
+============================================================
+components\screens\NotificationsScreen.tsx (2 strings)
+============================================================
+  L  29  EN: Notifications
+        AR: الإشعارات
+
+  L  34  EN: No notifications
+        AR: ما في إشعارات جديدة
+
+
+============================================================
+components\screens\ObserverCelebrationsScreen.tsx (3 strings)
+============================================================
+  L  19  EN: Celebrations
+        AR: المناسبات
+
+  L  23  EN: View-only mode
+        AR: وضع المشاهدة فقط
+
+  L  29  EN: days
+        AR: يوم
+
+
+============================================================
+components\screens\ObserverDashboard.tsx (12 strings)
+============================================================
+  L  42  EN: Logout
+        AR: خروج
+
+  L  52  EN: Waiting for Plan
+        AR: بانتظار نشر الخطة
+
+  L  53  EN: Once the plan is published, you'll see everything
+        AR: لما الابن المسؤول ينشر الخطة، بتقدرين تشوفين كل شي
+
+  L  64  EN: Chat
+        AR: المحادثات
+
+  L  75  EN: Logout
+        AR: خروج
+
+  L  89  EN: Welcome, Sister
+        AR: أهلاً يا أختي
+
+  L  90  EN: Follow the plan and share gratitude
+        AR: يمكنك تتابع الخطة وتشارك التقدير
+
+  L  98  EN: Upcoming Celebrations
+        AR: المناسبات القادمة
+
+  L 123  EN: Family Feed
+        AR: أخبار العائلة
+
+  L 148  EN: Family Projects
+        AR: مشاريع العائلة
+
+  L 172  EN: Feed
+        AR: المتابعة
+
+  L 176  EN: Events
+        AR: مناسبات
+
+
+============================================================
+components\screens\ObserverFeedScreen.tsx (2 strings)
+============================================================
+  L  21  EN: Family Feed
+        AR: متابعة الأحداث
+
+  L  25  EN: View-only mode
+        AR: وضع المشاهدة فقط
+
+
+============================================================
+components\screens\OnboardingScreen.tsx (30 strings)
+============================================================
+  L  96  EN: Um Ahmed
+        AR: أم أحمد
+
+  L 110  EN: Mother's Details
+        AR: بيانات الوالدة
+
+  L 112  EN: To link her account and simplify requests
+        AR: عشان نربط حسابها ونسهّل الطلبات
+
+  L 117  EN: Mother's name
+        AR: اسم الوالدة
+
+  L 121  EN: Phone number
+        AR: رقم الجوال
+
+  L 125  EN: Bank IBAN
+        AR: الآيبان البنكي
+
+  L 134  EN: Next — Invite Family
+        AR: التالي — دعوة العائلة
+
+  L 143  EN: Mohammed
+        AR: محمد
+
+  L 143  EN: Contributing Brother
+        AR: الأخ المساهم
+
+  L 144  EN: Sarah
+        AR: سارة
+
+  L 144  EN: Observing Sister
+        AR: الأخت المتابعة
+
+  L 145  EN: Khaled
+        AR: خالد
+
+  L 145  EN: Contributing Brother
+        AR: الأخ المساهم
+
+  L 158  EN: Invite Family Members
+        AR: دعوة أفراد العائلة
+
+  L 160  EN: Add siblings to the plan — each with their role
+        AR: أضف إخوانك وأخواتك للخطة — كل واحد بدوره
+
+  L 179  EN: Invited
+        AR: تمت الدعوة
+
+  L 183  EN: Invite
+        AR: دعوة
+
+  L 191  EN: Complete Setup
+        AR: أكمل الإعداد
+
+  L 194  EN: Skip — invite later
+        AR: تخطّي — أدعوهم لاحقاً
+
+  L 203  EN: Ahmed Family
+        AR: عائلة أحمد
+
+  L 215  EN: Confirm Your Role
+        AR: تأكيد الانضمام
+
+  L 224  EN: Role
+        AR: الدور
+
+  L 228  EN: Family
+        AR: العائلة
+
+  L 232  EN: Admin
+        AR: المسؤول
+
+  L 233  EN: Ahmed (Responsible Son)
+        AR: أحمد (الابن المسؤول)
+
+  L 238  EN: Confirm & Join
+        AR: تأكيد وانضمام
+
+  L 265  EN: You're All Set!
+        AR: كل شي جاهز!
+
+  L 269  EN: Your dashboard is ready. Explore everything at your own pace.
+        AR: لوحة التحكم جاهزة. استكشف كل شي بوقتك.
+
+  L 279  EN: Open Dashboard
+        AR: افتح لوحة التحكم
+
+  L 370  EN: Let's Begin
+        AR: يلّا نبدأ
+
+
+============================================================
+components\screens\PayrollScreen.tsx (8 strings)
+============================================================
+  L  26  EN: Payroll
+        AR: الرواتب
+
+  L  33  EN: Monthly Total
+        AR: إجمالي الرواتب الشهرية
+
+  L  34  EN: SAR
+        AR: ر.س
+
+  L  38  EN: Paid
+        AR: المدفوع
+
+  L  56  EN: SAR
+        AR: ر.س
+
+  L  59  EN: Paid
+        AR: مدفوع
+
+  L  59  EN: Due
+        AR: مستحق
+
+  L  64  EN: Pay Now
+        AR: دفع الآن
+
+
+============================================================
+components\screens\PendingScreen.tsx (3 strings)
+============================================================
+  L 109  EN: ←
+        AR: →
+
+  L 123  EN: Approved!
+        AR: تمت الموافقة!
+
+  L 124  EN: Going back...
+        AR: جاري العودة...
+
+
+============================================================
+components\screens\PhoneVerifyScreen.tsx (9 strings)
+============================================================
+  L  71  EN: Invalid Saudi mobile — must start with 5
+        AR: رقم جوال غير صالح — يبدأ بـ 5
+
+  L  87  EN: Your Phone Number
+        AR: رقم الجوال
+
+  L  89  EN: Enter your number to join your family
+        AR: أدخل رقمك لربطك بعائلتك
+
+  L 114  EN: A verification code will be sent via SMS
+        AR: سيتم إرسال رمز التحقق عبر رسالة SMS
+
+  L 119  EN: Send Verification Code
+        AR: إرسال رمز التحقق
+
+  L 191  EN: Verification Code
+        AR: رمز التحقق
+
+  L 234  EN: Resend Code
+        AR: إعادة إرسال الرمز
+
+  L 271  EN: Verified
+        AR: تم التحقق
+
+  L 280  EN: Linking your account to your family...
+        AR: جاري ربط حسابك بعائلتك...
+
+
+============================================================
+components\screens\PlaceholderScreen.tsx (2 strings)
+============================================================
+  L  20  EN: Coming Soon
+        AR: قريباً
+
+  L  21  EN: This module is under development
+        AR: هذا الموديول قيد التطوير
+
+
+============================================================
+components\screens\ProjectsScreen.tsx (5 strings)
+============================================================
+  L  23  EN: Projects
+        AR: المشاريع
+
+  L  41  EN: contributors
+        AR: مساهمين
+
+  L  48  EN: SAR
+        AR: ر.س
+
+  L  61  EN: Contribute
+        AR: ساهم
+
+  L  69  EN: New Project
+        AR: مشروع جديد
+
+
+============================================================
+components\screens\PulseScreen.tsx (1 strings)
+============================================================
+  L  36  EN: Family Pulse
+        AR: نبض العائلة
+
+
+============================================================
+components\screens\QueueScreen.tsx (5 strings)
+============================================================
+  L  46  EN: Follow-up Queue
+        AR: قائمة المتابعة
+
+  L  79  EN: SAR
+        AR: ر.س
+
+  L  86  EN: Done
+        AR: تمّ
+
+  L  96  EN: All clear!
+        AR: ما في شي معلّق — الحمد لله
+
+  L 102  EN: completed
+        AR: مكتمل
+
+
+============================================================
+components\screens\ReportsScreen.tsx (4 strings)
+============================================================
+  L  36  EN: Reports
+        AR: التقارير
+
+  L  58  EN: Monthly Spending
+        AR: المصروفات الشهرية
+
+  L  75  EN: By Category
+        AR: التوزيع حسب الفئة
+
+  L 101  EN: Download PDF
+        AR: تنزيل PDF
+
+
+============================================================
+components\screens\ReservoirScreen.tsx (7 strings)
+============================================================
+  L  28  EN: Reservoir
+        AR: الخزنة
+
+  L  33  EN: Total Balance
+        AR: رصيد الخزنة
+
+  L  34  EN: SAR
+        AR: ر.س
+
+  L  38  EN: Allocated
+        AR: مخصّص
+
+  L  42  EN: Available
+        AR: متاح
+
+  L  52  EN: Recent Transactions
+        AR: آخر الحركات
+
+  L  78  EN: Top Up
+        AR: تعبئة الخزنة
+
+
+============================================================
+components\screens\ServiceScreen.tsx (2 strings)
+============================================================
+  L  82  EN: Coming Soon
+        AR: قريباً — تحت التطوير
+
+  L  86  EN: Go Back
+        AR: رجوع
+
+
+============================================================
+components\screens\SettingsScreen.tsx (2 strings)
+============================================================
+  L  24  EN: Settings
+        AR: الإعدادات
+
+  L  42  EN: Logout
+        AR: تسجيل الخروج
+
+
+============================================================
+components\screens\SettlementScreen.tsx (7 strings)
+============================================================
+  L  25  EN: Settlement
+        AR: التسوية
+
+  L  30  EN: Expected
+        AR: المطلوب
+
+  L  31  EN: Collected
+        AR: المحصّل
+
+  L  32  EN: Remaining
+        AR: المتبقي
+
+  L  47  EN: SAR
+        AR: ر.س
+
+  L  50  EN: Settled
+        AR: مسوّى
+
+  L  58  EN: Remind
+        AR: تذكير
+
+
+============================================================
+components\screens\TutorialOverlay.tsx (2 strings)
+============================================================
+  L 292  EN: Minimize
+        AR: تصغير
+
+  L 295  EN: End Tutorial
+        AR: إنهاء الدليل
+
+
+============================================================
+components\screens\WaitingRoomScreen.tsx (5 strings)
+============================================================
+  L  41  EN: Waiting Room
+        AR: غرفة الانتظار
+
+  L  54  EN: Waiting for Responses
+        AR: في انتظار الردود
+
+  L  56  EN: Plan dispatched to all members
+        AR: أُرسلت الخطة لكل الأعضاء
+
+  L  64  EN: Members
+        AR: الأعضاء
+
+  L  97  EN: Force Activate
+        AR: تفعيل الخطة
+
+
+############################################################
+ENGLISH-ONLY STRINGS (need Arabic)
+############################################################
+
+--- App.tsx: Tour Button ---
+  L 243  <span>{autoPlay ? 'Pause Tour' : 'Auto Tour'}</span>
+
+--- App.tsx: Track Labels (Now Playing) ---
+  L  77  pearl_gate: 'Pearl Gate',
+  L  79  pulse_in_the_hall: 'Pulse in the Hall',
+  L  80  blessing_hush: 'Blessing Hush',
+  L  81  celebration_bloom: 'Celebration Bloom',
+  L  82  step_complete: 'Step Complete',
+
+TOTAL BILINGUAL PAIRS: 482
+TOTAL ENGLISH-ONLY: 8 (2 tour buttons + 6 track labels)

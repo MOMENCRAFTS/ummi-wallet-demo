@@ -8,11 +8,15 @@ export type AppRole = 'admin' | 'mother' | 'brother' | 'observer';
 
 export type ScreenName =
   // Auth
-  | 'landing' | 'login' | 'oauth' | 'oauth-transition'
+  | 'landing' | 'login' | 'oauth' | 'oauth-transition' | 'phone-verify'
   // Onboarding
   | 'onboarding' | 'onboarding-role' | 'onboarding-mother' | 'onboarding-complete'
   // Admin
   | 'admin-dashboard'
+  // Admin Services
+  | 'queue' | 'payroll' | 'admin-bills' | 'maintenance'
+  | 'reservoir-detail' | 'settlement' | 'pulse' | 'reports'
+  | 'members' | 'projects-list' | 'celebrations-list' | 'documents'
   // Finance
   | 'finance-welcome' | 'finance-currency' | 'finance-chat'
   | 'finance-summary' | 'finance-dispatch' | 'finance-waiting'
@@ -23,10 +27,18 @@ export type ScreenName =
   // Mother
   | 'mother-dashboard' | 'mother-request' | 'mother-sos'
   | 'mother-bills' | 'mother-history' | 'mother-gratitude'
+  | 'mother-balance' | 'mother-celebrations' | 'mother-feed'
+  | 'mother-health' | 'mother-homecar' | 'mother-settings' | 'mother-wishes'
   // Brother
   | 'brother-dashboard' | 'brother-audit' | 'brother-contribution'
+  | 'brother-history' | 'brother-pay-direct' | 'brother-proof'
+  | 'brother-settlement' | 'brother-suggestions'
   // Observer
-  | 'observer-dashboard';
+  | 'observer-dashboard' | 'observer-feed' | 'observer-celebrations'
+  // Cross-role
+  | 'pending' | 'settings' | 'notifications'
+  // Chat
+  | 'chat-list' | 'chat-room';
 
 interface NavigationState {
   screen: ScreenName;

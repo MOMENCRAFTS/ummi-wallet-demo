@@ -6,6 +6,7 @@
  */
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
+import { useFamilyState } from '../../familyState';
 import { audioService } from '../../lib/audioService';
 import {
   WalletRoseIcon, FloatingPetals, SparkleAccent, VineDivider,
@@ -26,6 +27,7 @@ const ROLE_LABELS: Record<string, { en: string; ar: string }> = {
 
 export default function LandingScreen() {
   const { navigate, role, lang } = useNavigation();
+  const { publishPlan } = useFamilyState();
   const isAr = lang === 'ar';
 
   return (
@@ -68,9 +70,9 @@ export default function LandingScreen() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          {isAr ? 'رعاية العائلة بوضوح وكرامة' : 'Family support, made clear.'}<br />
+          {isAr ? 'دعم العائلة بوضوح وكرامة' : 'Family support, made clear.'}<br />
           <span className="landing-tagline-ar">
-            {isAr ? 'كل شي واضح، وكل شي بحبّ' : 'رعاية العائلة بوضوح وكرامة'}
+            {isAr ? 'كل شيء واضح، وكل شيء بمحبة' : 'Everything clear, everything with love.'}
           </span>
         </motion.p>
 
@@ -92,7 +94,7 @@ export default function LandingScreen() {
           </div>
           <div className="landing-stat-dot">·</div>
           <div className="landing-stat">
-            <span className="landing-stat-num">{isAr ? 'عر/EN' : 'AR/EN'}</span>
+            <span className="landing-stat-num">{isAr ? 'عربي/English' : 'AR/EN'}</span>
             <span className="landing-stat-label">{isAr ? 'ثنائي اللغة' : 'Bilingual'}</span>
           </div>
         </motion.div>
@@ -114,7 +116,7 @@ export default function LandingScreen() {
           </button>
           <button
             className="btn btn-ghost"
-            onClick={() => { audioService.unlock(); navigate((ROLE_DASHBOARDS[role] || 'admin-dashboard') as any); }}
+            onClick={() => { audioService.unlock(); publishPlan(); navigate((ROLE_DASHBOARDS[role] || 'admin-dashboard') as any); }}
             style={{ width: '100%', marginTop: 8 }}
           >
             <CrownFloralIcon size={18} /> {isAr ? `دخول مباشر — ${ROLE_LABELS[role]?.ar}` : `Skip to ${ROLE_LABELS[role]?.en}`}

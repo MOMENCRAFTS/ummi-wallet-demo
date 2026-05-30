@@ -31,7 +31,7 @@ export default function LoginScreen() {
 
   const handleTransitionComplete = useCallback(() => {
     setShowTransition(false);
-    navigate('onboarding');
+    navigate('phone-verify');
   }, [navigate]);
 
   return (
@@ -81,7 +81,7 @@ export default function LoginScreen() {
           <h1 className="login-title-en">Ummi Wallet</h1>
           <h2 className="login-title-ar">محفظة أمي</h2>
           <div className="login-tagline-divider" />
-          <p className="login-tagline">{isAr ? 'رعاية العائلة بوضوح وكرامة' : 'Family support, made clear.'}</p>
+          <p className="login-tagline">{isAr ? 'دعم العائلة بوضوح وكرامة' : 'Family support, made clear.'}</p>
         </motion.div>
 
         {/* OAuth Buttons */}
@@ -93,11 +93,11 @@ export default function LoginScreen() {
         >
           <button className="oauth-btn oauth-apple" onClick={handleAuth}>
             <AppleLogo size={18} />
-            <span>{isAr ? 'الدخول بـ Apple' : 'Sign in with Apple'}</span>
+            <span>{isAr ? 'تسجيل الدخول عبر Apple' : 'Sign in with Apple'}</span>
           </button>
           <button className="oauth-btn oauth-google" onClick={handleAuth}>
             <GoogleLogo size={18} />
-            <span>{isAr ? 'الدخول بـ Google' : 'Sign in with Google'}</span>
+            <span>{isAr ? 'تسجيل الدخول عبر Google' : 'Sign in with Google'}</span>
           </button>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function LoginScreen() {
           transition={{ delay: 1 }}
         >
           <div className="divider" />
-          <span className="crafted-by">{isAr ? 'صُنعت بواسطة' : 'crafted by'}</span>
+          <span className="crafted-by">{isAr ? 'من تطوير' : 'crafted by'}</span>
           <span className="brand-name">MomenCrafts</span>
           <div className="legal-row">
             <span className="legal-link">{isAr ? 'سياسة الخصوصية' : 'Privacy Policy'}</span>

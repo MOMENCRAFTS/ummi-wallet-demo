@@ -51,7 +51,7 @@ export default function MotherBillsScreen() {
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
           style={{ textAlign: 'center', padding: '20px 16px' }}
         >
-          <p style={{ fontSize: 13, color: c.muted }}>{isAr ? 'إجمالي القادم' : 'Total Upcoming'}</p>
+          <p style={{ fontSize: 13, color: c.muted }}>{isAr ? 'إجمالي الفواتير القادمة' : 'Total Upcoming'}</p>
           <h2 style={{ fontSize: 28, fontWeight: 700, color: c.brown, margin: '4px 0' }}>
             {totalUpcoming.toLocaleString()} <span style={{ fontSize: 14, color: c.muted }}>{isAr ? 'ر.س' : 'SAR'}</span>
           </h2>
@@ -62,7 +62,7 @@ export default function MotherBillsScreen() {
 
         {/* Upcoming */}
         <h3 className="section-heading" style={{ marginTop: 20 }}>
-          {isAr ? 'فواتير قادمة' : 'Upcoming'}
+          {isAr ? 'القادمة' : 'Upcoming'}
         </h3>
         {upcoming.map((bill, i) => (
           <motion.div

@@ -48,7 +48,7 @@ export default function MotherSOSScreen() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          {isAr ? 'حدد نوع الطوارئ' : 'Select emergency type'}
+          {isAr ? 'حددي نوع الطوارئ' : 'Select emergency type'}
         </motion.p>
 
         <motion.div className="chip-row"

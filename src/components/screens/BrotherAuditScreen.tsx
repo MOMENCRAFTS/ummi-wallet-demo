@@ -45,7 +45,7 @@ export default function BrotherAuditScreen() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <p className="total-label">{isAr ? 'المبلغ الشهري الإجمالي' : 'Total Monthly Plan'}</p>
+          <p className="total-label">{isAr ? 'إجمالي الخطة الشهرية' : 'Total Monthly Plan'}</p>
           <h1 className="total-amount">{total.toLocaleString()} <span className="total-currency">{isAr ? 'ر.س' : 'SAR'}</span></h1>
           <p style={{ fontSize: 12, color: c.muted, marginTop: 4 }}>
             {isAr ? `مقسّم على ${BROTHERS} إخوان` : `Split among ${BROTHERS} brothers`}
@@ -53,7 +53,7 @@ export default function BrotherAuditScreen() {
         </motion.div>
 
         {/* Items */}
-        <h3 className="section-heading" style={{ marginTop: 16 }}>{isAr ? 'تفاصيل البنود' : 'Budget Items'}</h3>
+        <h3 className="section-heading" style={{ marginTop: 16 }}>{isAr ? 'بنود الميزانية' : 'Budget Items'}</h3>
         <div className="item-list">
           {ITEMS.map((item, i) => (
             <motion.div
@@ -84,18 +84,18 @@ export default function BrotherAuditScreen() {
           <div className="request-row">
             <div>
               <span className="request-amount">{MY_SHARE.amount.toLocaleString()} <span className="request-sar">{isAr ? 'ر.س' : 'SAR'}</span></span>
-              <span className="request-category">{isAr ? 'حصّتي الشهرية' : 'My monthly share'}</span>
+              <span className="request-category">{isAr ? 'حصتي الشهرية' : 'My monthly share'}</span>
             </div>
             <span className={`badge ${remaining <= 0 ? 'badge-approved' : 'badge-pending'}`} style={remaining <= 0 ? { background: c.success + '20', color: c.success } : {}}>
               {remaining <= 0
-                ? <><CheckLeafIcon size={12} color={c.success} /> {isAr ? 'تمّت التسوية' : 'Settled'}</>
-                : <>{isAr ? 'معلّق' : 'Pending'}</>
+                ? <><CheckLeafIcon size={12} color={c.success} /> {isAr ? 'تمت التسوية' : 'Settled'}</>
+                : <>{isAr ? 'قيد الانتظار' : 'Pending'}</>
               }
             </span>
           </div>
           {remaining <= 0 && (
             <p style={{ fontSize: 12, color: c.success, marginTop: 8, display: 'flex', alignItems: 'center', gap: 4 }}>
-              <BouquetIcon size={14} /> {isAr ? 'جزاك الله خير — تم تقديم الإثبات' : 'Proof submitted — JazakAllahu Khairan'}
+              <BouquetIcon size={14} /> {isAr ? 'تم تقديم الإثبات — جزاك الله خيرًا' : 'Proof submitted — JazakAllahu Khairan'}
             </p>
           )}
         </motion.div>

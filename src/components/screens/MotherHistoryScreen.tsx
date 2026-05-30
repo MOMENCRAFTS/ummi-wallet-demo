@@ -39,8 +39,8 @@ const HISTORY = [
 ];
 
 const STATUS_BADGE = {
-  approved: { cls: 'badge-approved', en: 'Approved', ar: 'تمّت' },
-  pending: { cls: 'badge-pending', en: 'Pending', ar: 'معلّقة' },
+  approved: { cls: 'badge-approved', en: 'Approved', ar: 'تمت الموافقة' },
+  pending: { cls: 'badge-pending', en: 'Pending', ar: 'معلّق' },
 };
 
 export default function MotherHistoryScreen() {

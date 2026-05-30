@@ -5,9 +5,10 @@
  */
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
+import { useFamilyState } from '../../familyState';
 import {
   CakeBlossomIcon, NewsScrollIcon, SeedlingIcon, HeartLeafIcon,
-  EyeLeafIcon, SparkleStarIcon, ArrowLeafIcon,
+  EyeLeafIcon, SparkleStarIcon, ArrowLeafIcon, ChatBubbleLeafIcon, ShieldLeafIcon, c,
 } from '../icons/FloralIcons';
 
 const CELEBRATIONS = [
@@ -30,12 +31,48 @@ const PROJECTS = [
 
 export default function ObserverDashboard() {
   const { navigate, lang } = useNavigation();
+  const { canObserverView, chatUnread } = useFamilyState();
   const isAr = lang === 'ar';
+  const totalChatUnread = Object.values(chatUnread).reduce((a, b) => a + b, 0);
+
+  if (!canObserverView) {
+    return (
+      <div className="screen observer-dashboard" dir={isAr ? 'rtl' : 'ltr'}>
+        <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
+          <ArrowLeafIcon size={14} /> {isAr ? 'تسجيل الخروج' : 'Logout'}
+        </button>
+        <div className="pending-content" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <motion.div
+            className="pending-icon"
+            animate={{ scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <EyeLeafIcon size={48} color={c.blue} />
+          </motion.div>
+          <h2 className="onboarding-title">{isAr ? 'بانتظار نشر الخطة' : 'Waiting for Plan'}</h2>
+          <p className="onboarding-subtitle">{isAr ? 'عند نشر الخطة من الابن المسؤول، ستظهر لكِ جميع التفاصيل' : "Once the plan is published, you'll see everything"}</p>
+          <div className="pending-dots-row">
+            {[0, 1, 2].map(i => (
+              <motion.div key={i} className="pending-bounce-dot" animate={{ y: [0, -8, 0] }} transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.2 }} />
+            ))}
+          </div>
+          <motion.button
+            className="btn btn-ghost admin-quick-btn" style={{ marginTop: 16 }}
+            onClick={() => navigate('chat-list')}
+          >
+            <ChatBubbleLeafIcon size={16} />
+            {isAr ? 'المحادثات' : 'Chat'}
+            {totalChatUnread > 0 && <span className="admin-chat-badge">{totalChatUnread}</span>}
+          </motion.button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="screen observer-dashboard" dir={isAr ? 'rtl' : 'ltr'}>
       <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
-        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+        <ArrowLeafIcon size={14} /> {isAr ? 'تسجيل الخروج' : 'Logout'}
       </button>
       {/* Header */}
       <div className="dashboard-header observer-header">
@@ -49,8 +86,8 @@ export default function ObserverDashboard() {
             <EyeLeafIcon size={28} />
             <SparkleStarIcon size={14} />
           </div>
-          <p className="observer-greeting">{isAr ? 'أهلاً يا أختي' : 'Welcome, Sister'}</p>
-          <p className="observer-subtitle">{isAr ? 'يمكنك تتابع الخطة وتشارك التقدير' : 'Follow the plan and share gratitude'}</p>
+          <p className="observer-greeting">{isAr ? 'أهلًا يا أختي' : 'Welcome, Sister'}</p>
+          <p className="observer-subtitle">{isAr ? 'يمكنكِ متابعة الخطة ومشاركة التقدير' : 'Follow the plan and share gratitude'}</p>
         </motion.div>
       </div>
 
@@ -83,7 +120,7 @@ export default function ObserverDashboard() {
         {/* Family Feed */}
         <div className="section-header" style={{ marginTop: 20 }}>
           <NewsScrollIcon size={20} />
-          <h3 className="section-title">{isAr ? 'أخبار العائلة' : 'Family Feed'}</h3>
+          <h3 className="section-title">{isAr ? 'آخر أخبار العائلة' : 'Family Feed'}</h3>
         </div>
         <div className="card">
           {FEED.map((f, i) => (
@@ -130,13 +167,13 @@ export default function ObserverDashboard() {
 
         {/* Quick Actions */}
         <div className="observer-actions">
-          <button className="btn btn-glass btn-md" style={{ flex: 1 }}>
+          <button className="btn btn-glass btn-md" style={{ flex: 1 }} onClick={() => navigate('observer-feed')}>
             <HeartLeafIcon size={18} />
-            <span>{isAr ? 'امتنان' : 'Gratitude'}</span>
+            <span>{isAr ? 'الموجز' : 'Feed'}</span>
           </button>
-          <button className="btn btn-glass btn-md" style={{ flex: 1 }}>
+          <button className="btn btn-glass btn-md" style={{ flex: 1 }} onClick={() => navigate('observer-celebrations')}>
             <CakeBlossomIcon size={18} />
-            <span>{isAr ? 'مناسبات' : 'Events'}</span>
+            <span>{isAr ? 'المناسبات' : 'Events'}</span>
           </button>
         </div>
       </div>

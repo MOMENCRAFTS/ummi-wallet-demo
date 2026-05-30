@@ -51,9 +51,9 @@ export default function WaitingRoomScreen() {
             <div className="waiting-icon">
               <WalletRoseIcon size={36} />
             </div>
-            <h2>{isAr ? 'في انتظار الردود' : 'Waiting for Responses'}</h2>
+            <h2>{isAr ? 'بانتظار الردود' : 'Waiting for Responses'}</h2>
             <p className="waiting-subtitle">
-              {isAr ? 'أُرسلت الخطة لكل الأعضاء' : 'Plan dispatched to all members'}
+              {isAr ? 'تم إرسال الخطة إلى جميع الأعضاء' : 'Plan dispatched to all members'}
             </p>
             <div className="progress-ring">
               <span className="progress-text">1/3</span>
@@ -94,7 +94,7 @@ export default function WaitingRoomScreen() {
             transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 20 }}
             style={{ width: '100%', marginTop: 16 }}
           >
-            <CheckLeafIcon size={18} /> {isAr ? 'تفعيل الخطة' : 'Force Activate'}
+            <CheckLeafIcon size={18} /> {isAr ? 'تفعيل الآن' : 'Force Activate'}
           </motion.button>
         </div>
       </div>

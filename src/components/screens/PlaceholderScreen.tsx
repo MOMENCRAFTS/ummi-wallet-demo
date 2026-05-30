@@ -17,8 +17,8 @@ export default function PlaceholderScreen() {
       </div>
       <div className="screen-body placeholder-body">
         <span className="placeholder-icon-svg"><SeedlingIcon size={48} /></span>
-        <h2>{isAr ? 'قريباً' : 'Coming Soon'}</h2>
-        <p>{isAr ? 'هذا الموديول قيد التطوير' : 'This module is under development'}</p>
+        <h2>{isAr ? 'قريبًا' : 'Coming Soon'}</h2>
+        <p>{isAr ? 'هذه الوحدة قيد التطوير' : 'This module is under development'}</p>
       </div>
     </div>
   );

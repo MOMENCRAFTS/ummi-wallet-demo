@@ -27,14 +27,64 @@ import BrotherDashboard from './screens/BrotherDashboard';
 import BrotherAuditScreen from './screens/BrotherAuditScreen';
 import BrotherContributionScreen from './screens/BrotherContributionScreen';
 import ObserverDashboard from './screens/ObserverDashboard';
-import OnboardingScreen from './screens/OnboardingScreen';
+import HybridOnboardingScreen from './screens/HybridOnboardingScreen';
+import PhoneVerifyScreen from './screens/PhoneVerifyScreen';
+import PendingScreen from './screens/PendingScreen';
+import ChatListScreen from './screens/ChatListScreen';
+import ChatRoomScreen from './screens/ChatRoomScreen';
 import ServiceScreen from './screens/ServiceScreen';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import SplashVideo from './videos/SplashVideo';
 
+// Phase 1 — Admin Services
+import QueueScreen from './screens/QueueScreen';
+import PayrollScreen from './screens/PayrollScreen';
+import AdminBillsScreen from './screens/AdminBillsScreen';
+import MaintenanceScreen from './screens/MaintenanceScreen';
+import ReservoirScreen from './screens/ReservoirScreen';
+import SettlementScreen from './screens/SettlementScreen';
+import PulseScreen from './screens/PulseScreen';
+import ReportsScreen from './screens/ReportsScreen';
+import MembersScreen from './screens/MembersScreen';
+import ProjectsScreen from './screens/ProjectsScreen';
+import CelebrationsScreen from './screens/CelebrationsScreen';
+import DocumentsScreen from './screens/DocumentsScreen';
+
+// Phase 2 — Finance Flow
+import FinanceCurrencyScreen from './screens/FinanceCurrencyScreen';
+import FinanceDispatchScreen from './screens/FinanceDispatchScreen';
+import FinanceAuditContributorScreen from './screens/FinanceAuditContributorScreen';
+import FinanceAuditObserverScreen from './screens/FinanceAuditObserverScreen';
+import FinanceRevisionScreen from './screens/FinanceRevisionScreen';
+import FinanceFinalApprovalScreen from './screens/FinanceFinalApprovalScreen';
+import FinanceReestimationScreen from './screens/FinanceReestimationScreen';
+import FinanceReadjustmentScreen from './screens/FinanceReadjustmentScreen';
+
+// Phase 3 — Mother sub-screens
+import MotherBalanceScreen from './screens/MotherBalanceScreen';
+import MotherCelebrationsScreen from './screens/MotherCelebrationsScreen';
+import MotherFeedScreen from './screens/MotherFeedScreen';
+import MotherHealthScreen from './screens/MotherHealthScreen';
+import MotherHomeCarScreen from './screens/MotherHomeCarScreen';
+import MotherSettingsScreen from './screens/MotherSettingsScreen';
+import MotherWishesScreen from './screens/MotherWishesScreen';
+// Phase 3 — Brother sub-screens
+import BrotherHistoryScreen from './screens/BrotherHistoryScreen';
+import BrotherPayDirectScreen from './screens/BrotherPayDirectScreen';
+import BrotherProofScreen from './screens/BrotherProofScreen';
+import BrotherSettlementScreen from './screens/BrotherSettlementScreen';
+import BrotherSuggestionsScreen from './screens/BrotherSuggestionsScreen';
+// Phase 3 — Observer sub-screens
+import ObserverFeedScreen from './screens/ObserverFeedScreen';
+import ObserverCelebrationsScreen from './screens/ObserverCelebrationsScreen';
+// Phase 4 — Cross-cutting
+import SettingsScreen from './screens/SettingsScreen';
+import NotificationsScreen from './screens/NotificationsScreen';
+
 const screenMap: Record<string, React.ComponentType> = {
   'landing': LandingScreen,
   'login': LoginScreen,
+  'phone-verify': PhoneVerifyScreen,
   'admin-dashboard': AdminDashboard,
   'finance-welcome': FinanceWelcomeScreen,
   'finance-chat': FinanceChatScreen,
@@ -51,17 +101,86 @@ const screenMap: Record<string, React.ComponentType> = {
   'brother-audit': BrotherAuditScreen,
   'brother-contribution': BrotherContributionScreen,
   'observer-dashboard': ObserverDashboard,
-  'onboarding': OnboardingScreen,
+  'onboarding': HybridOnboardingScreen,
+  'pending': PendingScreen,
+  'chat-list': ChatListScreen,
+  'chat-room': ChatRoomScreen,
+  // Phase 1 — Admin Services
+  'queue': QueueScreen,
+  'payroll': PayrollScreen,
+  'admin-bills': AdminBillsScreen,
+  'maintenance': MaintenanceScreen,
+  'reservoir-detail': ReservoirScreen,
+  'settlement': SettlementScreen,
+  'pulse': PulseScreen,
+  'reports': ReportsScreen,
+  'members': MembersScreen,
+  'projects-list': ProjectsScreen,
+  'celebrations-list': CelebrationsScreen,
+  'documents': DocumentsScreen,
+  // Phase 2 — Finance Flow
+  'finance-currency': FinanceCurrencyScreen,
+  'finance-dispatch': FinanceDispatchScreen,
+  'finance-audit-contributor': FinanceAuditContributorScreen,
+  'finance-audit-observer': FinanceAuditObserverScreen,
+  'finance-revision': FinanceRevisionScreen,
+  'finance-final-approval': FinanceFinalApprovalScreen,
+  'finance-reestimation': FinanceReestimationScreen,
+  'finance-readjustment': FinanceReadjustmentScreen,
+  // Phase 3 — Mother
+  'mother-balance': MotherBalanceScreen,
+  'mother-celebrations': MotherCelebrationsScreen,
+  'mother-feed': MotherFeedScreen,
+  'mother-health': MotherHealthScreen,
+  'mother-homecar': MotherHomeCarScreen,
+  'mother-settings': MotherSettingsScreen,
+  'mother-wishes': MotherWishesScreen,
+  // Phase 3 — Brother
+  'brother-history': BrotherHistoryScreen,
+  'brother-pay-direct': BrotherPayDirectScreen,
+  'brother-proof': BrotherProofScreen,
+  'brother-settlement': BrotherSettlementScreen,
+  'brother-suggestions': BrotherSuggestionsScreen,
+  // Phase 3 — Observer
+  'observer-feed': ObserverFeedScreen,
+  'observer-celebrations': ObserverCelebrationsScreen,
+  // Phase 4 — Cross-cutting
+  'settings': SettingsScreen,
+  'notifications': NotificationsScreen,
 };
 
 // Map screens to their ambient music tracks
+// Covers every screen in the app for smooth soundtrack transitions
 function getTrackForScreen(screen: ScreenName): TrackName | null {
-  if (screen === 'landing' || screen === 'login' || screen === 'onboarding') return 'pearl_gate';
-  if (screen.startsWith('admin') || screen.startsWith('brother') || screen.startsWith('observer')) return 'pulse_in_the_hall';
-  if (screen.startsWith('mother')) return 'mothers_embrace';
+  // Auth + Onboarding: warm welcome
+  if (['landing', 'login', 'oauth', 'oauth-transition', 'phone-verify',
+       'onboarding', 'onboarding-role', 'onboarding-mother', 'onboarding-complete',
+       'pending'].includes(screen)) {
+    return 'pearl_gate';
+  }
+  // Finance flow: reverent, focused
   if (screen.startsWith('finance')) return 'blessing_hush';
+  // Mother screens: intimate, guiding
+  if (screen.startsWith('mother')) return 'mothers_embrace';
+  // Admin, Brother, Observer, Services, Settings: uplifting daily
+  if (screen.startsWith('admin') || screen.startsWith('brother') ||
+      screen.startsWith('observer') || screen === 'settings' ||
+      screen === 'notifications' || screen === 'chat-list' || screen === 'chat-room' ||
+      screen === 'queue' || screen === 'payroll' || screen === 'admin-bills' ||
+      screen === 'maintenance' || screen === 'reservoir-detail' ||
+      screen === 'settlement' || screen === 'pulse' || screen === 'reports' ||
+      screen === 'members' || screen === 'projects-list' ||
+      screen === 'celebrations-list' || screen === 'documents') {
+    return 'pulse_in_the_hall';
+  }
   return null;
 }
+
+// Screens that should trigger a celebration one-shot on top of the ambient track
+const CELEBRATION_SCREENS: ScreenName[] = [
+  'finance-celebration', 'mother-gratitude', 'observer-celebrations',
+  'onboarding-complete',
+];
 
 const slideVariants = {
   enter: { x: '100%', opacity: 0.8 },
@@ -97,6 +216,11 @@ export default function ScreenRouter() {
       }
     }
 
+    // Celebration one-shot on top of ambient track
+    if (CELEBRATION_SCREENS.includes(screen)) {
+      audioService.playOneShot('celebration_bloom', 0.4);
+    }
+
     prevScreenRef.current = screen;
   }, [screen, showSplash]);
 
@@ -111,24 +235,27 @@ export default function ScreenRouter() {
       {showSplash ? (
         <SplashVideo onComplete={handleSplashComplete} />
       ) : (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={screen}
-            className="screen-wrapper"
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 30,
-              mass: 0.8,
-            }}
-          >
-            <ScreenComponent />
-          </motion.div>
-        </AnimatePresence>
+        <>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={screen}
+              className="screen-wrapper"
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+                mass: 0.8,
+              }}
+            >
+              <ScreenComponent />
+            </motion.div>
+          </AnimatePresence>
+
+        </>
       )}
     </div>
   );

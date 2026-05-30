@@ -7,6 +7,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
+import { useFamilyState } from '../../familyState';
 import {
   ArrowLeafIcon, HandPetalIcon, MoneyLeafIcon,
   MedicalHerbIcon, SunflowerHomeIcon, LeafBillIcon,
@@ -23,7 +24,8 @@ const CATEGORIES = [
 ];
 
 export default function MotherRequestScreen() {
-  const { goBack, lang } = useNavigation();
+  const { goBack, navigate, lang } = useNavigation();
+  const { submitRequest } = useFamilyState();
   const isAr = lang === 'ar';
   const [category, setCategory] = useState('groceries');
   const [amount, setAmount] = useState('');
@@ -31,7 +33,17 @@ export default function MotherRequestScreen() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    if (amount) setSubmitted(true);
+    if (amount) {
+      const cat = CATEGORIES.find(c => c.key === category);
+      submitRequest(
+        parseInt(amount),
+        cat?.label || 'Other',
+        cat?.labelAr || 'أخرى',
+      );
+      setSubmitted(true);
+      // Navigate to pending screen after brief animation
+      setTimeout(() => navigate('pending', { pendingType: 'mother-request-pending' }), 1500);
+    }
   };
 
   return (
@@ -73,7 +85,7 @@ export default function MotherRequestScreen() {
               transition={{ delay: 0.06, type: 'spring', stiffness: 260, damping: 20 }}
               style={{ marginTop: 20 }}
             >
-              <label className="form-label">{isAr ? 'نوع الطلب' : 'Category'}</label>
+              <label className="form-label">{isAr ? 'الفئة' : 'Category'}</label>
               <div className="chip-row" style={{ flexWrap: 'wrap' }}>
                 {CATEGORIES.map(cat => (
                   <button
@@ -98,7 +110,7 @@ export default function MotherRequestScreen() {
               <label className="form-label">{isAr ? 'ملاحظة (اختياري)' : 'Note (optional)'}</label>
               <textarea
                 className="sos-textarea"
-                placeholder={isAr ? 'اكتبي ملاحظة إذا تبين...' : 'Add a note if needed...'}
+                placeholder={isAr ? 'اكتبي ملاحظة عند الحاجة...' : 'Add a note if needed...'}
                 rows={3}
                 value={note}
                 onChange={e => setNote(e.target.value)}
@@ -138,7 +150,7 @@ export default function MotherRequestScreen() {
               }
             </p>
             <p style={{ color: c.muted, marginTop: 4, fontSize: 13 }}>
-              {isAr ? 'بيوصل إشعار للابن المسؤول — الله يسهّل' : 'The responsible son will be notified'}
+              {isAr ? 'سيتم إشعار الابن المسؤول — الله يسهّل' : 'The responsible son will be notified'}
             </p>
             <button className="btn btn-glass btn-md" onClick={goBack} style={{ marginTop: 20 }}>
               {isAr ? 'رجوع' : 'Go Back'}

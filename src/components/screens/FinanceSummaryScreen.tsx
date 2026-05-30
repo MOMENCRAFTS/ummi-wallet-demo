@@ -36,7 +36,7 @@ export default function FinanceSummaryScreen() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <p className="total-label">{isAr ? 'المبلغ الشهري' : 'Monthly Total'}</p>
+          <p className="total-label">{isAr ? 'الإجمالي الشهري' : 'Monthly Total'}</p>
           <h1 className="total-amount">{total.toLocaleString()} <span className="total-currency">{isAr ? 'ر.س' : 'SAR'}</span></h1>
           <div className="budget-bar">
             <div className="budget-segment needs" style={{width: '72%'}}>72%</div>
@@ -44,9 +44,9 @@ export default function FinanceSummaryScreen() {
             <div className="budget-segment safety" style={{width: '10%'}}>10%</div>
           </div>
           <div className="budget-legend">
-            <span><span className="legend-dot" style={{ background: c.mint }} /> {isAr ? 'احتياجات' : 'Needs'}</span>
-            <span><span className="legend-dot" style={{ background: c.yellow }} /> {isAr ? 'رغبات' : 'Wants'}</span>
-            <span><span className="legend-dot" style={{ background: c.blue }} /> {isAr ? 'احتياط' : 'Safety'}</span>
+            <span><span className="legend-dot" style={{ background: c.mint }} /> {isAr ? 'الاحتياجات' : 'Needs'}</span>
+            <span><span className="legend-dot" style={{ background: c.yellow }} /> {isAr ? 'الرغبات' : 'Wants'}</span>
+            <span><span className="legend-dot" style={{ background: c.blue }} /> {isAr ? 'الاحتياط' : 'Safety'}</span>
           </div>
         </motion.div>
 
@@ -73,7 +73,7 @@ export default function FinanceSummaryScreen() {
         {/* Actions */}
         <div className="action-buttons">
           <button className="btn btn-primary btn-lg glow-mint" onClick={() => navigate('finance-waiting')}>
-            <NewsScrollIcon size={18} /> {isAr ? 'إرسال للعائلة' : 'Dispatch to Family'}
+            <NewsScrollIcon size={18} /> {isAr ? 'إرسال الخطة للعائلة' : 'Dispatch to Family'}
           </button>
           <button className="btn btn-outline" onClick={() => navigate('finance-chat')}>
             <DocumentLeafIcon size={16} /> {isAr ? 'تعديل' : 'Edit'}

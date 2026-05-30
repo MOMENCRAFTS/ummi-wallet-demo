@@ -1,0 +1,652 @@
+﻿
+=== App.tsx (13 pairs) ===
+L34 | EN: Choose Role | AR: Ø§Ø®ØªØ± Ø§Ù„Ø¯ÙˆØ±
+L35 | EN: See the app from each family member\ | AR: Ø´ÙˆÙ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù…Ù† Ø²Ø§ÙˆÙŠØ© ÙƒÙ„ ÙØ±Ø¯
+L177 | EN: ltr | AR: rtl
+L185 | EN: Family support, made clear. | AR: Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø¨ÙˆØ¶ÙˆØ­ ÙˆÙƒØ±Ø§Ù…Ø©
+L186 | EN: Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø¨ÙˆØ¶ÙˆØ­ ÙˆÙƒØ±Ø§Ù…Ø© | AR: ÙƒÙ„ Ø´ÙŠ ÙˆØ§Ø¶Ø­ØŒ ÙˆÙƒÙ„ Ø´ÙŠ Ø¨Ø­Ø¨Ù‘
+L193 | EN: AI-Guided Finance | AR: ØªØ®Ø·ÙŠØ· Ù…Ø§Ù„ÙŠ Ø°ÙƒÙŠ
+L194 | EN: Smart budget estimation with AI analysis | AR: ØªÙ‚Ø¯ÙŠØ± Ù…ÙŠØ²Ø§Ù†ÙŠØ© Ø°ÙƒÙŠ Ø¨ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ
+L200 | EN: 4 Roles, 28 Modules | AR: Ù¤ Ø£Ø¯ÙˆØ§Ø±ØŒ Ù¢Ù¨ Ø®Ø¯Ù…Ø©
+L201 | EN: Responsible Son, Mother, Contributing Brother, Observing Sister | AR: Ø§Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ØŒ Ø§Ù„ÙˆØ§Ù„Ø¯Ø©ØŒ Ø§Ù„Ø£Ø® Ø§Ù„Ù…Ø³Ø§Ù‡Ù…ØŒ Ø§Ù„Ø£Ø®Øª Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©
+L207 | EN: Bilingual AR/EN | AR: Ø«Ù†Ø§Ø¦ÙŠ Ø§Ù„Ù„ØºØ© Ø¹Ø±/EN
+L208 | EN: Arabic-first with full English support | AR: Ø§Ù„Ø¹Ø±Ø¨ÙŠØ© Ø£ÙˆÙ„Ø§Ù‹ Ù…Ø¹ Ø¯Ø¹Ù… Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠ ÙƒØ§Ù…Ù„
+L214 | EN: Emergency SOS | AR: Ø·ÙˆØ§Ø±Ø¦ SOS
+L215 | EN: Instant family emergency fund requests | AR: Ø·Ù„Ø¨Ø§Øª ØµÙ†Ø¯ÙˆÙ‚ Ø·ÙˆØ§Ø±Ø¦ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø§Ù„ÙÙˆØ±ÙŠØ©
+
+=== components\screens\AdminBillsScreen.tsx (8 pairs) ===
+L25 | EN: ltr | AR: rtl
+L28 | EN: Bills | AR: Ø§Ù„ÙÙˆØ§ØªÙŠØ±
+L34 | EN: Total Bills | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„ÙÙˆØ§ØªÙŠØ±
+L35 | EN: SAR | AR: Ø±.Ø³
+L39 | EN: Paid | AR: Ù…Ø³Ø¯Ù‘Ø¯
+L59 | EN: SAR | AR: Ø±.Ø³
+L62 | EN: Paid | AR: Ù…Ø³Ø¯Ù‘Ø¯
+L65 | EN: Pay | AR: Ø³Ø¯Ù‘Ø¯
+
+=== components\screens\AdminDashboard.tsx (17 pairs) ===
+L113 | EN: ltr | AR: rtl
+L116 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L126 | EN: Reservoir Health | AR: ØµØ­Ø© Ø§Ù„Ø®Ø²Ù†Ø©
+L134 | EN: SAR | AR: Ø±.Ø³
+L148 | EN: DAILY BARAKAH | AR: Ø¨Ø±ÙƒØ© Ø§Ù„ÙŠÙˆÙ…
+L164 | EN: Request from Mother | AR: Ø·Ù„Ø¨ Ù…Ù† Ø§Ù„ÙˆØ§Ù„Ø¯Ø©
+L166 | EN: SAR | AR: Ø±.Ø³
+L173 | EN: Approve | AR: Ù…ÙˆØ§ÙÙ‚Ø©
+L190 | EN: Publish Plan | AR: Ø§Ù†Ø´Ø± Ø§Ù„Ø®Ø·Ø©
+L196 | EN: Plan Published | AR: Ø§Ù„Ø®Ø·Ø© Ù…Ù†Ø´ÙˆØ±Ø©
+L207 | EN: Chat | AR: Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø§Øª
+L237 | EN: Virtual Pockets | AR: Ø§Ù„Ø¬ÙŠÙˆØ¨ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠØ©
+L265 | EN: Follow-up Queue | AR: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©
+L295 | EN: Recent Activity | AR: Ø¢Ø®Ø± Ø§Ù„Ø£Ø®Ø¨Ø§Ø±
+L315 | EN: Manage | AR: Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø®Ø¯Ù…Ø§Øª
+L364 | EN: Refresh Dashboard | AR: ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù„ÙˆØ­Ø©
+L370 | EN: Live data | AR: Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ø¨Ø§Ø´Ø±Ø©
+
+=== components\screens\BrotherAuditScreen.tsx (10 pairs) ===
+L32 | EN: ltr | AR: rtl
+L36 | EN: Plan Audit | AR: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ø®Ø·Ø©
+L48 | EN: Total Monthly Plan | AR: Ø§Ù„Ù…Ø¨Ù„Øº Ø§Ù„Ø´Ù‡Ø±ÙŠ Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ
+L49 | EN: SAR | AR: Ø±.Ø³
+L56 | EN: Budget Items | AR: ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø¨Ù†ÙˆØ¯
+L86 | EN: SAR | AR: Ø±.Ø³
+L87 | EN: My monthly share | AR: Ø­ØµÙ‘ØªÙŠ Ø§Ù„Ø´Ù‡Ø±ÙŠØ©
+L91 | EN: Settled | AR: ØªÙ…Ù‘Øª Ø§Ù„ØªØ³ÙˆÙŠØ©
+L92 | EN: Pending | AR: Ù…Ø¹Ù„Ù‘Ù‚
+L98 | EN: Proof submitted â€” JazakAllahu Khairan | AR: Ø¬Ø²Ø§Ùƒ Ø§Ù„Ù„Ù‡ Ø®ÙŠØ± â€” ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø¥Ø«Ø¨Ø§Øª
+
+=== components\screens\BrotherContributionScreen.tsx (12 pairs) ===
+L33 | EN: ltr | AR: rtl
+L37 | EN: Pay Direct | AR: Ø¯ÙØ¹ Ù…Ø¨Ø§Ø´Ø±
+L52 | EN: Transfer to | AR: Ø­ÙˆÙ‘Ù„ Ø¹Ù„Ù‰ Ù‡Ø§Ù„Ø­Ø³Ø§Ø¨
+L60 | EN: Copy IBAN | AR: Ù†Ø³Ø® Ø§Ù„Ø¢ÙŠØ¨Ø§Ù†
+L71 | EN: Amount | AR: Ø§Ù„Ù…Ø¨Ù„Øº
+L80 | EN: SAR | AR: Ø±.Ø³
+L91 | EN: Transfer Proof | AR: Ø¥Ø«Ø¨Ø§Øª Ø§Ù„ØªØ­ÙˆÙŠÙ„
+L98 | EN: Proof Uploaded | AR: ØªÙ… Ø±ÙØ¹ Ø§Ù„Ø¥Ø«Ø¨Ø§Øª
+L99 | EN: Upload Receipt | AR: Ø§Ø±ÙØ¹ ØµÙˆØ±Ø© Ø§Ù„Ø¥ÙŠØµØ§Ù„
+L114 | EN: Confirm Payment | AR: ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø¯ÙØ¹
+L127 | EN: Payment Recorded! | AR: ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯ÙØ¹!
+L136 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\BrotherDashboard.tsx (23 pairs) ===
+L67 | EN: ltr | AR: rtl
+L69 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L79 | EN: Plan Not Published Yet | AR: Ø§Ù„Ø®Ø·Ø© Ù„Ù… ØªÙ†Ø´Ø± Ø¨Ø¹Ø¯
+L80 | EN: Waiting for the Responsible Son to publish the finance plan | AR: Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ ÙŠÙ†Ø´Ø± Ø§Ù„Ø®Ø·Ø© Ø§Ù„Ù…Ø§Ù„ÙŠØ©
+L91 | EN: Chat | AR: Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø§Øª
+L100 | EN: ltr | AR: rtl
+L102 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L116 | EN: Total Paid | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù…Ø¯ÙÙˆØ¹
+L126 | EN: Approved | AR: ØªÙ…Ù‘Øª Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©
+L136 | EN: Pending | AR: Ù…Ø¹Ù„Ù‘Ù‚Ø©
+L149 | EN: Daily Barakah | AR: Ø¨Ø±ÙƒØ© Ø§Ù„ÙŠÙˆÙ…
+L163 | EN: Pending Approval | AR: Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©
+L171 | EN: SAR | AR: Ø±.Ø³
+L190 | EN: My Requests | AR: Ø·Ù„Ø¨Ø§ØªÙŠ
+L197 | EN: SAR | AR: Ø±.Ø³
+L214 | EN: Where to Send | AR: ÙˆÙŠÙ† Ø£Ø­ÙˆÙ‘Ù„ØŸ
+L220 | EN: Copy IBAN | AR: Ù†Ø³Ø® Ø§Ù„Ø¢ÙŠØ¨Ø§Ù†
+L234 | EN: My Share | AR: Ø­ØµÙ‘ØªÙŠ
+L240 | EN: SAR | AR: Ø±.Ø³
+L244 | EN: Settled | AR: ØªÙ…Ù‘Øª Ø§Ù„ØªØ³ÙˆÙŠØ©
+L251 | EN: Proof submitted | AR: ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø¥Ø«Ø¨Ø§Øª â€” Ø¬Ø²Ø§Ùƒ Ø§Ù„Ù„Ù‡ Ø®ÙŠØ±
+L266 | EN: View Plan | AR: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ø®Ø·Ø©
+L269 | EN: Pay Direct | AR: Ø¯ÙØ¹ Ù…Ø¨Ø§Ø´Ø±
+
+=== components\screens\BrotherHistoryScreen.tsx (5 pairs) ===
+L21 | EN: ltr | AR: rtl
+L22 | EN: Payment History | AR: Ø³Ø¬Ù„ Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª
+L25 | EN: Total Paid | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª
+L26 | EN: SAR | AR: Ø±.Ø³
+L32 | EN: Proof attached | AR: Ø¥Ø«Ø¨Ø§Øª Ù…Ø±ÙÙ‚
+
+=== components\screens\BrotherPayDirectScreen.tsx (8 pairs) ===
+L21 | EN: ltr | AR: rtl
+L26 | EN: Payment Sent! | AR: ØªÙ… Ø§Ù„Ø¥Ø±Ø³Ø§Ù„ â€” Ø¬Ø²Ø§Ùƒ Ø§Ù„Ù„Ù‡ Ø®ÙŠØ±
+L27 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+L34 | EN: ltr | AR: rtl
+L35 | EN: Pay Direct | AR: Ø¯ÙØ¹ Ù…Ø¨Ø§Ø´Ø±
+L37 | EN: Select pocket and enter amount | AR: Ø§Ø®ØªØ± Ø§Ù„Ø¬ÙŠØ¨ ÙˆØ£Ø¯Ø®Ù„ Ø§Ù„Ù…Ø¨Ù„Øº
+L45 | EN: Amount in SAR | AR: Ø§Ù„Ù…Ø¨Ù„Øº Ø¨Ø§Ù„Ø±ÙŠØ§Ù„
+L47 | EN: Send Payment | AR: Ø¥Ø±Ø³Ø§Ù„
+
+=== components\screens\BrotherProofScreen.tsx (8 pairs) ===
+L15 | EN: ltr | AR: rtl
+L16 | EN: Payment Proof | AR: Ø¥Ø«Ø¨Ø§Øª Ø§Ù„Ø¯ÙØ¹
+L23 | EN: Attach transfer screenshot or receipt | AR: Ø§Ø±ÙÙ‚ ØµÙˆØ±Ø© Ø§Ù„Ø­ÙˆØ§Ù„Ø© Ø£Ùˆ Ø¥ÙŠØµØ§Ù„ Ø§Ù„Ø¯ÙØ¹
+L26 | EN: Camera | AR: Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§
+L29 | EN: Gallery | AR: Ø§Ù„Ù…Ø¹Ø±Ø¶
+L36 | EN: Proof Uploaded! | AR: ØªÙ… Ø±ÙØ¹ Ø§Ù„Ø¥Ø«Ø¨Ø§Øª â€” Ø¬Ø²Ø§Ùƒ Ø§Ù„Ù„Ù‡ Ø®ÙŠØ±
+L37 | EN: Awaiting admin review | AR: Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„
+L38 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\BrotherSettlementScreen.tsx (6 pairs) ===
+L22 | EN: ltr | AR: rtl
+L23 | EN: My Settlement | AR: ØªØ³ÙˆÙŠØªÙŠ
+L27 | EN: Expected | AR: Ø§Ù„Ù…Ø·Ù„ÙˆØ¨
+L28 | EN: Paid | AR: Ø§Ù„Ù…Ø¯ÙÙˆØ¹
+L29 | EN: Left | AR: Ø§Ù„Ù…ØªØ¨Ù‚ÙŠ
+L44 | EN: Settled | AR: Ù…Ø³ÙˆÙ‘Ù‰
+
+=== components\screens\BrotherSuggestionsScreen.tsx (5 pairs) ===
+L21 | EN: ltr | AR: rtl
+L22 | EN: Suggestions | AR: Ø£ÙÙƒØ§Ø± ÙˆØ§Ù‚ØªØ±Ø§Ø­Ø§Øª
+L34 | EN: Liked | AR: Ø£Ø¹Ø¬Ø¨Ù†ÙŠ
+L36 | EN: likes | AR: Ø¥Ø¹Ø¬Ø§Ø¨
+L41 | EN: Add Idea | AR: Ø£Ø¶Ù ÙÙƒØ±Ø©
+
+=== components\screens\CelebrationScreen.tsx (4 pairs) ===
+L28 | EN: ltr | AR: rtl
+L79 | EN: 5,300 | AR: Ù¥,Ù£Ù Ù 
+L80 | EN: 4 items â€¢ For Ø£Ù…ÙŠ | AR: Ù¤ Ø¨Ù†ÙˆØ¯ â€¢ Ù„Ù„ÙˆØ§Ù„Ø¯Ø©
+L90 | EN: Go to Dashboard | AR: Ø§Ù„Ø°Ù‡Ø§Ø¨ Ù„Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…
+
+=== components\screens\CelebrationsScreen.tsx (6 pairs) ===
+L26 | EN: ltr | AR: rtl
+L29 | EN: Celebrations | AR: Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª
+L59 | EN: days | AR: ÙŠÙˆÙ…
+L63 | EN: Budget: | AR: Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©:
+L65 | EN: Plan | AR: Ø®Ø·Ù‘Ø·
+L73 | EN: Add Celebration | AR: Ø¥Ø¶Ø§ÙØ© Ù…Ù†Ø§Ø³Ø¨Ø©
+
+=== components\screens\ChatListScreen.tsx (5 pairs) ===
+L94 | EN: ltr | AR: rtl
+L98 | EN: â† | AR: â†’
+L101 | EN: Family Chat | AR: Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L156 | EN: View only â€” you cannot send messages | AR: Ø¹Ø±Ø¶ ÙÙ‚Ø· â€” Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø¥Ø±Ø³Ø§Ù„ Ø±Ø³Ø§Ø¦Ù„
+L163 | EN: Live | AR: Ù…Ø¨Ø§Ø´Ø±
+
+=== components\screens\ChatRoomScreen.tsx (7 pairs) ===
+L154 | EN: ltr | AR: rtl
+L157 | EN: â† | AR: â†’
+L160 | EN: messages | AR: Ø±Ø³Ø§Ù„Ø©
+L234 | EN: typing... | AR: ÙŠÙƒØªØ¨...
+L262 | EN: Type a message... | AR: Ø§ÙƒØªØ¨ Ù‡Ù†Ø§...
+L266 | EN: ltr | AR: rtl
+L279 | EN: View only â€” you cannot send messages | AR: Ø¹Ø±Ø¶ ÙÙ‚Ø· â€” Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø¥Ø±Ø³Ø§Ù„ Ø±Ø³Ø§Ø¦Ù„
+
+=== components\screens\DocumentsScreen.tsx (5 pairs) ===
+L43 | EN: ltr | AR: rtl
+L46 | EN: Documents | AR: Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª
+L51 | EN: All documents encrypted & secure | AR: Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ù…Ø´ÙÙ‘Ø±Ø© ÙˆÙ…Ø­Ù…ÙŠØ©
+L79 | EN: View | AR: Ø¹Ø±Ø¶
+L87 | EN: Upload Document | AR: Ø±ÙØ¹ Ù…Ø³ØªÙ†Ø¯
+
+=== components\screens\FinanceAuditContributorScreen.tsx (7 pairs) ===
+L22 | EN: ltr | AR: rtl
+L25 | EN: Review Plan | AR: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ø®Ø·Ø©
+L28 | EN: Proposed support plan from the responsible son | AR: Ø®Ø·Ø© Ø§Ù„Ø¯Ø¹Ù… Ø§Ù„Ù…Ù‚ØªØ±Ø­Ø© Ù…Ù† Ø§Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„
+L31 | EN: Plan Total | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø®Ø·Ø©
+L32 | EN: SAR | AR: Ø±.Ø³
+L44 | EN: Approve | AR: Ù…ÙˆØ§ÙÙ‚Ø©
+L47 | EN: Request Revision | AR: Ø·Ù„Ø¨ ØªØ¹Ø¯ÙŠÙ„
+
+=== components\screens\FinanceAuditObserverScreen.tsx (6 pairs) ===
+L22 | EN: ltr | AR: rtl
+L25 | EN: View Plan | AR: Ø¹Ø±Ø¶ Ø§Ù„Ø®Ø·Ø©
+L30 | EN: View-only mode | AR: ÙˆØ¶Ø¹ Ø§Ù„Ù…Ø´Ø§Ù‡Ø¯Ø© ÙÙ‚Ø·
+L34 | EN: Plan Total | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø®Ø·Ø©
+L35 | EN: SAR | AR: Ø±.Ø³
+L46 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\FinanceChatScreen.tsx (29 pairs) ===
+L108 | EN: Now household staff â€” maid salary first: | AR: ØªÙ…Ø§Ù…! Ø§Ù„Ø¢Ù† Ø±ÙˆØ§ØªØ¨ Ø§Ù„Ù…ÙˆØ¸ÙÙŠÙ† â€” Ø§Ù„Ø®Ø§Ø¯Ù…Ø© Ø£ÙˆÙ„Ø§Ù‹:
+L109 | EN: Great! And the driver salary? | AR: Ù…Ù…ØªØ§Ø². ÙˆØ±Ø§ØªØ¨ Ø§Ù„Ø³Ø§Ø¦Ù‚ØŸ
+L110 | EN: Now utilities â€” electricity, water, internet. Monthly average? | AR: Ø§Ù„Ø­ÙŠÙ† Ø§Ù„ÙÙˆØ§ØªÙŠØ± â€” ÙƒÙ‡Ø±Ø¨Ø§Ø¡ØŒ Ù…Ø§Ø¡ØŒ Ø¥Ù†ØªØ±Ù†Øª. ÙƒÙ… Ø§Ù„Ù…Ø¹Ø¯Ù‘Ù„ Ø§Ù„Ø´Ù‡Ø±ÙŠØŸ
+L111 | EN: Alright, groceries and food supplies: | AR: Ø·ÙŠØ¨ØŒ Ø§Ù„Ø¨Ù‚Ø§Ù„Ø© ÙˆØ§Ù„Ù…ÙˆØ§Ø¯ Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©:
+L112 | EN: Medical care â€” monthly budget: | AR: Ø§Ù„Ù„Ù‡ ÙŠØ´ÙÙŠÙ‡Ø§ â€” Ø§Ù„Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ø´Ù‡Ø±ÙŠØ©:
+L190 | EN: Data Gathering | AR: Ø¬Ù…Ø¹ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª
+L191 | EN: Analysis | AR: Ø§Ù„ØªØ­Ù„ÙŠÙ„
+L192 | EN: Review | AR: Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©
+L198 | EN: ltr | AR: rtl
+L203 | EN: AI Setup | AR: Ø¥Ø¹Ø¯Ø§Ø¯ Ø°ÙƒÙŠ
+L204 | EN: Budget Analysis | AR: ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©
+L205 | EN: Translation Review | AR: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„ØªØ±Ø¬Ù…Ø©
+L249 | EN: SAR | AR: Ø±.Ø³
+L272 | EN: SAR | AR: Ø±.Ø³
+L285 | EN: SAR | AR: Ø±.Ø³
+L291 | EN: Confirm | AR: ØªØ£ÙƒÙŠØ¯
+L309 | EN: Analyzing your plan... | AR: ØªØ­Ù„ÙŠÙ„ Ø®Ø·ØªÙƒ...
+L329 | EN: Budget Health | AR: ØµØ­Ø© Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©
+L339 | EN: Needs | AR: Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª
+L340 | EN: Wants | AR: Ø±ØºØ¨Ø§Øª
+L341 | EN: Safety | AR: Ø£Ù…Ø§Ù†
+L375 | EN: Review Translations | AR: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„ØªØ±Ø¬Ù…Ø©
+L378 | EN: Skip to Summary | AR: ØªØ®Ø·ÙŠ Ù„Ù„Ù…Ù„Ø®Øµ
+L424 | EN: Accept | AR: Ù‚Ø¨ÙˆÙ„
+L443 | EN: Accept All | AR: Ù‚Ø¨ÙˆÙ„ Ø§Ù„ÙƒÙ„
+L447 | EN: View Summary | AR: Ø¹Ø±Ø¶ Ø§Ù„Ù…Ù„Ø®Øµ
+L475 | EN: Running Total | AR: Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ
+L476 | EN: items | AR: Ø¨Ù†ÙˆØ¯
+L478 | EN: SAR | AR: Ø±.Ø³
+
+=== components\screens\FinanceCurrencyScreen.tsx (4 pairs) ===
+L21 | EN: ltr | AR: rtl
+L24 | EN: Currency | AR: Ø§Ù„Ø¹Ù…Ù„Ø©
+L27 | EN: Select the base currency for your support plan | AR: Ø§Ø®ØªØ± Ø§Ù„Ø¹Ù…Ù„Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ù„Ø®Ø·Ø© Ø§Ù„Ø¯Ø¹Ù…
+L47 | EN: Continue | AR: Ù…ØªØ§Ø¨Ø¹Ø©
+
+=== components\screens\FinanceDispatchScreen.tsx (6 pairs) ===
+L23 | EN: ltr | AR: rtl
+L26 | EN: Dispatch Budget | AR: ØªÙˆØ²ÙŠØ¹ Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©
+L30 | EN: Total Distribution | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„ØªÙˆØ²ÙŠØ¹
+L31 | EN: SAR | AR: Ø±.Ø³
+L41 | EN: SAR | AR: Ø±.Ø³
+L47 | EN: Confirm Distribution | AR: ØªØ£ÙƒÙŠØ¯ Ø§Ù„ØªÙˆØ²ÙŠØ¹
+
+=== components\screens\FinanceFinalApprovalScreen.tsx (5 pairs) ===
+L20 | EN: ltr | AR: rtl
+L23 | EN: Final Approval | AR: Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø© Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠØ©
+L26 | EN: Approval status from all members | AR: Ø­Ø§Ù„Ø© Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø§Øª Ù…Ù† Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡
+L37 | EN: Approved | AR: Ù…ÙˆØ§ÙÙ‚
+L43 | EN: Finalize Plan | AR: ØªØ«Ø¨ÙŠØª Ø§Ù„Ø®Ø·Ø©
+
+=== components\screens\FinanceReadjustmentScreen.tsx (6 pairs) ===
+L29 | EN: ltr | AR: rtl
+L32 | EN: Readjust | AR: Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªÙˆØ²ÙŠØ¹
+L36 | EN: New Total | AR: Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø¬Ø¯ÙŠØ¯
+L37 | EN: SAR | AR: Ø±.Ø³
+L46 | EN: from original | AR: Ù…Ù† Ø§Ù„Ø£ØµÙ„
+L59 | EN: Confirm Readjustment | AR: ØªØ£ÙƒÙŠØ¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„
+
+=== components\screens\FinanceReestimationScreen.tsx (8 pairs) ===
+L21 | EN: ltr | AR: rtl
+L24 | EN: Re-estimation | AR: Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªÙ‚Ø¯ÙŠØ±
+L28 | EN: Total Variance | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø§Ù†Ø­Ø±Ø§Ù
+L30 | EN: SAR | AR: Ø±.Ø³
+L38 | EN: Planned | AR: Ø§Ù„Ù…Ø®Ø·Ø·
+L39 | EN: Actual | AR: Ø§Ù„ÙØ¹Ù„ÙŠ
+L40 | EN: Diff | AR: Ø§Ù„ÙØ±Ù‚
+L46 | EN: Readjust Budget | AR: Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©
+
+=== components\screens\FinanceRevisionScreen.tsx (7 pairs) ===
+L18 | EN: ltr | AR: rtl
+L21 | EN: Revisions | AR: Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø§Øª
+L24 | EN: Requested changes to the plan | AR: Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø·Ø©
+L33 | EN: Original | AR: Ø§Ù„Ø£ØµÙ„ÙŠ
+L37 | EN: Revised | AR: Ø§Ù„Ù…Ø¹Ø¯Ù‘Ù„
+L41 | EN: Diff | AR: Ø§Ù„ÙØ±Ù‚
+L51 | EN: Submit Revision | AR: Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©
+
+=== components\screens\FinanceSummaryScreen.tsx (9 pairs) ===
+L26 | EN: ltr | AR: rtl
+L29 | EN: Plan Summary | AR: Ù…Ù„Ø®Øµ Ø§Ù„Ø®Ø·Ø©
+L39 | EN: Monthly Total | AR: Ø§Ù„Ù…Ø¨Ù„Øº Ø§Ù„Ø´Ù‡Ø±ÙŠ
+L40 | EN: SAR | AR: Ø±.Ø³
+L47 | EN: Needs | AR: Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª
+L48 | EN: Wants | AR: Ø±ØºØ¨Ø§Øª
+L49 | EN: Safety | AR: Ø§Ø­ØªÙŠØ§Ø·
+L76 | EN: Dispatch to Family | AR: Ø¥Ø±Ø³Ø§Ù„ Ù„Ù„Ø¹Ø§Ø¦Ù„Ø©
+L79 | EN: Edit | AR: ØªØ¹Ø¯ÙŠÙ„
+
+=== components\screens\FinanceWelcomeScreen.tsx (8 pairs) ===
+L17 | EN: ltr | AR: rtl
+L20 | EN: Finance Setup | AR: Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„Ù…Ø§Ù„ÙŠØ©
+L36 | EN: Monthly need: ~5,000 SAR | AR: Ø§Ø­ØªÙŠØ§Ø¬ Ø´Ù‡Ø±ÙŠ: ~5,000 Ø±.Ø³
+L37 | EN: Maid + Driver | AR: Ø®Ø§Ø¯Ù…Ø© + Ø³Ø§Ø¦Ù‚
+L38 | EN: Electric, Water, Internet | AR: ÙƒÙ‡Ø±Ø¨Ø§Ø¡ØŒ Ù…Ø§Ø¡ØŒ Ø¥Ù†ØªØ±Ù†Øª
+L39 | EN: 1 car | AR: Ø³ÙŠØ§Ø±Ø© ÙˆØ§Ø­Ø¯Ø©
+L43 | EN: Start AI-Guided Setup | AR: Ø¨Ø¯Ø¡ Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ Ø¨Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ
+L46 | EN: Set Up Manually | AR: Ø¥Ø¹Ø¯Ø§Ø¯ ÙŠØ¯ÙˆÙŠ
+
+=== components\screens\HybridOnboardingScreen.tsx (51 pairs) ===
+L85 | EN: en | AR: ar
+L207 | EN: Back | AR: Ø±Ø¬ÙˆØ¹
+L216 | EN: Next | AR: Ø§Ù„ØªØ§Ù„ÙŠ
+L246 | EN: About You | AR: Ø¹Ù† Ø§Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„
+L247 | EN: Your name and preferred language | AR: Ø§Ø³Ù…Ùƒ ÙˆÙ„ØºØ© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ù…ÙØ¶Ù„Ø©
+L249 | EN: Your name | AR: Ø§Ø³Ù…Ùƒ
+L250 | EN: e.g. Ahmed | AR: Ù…Ø«Ø§Ù„: Ø£Ø­Ù…Ø¯
+L251 | EN: Language | AR: Ø§Ù„Ù„ØºØ©
+L265 | EN: Your Family | AR: Ø¹Ø§Ø¦Ù„ØªÙƒ
+L266 | EN: Family name and currency | AR: Ø§Ø³Ù… Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© ÙˆØ§Ù„Ø¹Ù…Ù„Ø©
+L268 | EN: Family name | AR: Ø§Ø³Ù… Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L269 | EN: e.g. Al-Mutairi Family | AR: Ù…Ø«Ø§Ù„: Ø¹Ø§Ø¦Ù„Ø© Ø§Ù„Ù…Ø·ÙŠØ±ÙŠ
+L270 | EN: Currency | AR: Ø§Ù„Ø¹Ù…Ù„Ø©
+L286 | EN: To link her account and simplify transfers | AR: Ø¹Ø´Ø§Ù† Ù†Ø±Ø¨Ø· Ø­Ø³Ø§Ø¨Ù‡Ø§ ÙˆÙ†Ø³Ù‡Ù‘Ù„ Ø§Ù„ØªØ­ÙˆÙŠÙ„Ø§Øª
+L289 | EN: e.g. Um Ahmed | AR: Ù…Ø«Ø§Ù„: Ø£Ù… Ø£Ø­Ù…Ø¯
+L290 | EN: Phone number | AR: Ø±Ù‚Ù… Ø§Ù„Ø¬ÙˆØ§Ù„
+L295 | EN: Email | AR: Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ
+L300 | EN: Bank IBAN | AR: Ø§Ù„Ø¢ÙŠØ¨Ø§Ù† Ø§Ù„Ø¨Ù†ÙƒÙŠ
+L318 | EN: Family Contributors | AR: Ø£Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L319 | EN: Add siblings who will contribute or observe | AR: Ø£Ø¶Ù Ø¥Ø®ÙˆØ§Ù†Ùƒ ÙˆØ£Ø®ÙˆØ§ØªÙƒ â€” ÙƒÙ„ ÙˆØ§Ø­Ø¯ Ø¨Ø¯ÙˆØ±Ù‡
+L322 | EN: Equal | AR: Ù…ØªØ³Ø§ÙˆÙŠ
+L323 | EN: Custom | AR: Ù…Ø®ØµØµ
+L329 | EN: Remove | AR: Ø­Ø°Ù
+L333 | EN: Contributor | AR: Ù…Ø³Ø§Ù‡Ù…
+L336 | EN: Observer | AR: Ù…ØªØ§Ø¨Ø¹
+L339 | EN: Name | AR: Ø§Ù„Ø§Ø³Ù…
+L340 | EN: Email | AR: Ø§Ù„Ø¨Ø±ÙŠØ¯
+L354 | EN: Add Member | AR: Ø£Ø¶Ù Ø¹Ø¶Ùˆ
+L373 | EN: Household Staff | AR: Ø·Ø§Ù‚Ù… Ø§Ù„Ù…Ù†Ø²Ù„
+L374 | EN: Select staff and set their salaries | AR: Ø§Ø®ØªØ± Ø§Ù„Ù…ÙˆØ¸ÙÙŠÙ† ÙˆØ­Ø¯Ø¯ Ø§Ù„Ø±ÙˆØ§ØªØ¨
+L387 | EN: Salary | AR: Ø§Ù„Ø±Ø§ØªØ¨
+L389 | EN: mo | AR: Ø´Ù‡Ø±
+L403 | EN: Staff Total | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø±ÙˆØ§ØªØ¨
+L420 | EN: Budget Assistant | AR: Ù…Ø³Ø§Ø¹Ø¯ Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ©
+L423 | EN: AI Mode | AR: Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ
+L455 | EN: Monthly Expenses | AR: Ø§Ù„Ù…ØµØ§Ø±ÙŠÙ Ø§Ù„Ø´Ù‡Ø±ÙŠØ©
+L476 | EN: Total | AR: Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ
+L492 | EN: Type here... | AR: Ø§ÙƒØªØ¨ Ù‡Ù†Ø§...
+L503 | EN: Back | AR: Ø±Ø¬ÙˆØ¹
+L511 | EN: View Plan | AR: Ø¹Ø±Ø¶ Ø§Ù„Ø®Ø·Ø©
+L521 | EN: Monthly Support Plan | AR: Ø®Ø·Ø© Ø§Ù„Ø¯Ø¹Ù… Ø§Ù„Ø´Ù‡Ø±ÙŠØ©
+L525 | EN: Item | AR: Ø§Ù„Ø¨Ù†Ø¯
+L526 | EN: Amount | AR: Ø§Ù„Ù…Ø¨Ù„Øº
+L544 | EN: Monthly Total | AR: Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø´Ù‡Ø±ÙŠ
+L555 | EN: You | AR: Ø£Ù†Øª
+L566 | EN: Confirm & Start | AR: ØªØ£ÙƒÙŠØ¯ ÙˆØ¨Ø¯Ø¡
+L581 | EN: Your dashboard is ready. Explore everything at your own pace. | AR: Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ… Ø¬Ø§Ù‡Ø²Ø©. Ø§Ø³ØªÙƒØ´Ù ÙƒÙ„ Ø´ÙŠ Ø¨ÙˆÙ‚ØªÙƒ.
+L590 | EN: Open Dashboard | AR: Ø§ÙØªØ­ Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…
+L598 | EN: ltr | AR: rtl
+L605 | EN: Create Your Family | AR: Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L606 | EN: Set up Ummi Wallet for your family circle | AR: Ø®Ø·Ø© Ø±Ø¹Ø§ÙŠØ© Ø§Ù„ÙˆØ§Ù„Ø¯Ø©
+
+=== components\screens\LandingScreen.tsx (10 pairs) ===
+L32 | EN: ltr | AR: rtl
+L71 | EN: Family support, made clear. | AR: Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø¨ÙˆØ¶ÙˆØ­ ÙˆÙƒØ±Ø§Ù…Ø©
+L73 | EN: Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø¨ÙˆØ¶ÙˆØ­ ÙˆÙƒØ±Ø§Ù…Ø© | AR: ÙƒÙ„ Ø´ÙŠ ÙˆØ§Ø¶Ø­ØŒ ÙˆÙƒÙ„ Ø´ÙŠ Ø¨Ø­Ø¨Ù‘
+L85 | EN: 28 | AR: Ù¢Ù¨
+L86 | EN: Modules | AR: Ø®Ø¯Ù…Ø©
+L90 | EN: 4 | AR: Ù¤
+L91 | EN: Roles | AR: Ø£Ø¯ÙˆØ§Ø±
+L95 | EN: AR/EN | AR: Ø¹Ø±/EN
+L96 | EN: Bilingual | AR: Ø«Ù†Ø§Ø¦ÙŠ Ø§Ù„Ù„ØºØ©
+L113 | EN: Explore the App | AR: Ø§Ø³ØªÙƒØ´Ù Ø§Ù„ØªØ·Ø¨ÙŠÙ‚
+
+=== components\screens\LoginScreen.tsx (7 pairs) ===
+L38 | EN: ltr | AR: rtl
+L84 | EN: Family support, made clear. | AR: Ø±Ø¹Ø§ÙŠØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø¨ÙˆØ¶ÙˆØ­ ÙˆÙƒØ±Ø§Ù…Ø©
+L96 | EN: Sign in with Apple | AR: Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¨Ù€ Apple
+L100 | EN: Sign in with Google | AR: Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¨Ù€ Google
+L119 | EN: crafted by | AR: ØµÙÙ†Ø¹Øª Ø¨ÙˆØ§Ø³Ø·Ø©
+L122 | EN: Privacy Policy | AR: Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©
+L124 | EN: Terms of Service | AR: Ø§Ù„Ø´Ø±ÙˆØ· ÙˆØ§Ù„Ø£Ø­ÙƒØ§Ù…
+
+=== components\screens\MaintenanceScreen.tsx (4 pairs) ===
+L27 | EN: ltr | AR: rtl
+L30 | EN: Maintenance | AR: Ø§Ù„ØµÙŠØ§Ù†Ø©
+L49 | EN: SAR | AR: Ø±.Ø³
+L70 | EN: New Request | AR: Ø·Ù„Ø¨ ØµÙŠØ§Ù†Ø© Ø¬Ø¯ÙŠØ¯
+
+=== components\screens\MembersScreen.tsx (3 pairs) ===
+L20 | EN: ltr | AR: rtl
+L23 | EN: Family Members | AR: Ø£Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L54 | EN: Invite Member | AR: Ø¯Ø¹ÙˆØ© Ø¹Ø¶Ùˆ Ø¬Ø¯ÙŠØ¯
+
+=== components\screens\MotherBalanceScreen.tsx (5 pairs) ===
+L19 | EN: ltr | AR: rtl
+L22 | EN: Balance Details | AR: ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø±ØµÙŠØ¯
+L31 | EN: Allocated | AR: Ø§Ù„Ù…Ø®ØµØµ
+L32 | EN: Spent | AR: Ø§Ù„Ù…ØµØ±ÙˆÙ
+L33 | EN: Remaining | AR: Ø§Ù„Ù…ØªØ¨Ù‚ÙŠ
+
+=== components\screens\MotherBillsScreen.tsx (8 pairs) ===
+L37 | EN: ltr | AR: rtl
+L41 | EN: Bills | AR: Ø§Ù„ÙÙˆØ§ØªÙŠØ±
+L54 | EN: Total Upcoming | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù‚Ø§Ø¯Ù…
+L56 | EN: SAR | AR: Ø±.Ø³
+L65 | EN: Upcoming | AR: ÙÙˆØ§ØªÙŠØ± Ù‚Ø§Ø¯Ù…Ø©
+L79 | EN: SAR | AR: Ø±.Ø³
+L94 | EN: Paid | AR: Ù…Ø¯ÙÙˆØ¹Ø©
+L108 | EN: SAR | AR: Ø±.Ø³
+
+=== components\screens\MotherCelebrationsScreen.tsx (4 pairs) ===
+L18 | EN: ltr | AR: rtl
+L19 | EN: Celebrations | AR: Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª
+L25 | EN: days | AR: ÙŠÙˆÙ…
+L29 | EN: Send Blessing | AR: Ø¥Ø±Ø³Ø§Ù„ Ø¯Ø¹ÙˆØ©
+
+=== components\screens\MotherDashboard.tsx (16 pairs) ===
+L39 | EN: ltr | AR: rtl
+L42 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L55 | EN: Daily Barakah | AR: Ø¨Ø±ÙƒØ© Ø§Ù„ÙŠÙˆÙ…
+L67 | EN: Available This Month | AR: Ø±ØµÙŠØ¯Ùƒ Ù„Ù‡Ø§Ù„Ø´Ù‡Ø±
+L71 | EN: SAR | AR: Ø±.Ø³
+L96 | EN: Add Your Bank Details | AR: Ø£Ø¶ÙŠÙÙŠ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø¨Ù†Ùƒ
+L97 | EN: Go to Settings to add your IBAN so your family can transfer directly. | AR: Ø±ÙˆØ­ÙŠ Ù„Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª ÙˆØ¶ÙŠÙÙŠ Ø§Ù„Ø¢ÙŠØ¨Ø§Ù† Ø¹Ø´Ø§Ù† ÙŠÙ‚Ø¯Ø±ÙˆÙ† ÙŠØ­ÙˆÙ‘Ù„ÙˆÙ† Ù„Ùƒ Ù…Ø¨Ø§Ø´Ø±Ø©
+L99 | EN: Settings | AR: Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª
+L112 | EN: Last received: 5,300 SAR â€” 5d ago | AR: Ø¢Ø®Ø± ØªØ­ÙˆÙŠÙ„: Ù¥,Ù£Ù Ù  Ø±.Ø³ â€” Ù‚Ø¨Ù„ Ù¥ Ø£ÙŠØ§Ù…
+L125 | EN: Request Money | AR: Ø·Ù„Ø¨ Ù…Ø¨Ù„Øº
+L129 | EN: Bills | AR: Ø§Ù„ÙÙˆØ§ØªÙŠØ±
+L133 | EN: History | AR: Ø§Ù„Ø³Ø¬Ù„
+L137 | EN: Gratitude | AR: Ø´ÙƒØ± ÙˆØ§Ù…ØªÙ†Ø§Ù†
+L141 | EN: Chat | AR: Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø§Øª
+L152 | EN: Family Feed | AR: Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ÙŠÙ„Ø©
+L179 | EN: Emergency | AR: Ø·ÙˆØ§Ø±Ø¦
+
+=== components\screens\MotherFeedScreen.tsx (2 pairs) ===
+L20 | EN: ltr | AR: rtl
+L21 | EN: Family Feed | AR: Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ÙŠÙ„Ø©
+
+=== components\screens\MotherGratitudeScreen.tsx (10 pairs) ===
+L36 | EN: ltr | AR: rtl
+L42 | EN: Gratitude | AR: Ø´ÙƒØ± ÙˆØ§Ù…ØªÙ†Ø§Ù†
+L59 | EN: A word of thanks | AR: ÙƒÙ„Ù…Ø© Ø´ÙƒØ± Ù„Ù„Ø¹Ø§Ø¦Ù„Ø©
+L62 | EN: Pick a message or write your own | AR: Ø§Ø®ØªØ§Ø±ÙŠ ÙƒÙ„Ù…Ø© Ø­Ù„ÙˆØ© Ø£Ùˆ Ø§ÙƒØªØ¨ÙŠ ÙˆØ­Ø¯Ø© Ù…Ù† Ø¹Ù†Ø¯Ùƒ
+L93 | EN: Or write your own | AR: Ø£Ùˆ Ø§ÙƒØªØ¨ÙŠ Ù…Ù† Ø¹Ù†Ø¯Ùƒ
+L96 | EN: A heartfelt message... | AR: ÙƒÙ„Ù…Ø© Ù…Ù† Ø§Ù„Ù‚Ù„Ø¨...
+L113 | EN: Send Gratitude | AR: Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø´ÙƒØ±
+L131 | EN: Your gratitude was sent! | AR: ÙˆØµÙ„Øª ÙƒÙ„Ù…ØªÙƒ Ø§Ù„Ø­Ù„ÙˆØ©!
+L134 | EN: May Allah bless this beautiful family | AR: Ø§Ù„Ù„Ù‡ ÙŠØ¨Ø§Ø±Ùƒ Ø¨Ù‡Ø§Ù„Ø¹ÙŠÙ„Ø© Ø§Ù„Ø·ÙŠÙ‘Ø¨Ø©
+L137 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\MotherHealthScreen.tsx (5 pairs) ===
+L23 | EN: ltr | AR: rtl
+L24 | EN: Health | AR: Ø§Ù„ØµØ­Ø©
+L26 | EN: Daily Medications | AR: Ø§Ù„Ø£Ø¯ÙˆÙŠØ© Ø§Ù„ÙŠÙˆÙ…ÙŠØ©
+L30 | EN: Taken | AR: ØªÙ…Ù‘
+L34 | EN: Upcoming Appointments | AR: Ø§Ù„Ù…ÙˆØ§Ø¹ÙŠØ¯ Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©
+
+=== components\screens\MotherHistoryScreen.tsx (3 pairs) ===
+L51 | EN: ltr | AR: rtl
+L55 | EN: Transaction History | AR: Ø³Ø¬Ù„ Ø§Ù„Ù…Ø¹Ø§Ù…Ù„Ø§Øª
+L89 | EN: SAR | AR: Ø±.Ø³
+
+=== components\screens\MotherHomeCarScreen.tsx (3 pairs) ===
+L19 | EN: ltr | AR: rtl
+L20 | EN: Home & Car | AR: Ø§Ù„Ø¨ÙŠØª ÙˆØ§Ù„Ø³ÙŠØ§Ø±Ø©
+L34 | EN: New Request | AR: Ø·Ù„Ø¨ ØµÙŠØ§Ù†Ø© Ø¬Ø¯ÙŠØ¯
+
+=== components\screens\MotherRequestScreen.tsx (12 pairs) ===
+L50 | EN: ltr | AR: rtl
+L54 | EN: Request Money | AR: Ø·Ù„Ø¨ Ù…Ø¨Ù„Øº
+L67 | EN: How much do you need? | AR: ÙƒÙ… ØªØ­ØªØ§Ø¬ÙŠÙ†ØŸ
+L73 | EN: 0 | AR: 0
+L77 | EN: SAR | AR: Ø±.Ø³
+L88 | EN: Category | AR: Ù†ÙˆØ¹ Ø§Ù„Ø·Ù„Ø¨
+L110 | EN: Note (optional) | AR: Ù…Ù„Ø§Ø­Ø¸Ø© (Ø§Ø®ØªÙŠØ§Ø±ÙŠ)
+L113 | EN: Add a note if needed... | AR: Ø§ÙƒØªØ¨ÙŠ Ù…Ù„Ø§Ø­Ø¸Ø© Ø¥Ø°Ø§ ØªØ¨ÙŠÙ†...
+L130 | EN: Submit Request | AR: Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø·Ù„Ø¨
+L144 | EN: Request Sent! | AR: ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø·Ù„Ø¨!
+L153 | EN: The responsible son will be notified | AR: Ø¨ÙŠÙˆØµÙ„ Ø¥Ø´Ø¹Ø§Ø± Ù„Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ â€” Ø§Ù„Ù„Ù‡ ÙŠØ³Ù‡Ù‘Ù„
+L156 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\MotherSettingsScreen.tsx (9 pairs) ===
+L12 | EN: ltr | AR: rtl
+L13 | EN: Settings | AR: Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª
+L17 | EN: Bank Details | AR: Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø¨Ù†Ùƒ
+L21 | EN: Edit IBAN | AR: ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø¢ÙŠØ¨Ø§Ù†
+L26 | EN: Notifications | AR: Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª
+L34 | EN: Language | AR: Ø§Ù„Ù„ØºØ©
+L35 | EN: English | AR: Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©
+L40 | EN: Security | AR: Ø§Ù„Ø£Ù…Ø§Ù†
+L41 | EN: Biometric On | AR: Ø¨ØµÙ…Ø© Ù…ÙØ¹Ù‘Ù„Ø©
+
+=== components\screens\MotherSOSScreen.tsx (9 pairs) ===
+L28 | EN: ltr | AR: rtl
+L32 | EN: Emergency Request | AR: Ø·Ù„Ø¨ Ø·ÙˆØ§Ø±Ø¦
+L51 | EN: Select emergency type | AR: Ø­Ø¯Ø¯ Ù†ÙˆØ¹ Ø§Ù„Ø·ÙˆØ§Ø±Ø¦
+L59 | EN: Medical | AR: Ø·Ø¨ÙŠ
+L60 | EN: Repair | AR: ØµÙŠØ§Ù†Ø©
+L61 | EN: Transport | AR: Ù†Ù‚Ù„
+L62 | EN: Other | AR: Ø£Ø®Ø±Ù‰
+L67 | EN: Describe the situation... | AR: Ø§Ø´Ø±Ø­ÙŠ Ø§Ù„Ù…ÙˆÙ‚Ù...
+L82 | EN: Send Emergency Request | AR: Ø¥Ø±Ø³Ø§Ù„ Ø·Ù„Ø¨ Ø§Ù„Ø·ÙˆØ§Ø±Ø¦
+
+=== components\screens\MotherWishesScreen.tsx (4 pairs) ===
+L28 | EN: ltr | AR: rtl
+L29 | EN: Wishes | AR: Ø§Ù„Ø£Ù…Ù†ÙŠØ§Øª
+L37 | EN: SAR | AR: Ø±.Ø³
+L46 | EN: Add Wish | AR: Ø£Ø¶ÙŠÙÙŠ Ø£Ù…Ù†ÙŠØ©
+
+=== components\screens\NotificationsScreen.tsx (3 pairs) ===
+L28 | EN: ltr | AR: rtl
+L29 | EN: Notifications | AR: Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª
+L34 | EN: No notifications | AR: Ù…Ø§ ÙÙŠ Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ø¬Ø¯ÙŠØ¯Ø©
+
+=== components\screens\ObserverCelebrationsScreen.tsx (4 pairs) ===
+L18 | EN: ltr | AR: rtl
+L19 | EN: Celebrations | AR: Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª
+L23 | EN: View-only mode | AR: ÙˆØ¶Ø¹ Ø§Ù„Ù…Ø´Ø§Ù‡Ø¯Ø© ÙÙ‚Ø·
+L29 | EN: days | AR: ÙŠÙˆÙ…
+
+=== components\screens\ObserverDashboard.tsx (13 pairs) ===
+L40 | EN: ltr | AR: rtl
+L42 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L52 | EN: Waiting for Plan | AR: Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù†Ø´Ø± Ø§Ù„Ø®Ø·Ø©
+L64 | EN: Chat | AR: Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø§Øª
+L73 | EN: ltr | AR: rtl
+L75 | EN: Logout | AR: Ø®Ø±ÙˆØ¬
+L89 | EN: Welcome, Sister | AR: Ø£Ù‡Ù„Ø§Ù‹ ÙŠØ§ Ø£Ø®ØªÙŠ
+L90 | EN: Follow the plan and share gratitude | AR: ÙŠÙ…ÙƒÙ†Ùƒ ØªØªØ§Ø¨Ø¹ Ø§Ù„Ø®Ø·Ø© ÙˆØªØ´Ø§Ø±Ùƒ Ø§Ù„ØªÙ‚Ø¯ÙŠØ±
+L98 | EN: Upcoming Celebrations | AR: Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©
+L123 | EN: Family Feed | AR: Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L148 | EN: Family Projects | AR: Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L172 | EN: Feed | AR: Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©
+L176 | EN: Events | AR: Ù…Ù†Ø§Ø³Ø¨Ø§Øª
+
+=== components\screens\ObserverFeedScreen.tsx (3 pairs) ===
+L20 | EN: ltr | AR: rtl
+L21 | EN: Family Feed | AR: Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ø£Ø­Ø¯Ø§Ø«
+L25 | EN: View-only mode | AR: ÙˆØ¶Ø¹ Ø§Ù„Ù…Ø´Ø§Ù‡Ø¯Ø© ÙÙ‚Ø·
+
+=== components\screens\OnboardingScreen.tsx (24 pairs) ===
+L96 | EN: Um Ahmed | AR: Ø£Ù… Ø£Ø­Ù…Ø¯
+L112 | EN: To link her account and simplify requests | AR: Ø¹Ø´Ø§Ù† Ù†Ø±Ø¨Ø· Ø­Ø³Ø§Ø¨Ù‡Ø§ ÙˆÙ†Ø³Ù‡Ù‘Ù„ Ø§Ù„Ø·Ù„Ø¨Ø§Øª
+L121 | EN: Phone number | AR: Ø±Ù‚Ù… Ø§Ù„Ø¬ÙˆØ§Ù„
+L125 | EN: Bank IBAN | AR: Ø§Ù„Ø¢ÙŠØ¨Ø§Ù† Ø§Ù„Ø¨Ù†ÙƒÙŠ
+L134 | EN: Next â€” Invite Family | AR: Ø§Ù„ØªØ§Ù„ÙŠ â€” Ø¯Ø¹ÙˆØ© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L143 | EN: Mohammed | AR: Ù…Ø­Ù…Ø¯
+L144 | EN: Sarah | AR: Ø³Ø§Ø±Ø©
+L145 | EN: Khaled | AR: Ø®Ø§Ù„Ø¯
+L158 | EN: Invite Family Members | AR: Ø¯Ø¹ÙˆØ© Ø£ÙØ±Ø§Ø¯ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L160 | EN: Add siblings to the plan â€” each with their role | AR: Ø£Ø¶Ù Ø¥Ø®ÙˆØ§Ù†Ùƒ ÙˆØ£Ø®ÙˆØ§ØªÙƒ Ù„Ù„Ø®Ø·Ø© â€” ÙƒÙ„ ÙˆØ§Ø­Ø¯ Ø¨Ø¯ÙˆØ±Ù‡
+L179 | EN: Invited | AR: ØªÙ…Øª Ø§Ù„Ø¯Ø¹ÙˆØ©
+L183 | EN: Invite | AR: Ø¯Ø¹ÙˆØ©
+L191 | EN: Complete Setup | AR: Ø£ÙƒÙ…Ù„ Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯
+L194 | EN: Skip â€” invite later | AR: ØªØ®Ø·Ù‘ÙŠ â€” Ø£Ø¯Ø¹ÙˆÙ‡Ù… Ù„Ø§Ø­Ù‚Ø§Ù‹
+L203 | EN: Ahmed Family | AR: Ø¹Ø§Ø¦Ù„Ø© Ø£Ø­Ù…Ø¯
+L215 | EN: Confirm Your Role | AR: ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø§Ù†Ø¶Ù…Ø§Ù…
+L224 | EN: Role | AR: Ø§Ù„Ø¯ÙˆØ±
+L228 | EN: Family | AR: Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+L232 | EN: Admin | AR: Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„
+L233 | EN: Ahmed (Responsible Son) | AR: Ø£Ø­Ù…Ø¯ (Ø§Ù„Ø§Ø¨Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„)
+L238 | EN: Confirm & Join | AR: ØªØ£ÙƒÙŠØ¯ ÙˆØ§Ù†Ø¶Ù…Ø§Ù…
+L269 | EN: Your dashboard is ready. Explore everything at your own pace. | AR: Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ… Ø¬Ø§Ù‡Ø²Ø©. Ø§Ø³ØªÙƒØ´Ù ÙƒÙ„ Ø´ÙŠ Ø¨ÙˆÙ‚ØªÙƒ.
+L279 | EN: Open Dashboard | AR: Ø§ÙØªØ­ Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…
+L314 | EN: ltr | AR: rtl
+
+=== components\screens\PayrollScreen.tsx (8 pairs) ===
+L23 | EN: ltr | AR: rtl
+L26 | EN: Payroll | AR: Ø§Ù„Ø±ÙˆØ§ØªØ¨
+L33 | EN: Monthly Total | AR: Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø±ÙˆØ§ØªØ¨ Ø§Ù„Ø´Ù‡Ø±ÙŠØ©
+L34 | EN: SAR | AR: Ø±.Ø³
+L38 | EN: Paid | AR: Ø§Ù„Ù…Ø¯ÙÙˆØ¹
+L56 | EN: SAR | AR: Ø±.Ø³
+L59 | EN: Paid | AR: Ù…Ø¯ÙÙˆØ¹
+L64 | EN: Pay Now | AR: Ø¯ÙØ¹ Ø§Ù„Ø¢Ù†
+
+=== components\screens\PendingScreen.tsx (4 pairs) ===
+L104 | EN: ltr | AR: rtl
+L109 | EN: â† | AR: â†’
+L123 | EN: Approved! | AR: ØªÙ…Øª Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©!
+L124 | EN: Going back... | AR: Ø¬Ø§Ø±ÙŠ Ø§Ù„Ø¹ÙˆØ¯Ø©...
+
+=== components\screens\PhoneVerifyScreen.tsx (10 pairs) ===
+L71 | EN: Invalid Saudi mobile â€” must start with 5 | AR: Ø±Ù‚Ù… Ø¬ÙˆØ§Ù„ ØºÙŠØ± ØµØ§Ù„Ø­ â€” ÙŠØ¨Ø¯Ø£ Ø¨Ù€ 5
+L87 | EN: Your Phone Number | AR: Ø±Ù‚Ù… Ø§Ù„Ø¬ÙˆØ§Ù„
+L89 | EN: Enter your number to join your family | AR: Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù…Ùƒ Ù„Ø±Ø¨Ø·Ùƒ Ø¨Ø¹Ø§Ø¦Ù„ØªÙƒ
+L114 | EN: A verification code will be sent via SMS | AR: Ø³ÙŠØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø±Ù…Ø² Ø§Ù„ØªØ­Ù‚Ù‚ Ø¹Ø¨Ø± Ø±Ø³Ø§Ù„Ø© SMS
+L119 | EN: Send Verification Code | AR: Ø¥Ø±Ø³Ø§Ù„ Ø±Ù…Ø² Ø§Ù„ØªØ­Ù‚Ù‚
+L191 | EN: Verification Code | AR: Ø±Ù…Ø² Ø§Ù„ØªØ­Ù‚Ù‚
+L234 | EN: Resend Code | AR: Ø¥Ø¹Ø§Ø¯Ø© Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ù…Ø²
+L271 | EN: Verified | AR: ØªÙ… Ø§Ù„ØªØ­Ù‚Ù‚
+L280 | EN: Linking your account to your family... | AR: Ø¬Ø§Ø±ÙŠ Ø±Ø¨Ø· Ø­Ø³Ø§Ø¨Ùƒ Ø¨Ø¹Ø§Ø¦Ù„ØªÙƒ...
+L316 | EN: ltr | AR: rtl
+
+=== components\screens\PlaceholderScreen.tsx (3 pairs) ===
+L13 | EN: ltr | AR: rtl
+L20 | EN: Coming Soon | AR: Ù‚Ø±ÙŠØ¨Ø§Ù‹
+L21 | EN: This module is under development | AR: Ù‡Ø°Ø§ Ø§Ù„Ù…ÙˆØ¯ÙŠÙˆÙ„ Ù‚ÙŠØ¯ Ø§Ù„ØªØ·ÙˆÙŠØ±
+
+=== components\screens\ProjectsScreen.tsx (6 pairs) ===
+L20 | EN: ltr | AR: rtl
+L23 | EN: Projects | AR: Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹
+L41 | EN: contributors | AR: Ù…Ø³Ø§Ù‡Ù…ÙŠÙ†
+L48 | EN: SAR | AR: Ø±.Ø³
+L61 | EN: Contribute | AR: Ø³Ø§Ù‡Ù…
+L69 | EN: New Project | AR: Ù…Ø´Ø±ÙˆØ¹ Ø¬Ø¯ÙŠØ¯
+
+=== components\screens\PulseScreen.tsx (2 pairs) ===
+L33 | EN: ltr | AR: rtl
+L36 | EN: Family Pulse | AR: Ù†Ø¨Ø¶ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©
+
+=== components\screens\QueueScreen.tsx (6 pairs) ===
+L43 | EN: ltr | AR: rtl
+L46 | EN: Follow-up Queue | AR: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©
+L79 | EN: SAR | AR: Ø±.Ø³
+L86 | EN: Done | AR: ØªÙ…Ù‘
+L96 | EN: All clear! | AR: Ù…Ø§ ÙÙŠ Ø´ÙŠ Ù…Ø¹Ù„Ù‘Ù‚ â€” Ø§Ù„Ø­Ù…Ø¯ Ù„Ù„Ù‡
+L102 | EN: completed | AR: Ù…ÙƒØªÙ…Ù„
+
+=== components\screens\ReportsScreen.tsx (5 pairs) ===
+L33 | EN: ltr | AR: rtl
+L36 | EN: Reports | AR: Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±
+L58 | EN: Monthly Spending | AR: Ø§Ù„Ù…ØµØ±ÙˆÙØ§Øª Ø§Ù„Ø´Ù‡Ø±ÙŠØ©
+L75 | EN: By Category | AR: Ø§Ù„ØªÙˆØ²ÙŠØ¹ Ø­Ø³Ø¨ Ø§Ù„ÙØ¦Ø©
+L101 | EN: Download PDF | AR: ØªÙ†Ø²ÙŠÙ„ PDF
+
+=== components\screens\ReservoirScreen.tsx (8 pairs) ===
+L25 | EN: ltr | AR: rtl
+L28 | EN: Reservoir | AR: Ø§Ù„Ø®Ø²Ù†Ø©
+L33 | EN: Total Balance | AR: Ø±ØµÙŠØ¯ Ø§Ù„Ø®Ø²Ù†Ø©
+L34 | EN: SAR | AR: Ø±.Ø³
+L38 | EN: Allocated | AR: Ù…Ø®ØµÙ‘Øµ
+L42 | EN: Available | AR: Ù…ØªØ§Ø­
+L52 | EN: Recent Transactions | AR: Ø¢Ø®Ø± Ø§Ù„Ø­Ø±ÙƒØ§Øª
+L78 | EN: Top Up | AR: ØªØ¹Ø¨Ø¦Ø© Ø§Ù„Ø®Ø²Ù†Ø©
+
+=== components\screens\ServiceScreen.tsx (3 pairs) ===
+L46 | EN: ltr | AR: rtl
+L82 | EN: Coming Soon | AR: Ù‚Ø±ÙŠØ¨Ø§Ù‹ â€” ØªØ­Øª Ø§Ù„ØªØ·ÙˆÙŠØ±
+L86 | EN: Go Back | AR: Ø±Ø¬ÙˆØ¹
+
+=== components\screens\SettingsScreen.tsx (3 pairs) ===
+L23 | EN: ltr | AR: rtl
+L24 | EN: Settings | AR: Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª
+L42 | EN: Logout | AR: ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬
+
+=== components\screens\SettlementScreen.tsx (8 pairs) ===
+L22 | EN: ltr | AR: rtl
+L25 | EN: Settlement | AR: Ø§Ù„ØªØ³ÙˆÙŠØ©
+L30 | EN: Expected | AR: Ø§Ù„Ù…Ø·Ù„ÙˆØ¨
+L31 | EN: Collected | AR: Ø§Ù„Ù…Ø­ØµÙ‘Ù„
+L32 | EN: Remaining | AR: Ø§Ù„Ù…ØªØ¨Ù‚ÙŠ
+L47 | EN: SAR | AR: Ø±.Ø³
+L50 | EN: Settled | AR: Ù…Ø³ÙˆÙ‘Ù‰
+L58 | EN: Remind | AR: ØªØ°ÙƒÙŠØ±
+
+=== components\screens\TutorialOverlay.tsx (3 pairs) ===
+L269 | EN: ltr | AR: rtl
+L292 | EN: Minimize | AR: ØªØµØºÙŠØ±
+L295 | EN: End Tutorial | AR: Ø¥Ù†Ù‡Ø§Ø¡ Ø§Ù„Ø¯Ù„ÙŠÙ„
+
+=== components\screens\WaitingRoomScreen.tsx (6 pairs) ===
+L29 | EN: ltr | AR: rtl
+L41 | EN: Waiting Room | AR: ØºØ±ÙØ© Ø§Ù„Ø§Ù†ØªØ¸Ø§Ø±
+L54 | EN: Waiting for Responses | AR: ÙÙŠ Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ø±Ø¯ÙˆØ¯
+L56 | EN: Plan dispatched to all members | AR: Ø£ÙØ±Ø³Ù„Øª Ø§Ù„Ø®Ø·Ø© Ù„ÙƒÙ„ Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡
+L64 | EN: Members | AR: Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡
+L97 | EN: Force Activate | AR: ØªÙØ¹ÙŠÙ„ Ø§Ù„Ø®Ø·Ø©

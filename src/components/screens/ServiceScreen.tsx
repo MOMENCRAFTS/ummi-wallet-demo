@@ -19,22 +19,22 @@ const SERVICE_META: Record<string, {
   Icon: React.ComponentType<{ size?: number; color?: string }>;
   color: string;
 }> = {
-  queue: { label: 'Queue', labelAr: 'المتابعة', desc: 'Track pending tasks and approvals', descAr: 'تابع المهام والموافقات المعلّقة', Icon: QueueScrollIcon, color: c.mint },
-  payroll: { label: 'Payroll', labelAr: 'الرواتب', desc: 'Manage household staff salaries', descAr: 'إدارة رواتب الموظفين', Icon: PayrollLeafIcon, color: c.yellow },
-  bills: { label: 'Bills', labelAr: 'الفواتير', desc: 'View and schedule bill payments', descAr: 'عرض وجدولة دفع الفواتير', Icon: LeafBillIcon, color: c.mint },
-  maintenance: { label: 'Maintenance', labelAr: 'الصيانة', desc: 'Track home maintenance requests', descAr: 'تتبّع طلبات الصيانة المنزلية', Icon: WrenchVineIcon, color: c.muted },
+  queue: { label: 'Queue', labelAr: 'المتابعة', desc: 'Track pending tasks and approvals', descAr: 'تتبع المهام والموافقات المعلّقة', Icon: QueueScrollIcon, color: c.mint },
+  payroll: { label: 'Payroll', labelAr: 'الرواتب', desc: 'Manage household staff salaries', descAr: 'إدارة رواتب طاقم المنزل', Icon: PayrollLeafIcon, color: c.yellow },
+  bills: { label: 'Bills', labelAr: 'الفواتير', desc: 'View and schedule bill payments', descAr: 'عرض وجدولة مدفوعات الفواتير', Icon: LeafBillIcon, color: c.mint },
+  maintenance: { label: 'Maintenance', labelAr: 'الصيانة', desc: 'Track home maintenance requests', descAr: 'متابعة طلبات الصيانة المنزلية', Icon: WrenchVineIcon, color: c.muted },
   reservoir: { label: 'Reservoir', labelAr: 'الخزنة', desc: 'Family savings and reserves', descAr: 'مدخرات واحتياطيات العائلة', Icon: BankGardenIcon, color: c.mint },
-  settlement: { label: 'Settlement', labelAr: 'التسوية', desc: 'Reconcile contributions and balances', descAr: 'تسوية المساهمات والأرصدة', Icon: BalanceLeavesIcon, color: c.muted },
-  pulse: { label: 'Pulse', labelAr: 'النبض', desc: 'Real-time family activity feed', descAr: 'متابعة نشاط العائلة لحظياً', Icon: ChartBloomIcon, color: c.mint },
+  settlement: { label: 'Settlement', labelAr: 'التسوية', desc: 'Reconcile contributions and balances', descAr: 'مطابقة المساهمات والأرصدة', Icon: BalanceLeavesIcon, color: c.muted },
+  pulse: { label: 'Pulse', labelAr: 'النبض', desc: 'Real-time family activity feed', descAr: 'نشاط العائلة لحظيًا', Icon: ChartBloomIcon, color: c.mint },
   reports: { label: 'Reports', labelAr: 'التقارير', desc: 'Monthly and annual financial reports', descAr: 'تقارير مالية شهرية وسنوية', Icon: ChartBloomIcon, color: c.blue },
   invite: { label: 'Members', labelAr: 'الأعضاء', desc: 'Invite and manage family members', descAr: 'دعوة وإدارة أعضاء العائلة', Icon: PersonFloralIcon, color: c.muted },
   projects: { label: 'Projects', labelAr: 'المشاريع', desc: 'Track family savings projects', descAr: 'متابعة مشاريع الادخار العائلية', Icon: TulipIcon, color: c.peach },
-  celebrations: { label: 'Events', labelAr: 'المناسبات', desc: 'Plan family celebrations and events', descAr: 'تخطيط المناسبات والأحداث العائلية', Icon: CakeBlossomIcon, color: c.peach },
+  celebrations: { label: 'Events', labelAr: 'المناسبات', desc: 'Plan family celebrations and events', descAr: 'تخطيط مناسبات العائلة', Icon: CakeBlossomIcon, color: c.peach },
   documents: { label: 'Documents', labelAr: 'المستندات', desc: 'Store and share important documents', descAr: 'حفظ ومشاركة المستندات المهمة', Icon: DocumentLeafIcon, color: c.blue },
-  suggestions: { label: 'Ideas', labelAr: 'أفكار', desc: 'Family suggestions and ideas board', descAr: 'لوحة أفكار واقتراحات العائلة', Icon: LightbulbPetalIcon, color: c.yellow },
+  suggestions: { label: 'Ideas', labelAr: 'الأفكار', desc: 'Family suggestions and ideas board', descAr: 'لوحة أفكار واقتراحات العائلة', Icon: LightbulbPetalIcon, color: c.yellow },
 };
 
-const DEFAULT = { label: 'Service', labelAr: 'خدمة', desc: 'This feature is coming soon', descAr: 'هذي الخدمة تحت التطوير', Icon: TulipIcon, color: c.muted };
+const DEFAULT = { label: 'Service', labelAr: 'خدمة', desc: 'This feature is coming soon', descAr: 'هذه الخدمة قيد التطوير', Icon: TulipIcon, color: c.muted };
 
 export default function ServiceScreen() {
   const { goBack, params, lang } = useNavigation();
@@ -79,7 +79,7 @@ export default function ServiceScreen() {
             animate={{ opacity: [0.6, 1, 0.6] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            {isAr ? 'قريباً — تحت التطوير' : 'Coming Soon'}
+            {isAr ? 'قريبًا — قيد التطوير' : 'Coming Soon'}
           </motion.div>
 
           <button className="btn btn-glass btn-md" onClick={goBack} style={{ marginTop: 24 }}>

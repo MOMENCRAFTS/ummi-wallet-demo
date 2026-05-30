@@ -49,7 +49,7 @@ export default function BrotherContributionScreen() {
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               style={{ padding: '16px' }}
             >
-              <h3 className="section-title" style={{ marginBottom: 6 }}>{isAr ? 'حوّل على هالحساب' : 'Transfer to'}</h3>
+              <h3 className="section-title" style={{ marginBottom: 6 }}>{isAr ? 'حوّل إلى هذا الحساب' : 'Transfer to'}</h3>
               <span style={{ fontSize: 12, color: c.muted }}>
                 {isAr ? `${IBAN.bankAr} • ${IBAN.holderAr}` : `${IBAN.bank} • ${IBAN.holder}`}
               </span>
@@ -57,7 +57,7 @@ export default function BrotherContributionScreen() {
                 <span className="iban-number">{IBAN.iban}</span>
               </div>
               <button className="btn btn-glass btn-sm" style={{ marginTop: 10 }}>
-                {isAr ? 'نسخ الآيبان' : 'Copy IBAN'}
+                {isAr ? 'نسخ رقم الآيبان' : 'Copy IBAN'}
               </button>
             </motion.div>
 
@@ -96,7 +96,7 @@ export default function BrotherContributionScreen() {
               >
                 {proof
                   ? <><CheckLeafIcon size={18} color="#fff" /> {isAr ? 'تم رفع الإثبات' : 'Proof Uploaded'}</>
-                  : <><DocumentLeafIcon size={18} /> {isAr ? 'ارفع صورة الإيصال' : 'Upload Receipt'}</>
+                  : <><DocumentLeafIcon size={18} /> {isAr ? 'رفع الإيصال' : 'Upload Receipt'}</>
                 }
               </button>
             </motion.div>
@@ -124,7 +124,7 @@ export default function BrotherContributionScreen() {
           >
             <CheckLeafIcon size={48} color={c.success} />
             <h2 style={{ marginTop: 16, color: c.brown }}>
-              {isAr ? 'تم تسجيل الدفع!' : 'Payment Recorded!'}
+              {isAr ? 'تم تسجيل الدفعة!' : 'Payment Recorded!'}
             </h2>
             <p style={{ color: c.muted, marginTop: 8, fontSize: 14 }}>
               {isAr

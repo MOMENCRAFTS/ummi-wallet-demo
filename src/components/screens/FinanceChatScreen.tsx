@@ -105,12 +105,12 @@ export default function FinanceChatScreen() {
     if (idx === 0) return isAr
       ? 'أهلاً! أنا مساعد أمي الذكي\n\nأمي شاركت احتياجاتها الشهرية. خلّنا نبني خطة مفصّلة.\n\nنبدأ بالمصروف الشخصي:'
       : "Welcome! I'm Ummi's AI assistant\n\nMother shared her monthly needs. Let me help you build a detailed plan.\n\nLet's start with personal allowance:";
-    if (idx === 1) return isAr ? 'تمام! الآن رواتب الموظفين — الخادمة أولاً:' : 'Now household staff — maid salary first:';
-    if (idx === 2) return isAr ? 'ممتاز. وراتب السائق؟' : 'Great! And the driver salary?';
-    if (idx === 3) return isAr ? 'الحين الفواتير — كهرباء، ماء، إنترنت. كم المعدّل الشهري؟' : 'Now utilities — electricity, water, internet. Monthly average?';
-    if (idx === 4) return isAr ? 'طيب، البقالة والمواد الغذائية:' : 'Alright, groceries and food supplies:';
-    if (idx === 5) return isAr ? 'الله يشفيها — الرعاية الطبية الشهرية:' : 'Medical care — monthly budget:';
-    if (idx === 6) return isAr ? 'أخيراً، صندوق الطوارئ. أمي ما حددت مبلغ — أقترح ٥٠٠ ر.س كشبكة أمان:' : "Finally, emergency buffer. Mother didn't specify — I suggest 500 SAR as a safety net:";
+    if (idx === 1) return isAr ? 'تمام! نبدأ برواتب العمالة المنزلية — راتب العاملة المنزلية أولًا:' : 'Now household staff — maid salary first:';
+    if (idx === 2) return isAr ? 'ممتاز. كم راتب السائق؟' : 'Great! And the driver salary?';
+    if (idx === 3) return isAr ? 'الآن الفواتير — كهرباء، ماء، إنترنت. كم المتوسط الشهري؟' : 'Now utilities — electricity, water, internet. Monthly average?';
+    if (idx === 4) return isAr ? 'حسنًا، البقالة والمواد الغذائية:' : 'Alright, groceries and food supplies:';
+    if (idx === 5) return isAr ? 'الرعاية الصحية — الميزانية الشهرية:' : 'Medical care — monthly budget:';
+    if (idx === 6) return isAr ? 'أخيرًا، احتياطي الطوارئ. الوالدة لم تحدد مبلغًا — أقترح ٥٠٠ ر.س كشبكة أمان:' : "Finally, emergency buffer. Mother didn't specify — I suggest 500 SAR as a safety net:";
     return '';
   };
 
@@ -200,9 +200,9 @@ export default function FinanceChatScreen() {
         <button className="back-btn" onClick={goBack}><ArrowLeafIcon size={20} /></button>
         <span className="header-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <ChatBubbleLeafIcon size={20} />
-          {phase === 'gathering' ? (isAr ? 'إعداد ذكي' : 'AI Setup') :
+          {phase === 'gathering' ? (isAr ? 'إعداد بالذكاء الاصطناعي' : 'AI Setup') :
            phase === 'analysis' ? (isAr ? 'تحليل الميزانية' : 'Budget Analysis') :
-           (isAr ? 'مراجعة الترجمة' : 'Translation Review')}
+           (isAr ? 'مراجعة الترجمات' : 'Translation Review')}
         </span>
       </div>
 
@@ -269,7 +269,7 @@ export default function FinanceChatScreen() {
                     <span className="input-card-label">{isAr ? items[activeIdx].labelAr : items[activeIdx].labelEn}</span>
                     {items[activeIdx].motherEstimate > 0 && (
                       <span className="input-card-mother">
-                        {isAr ? 'تقدير أمي:' : "Mother's estimate:"} {items[activeIdx].motherEstimate.toLocaleString()} {isAr ? 'ر.س' : 'SAR'}
+                        {isAr ? 'تقدير الوالدة:' : "Mother's estimate:"} {items[activeIdx].motherEstimate.toLocaleString()} {isAr ? 'ر.س' : 'SAR'}
                       </span>
                     )}
                   </div>
@@ -306,8 +306,8 @@ export default function FinanceChatScreen() {
             <div className="chat-bubble ai">
               <span className="chat-avatar-svg"><WalletRoseIcon size={22} /></span>
               <div className="chat-content">
-                <p>{isAr ? 'تحليل خطتك...' : 'Analyzing your plan...'}</p>
-                <p>{isAr ? 'راح أفحص توازن ٧٠/١٥/١٥ وأشوف أنماط موسمية واقتراحات.' : "I'll check the 70/15/15 balance, look for seasonal patterns, and suggest optimizations."}</p>
+                <p>{isAr ? 'جارٍ جارٍ تحليل خطتك...' : 'Analyzing your plan...'}</p>
+                <p>{isAr ? 'سأفحص توازن ٧٠/١٥/١٥، وأراجع الأنماط الموسمية، وأقترح تحسينات مناسبة.' : "I'll check the 70/15/15 balance, look for seasonal patterns, and suggest optimizations."}</p>
               </div>
             </div>
 
@@ -326,7 +326,7 @@ export default function FinanceChatScreen() {
                     strokeLinecap="round" transform="rotate(-90 40 40)" />
                 </svg>
                 <span className="health-score-value">{ANALYSIS.healthScore}</span>
-                <span className="health-score-label">{isAr ? 'صحة الميزانية' : 'Budget Health'}</span>
+                <span className="health-score-label">{isAr ? 'سلامة الميزانية' : 'Budget Health'}</span>
               </div>
 
               {/* Assessment bar */}
@@ -336,9 +336,9 @@ export default function FinanceChatScreen() {
                 <div className="assessment-segment safety" style={{ flex: ANALYSIS.safety }} />
               </div>
               <div className="assessment-labels">
-                <span><span className="dot needs" /> {isAr ? 'احتياجات' : 'Needs'} {ANALYSIS.needs}%</span>
-                <span><span className="dot wants" /> {isAr ? 'رغبات' : 'Wants'} {ANALYSIS.wants}%</span>
-                <span><span className="dot safety" /> {isAr ? 'أمان' : 'Safety'} {ANALYSIS.safety}%</span>
+                <span><span className="dot needs" /> {isAr ? 'الاحتياجات' : 'Needs'} {ANALYSIS.needs}%</span>
+                <span><span className="dot wants" /> {isAr ? 'الرغبات' : 'Wants'} {ANALYSIS.wants}%</span>
+                <span><span className="dot safety" /> {isAr ? 'الاحتياط' : 'Safety'} {ANALYSIS.safety}%</span>
               </div>
             </motion.div>
 
@@ -372,10 +372,10 @@ export default function FinanceChatScreen() {
               transition={{ delay: 1, ...spring }}
             >
               <button className="btn btn-primary btn-md" onClick={() => setPhase('translations')}>
-                <GlobeFlowerIcon size={18} /> {isAr ? 'مراجعة الترجمة' : 'Review Translations'}
+                <GlobeFlowerIcon size={18} /> {isAr ? 'مراجعة الترجمات' : 'Review Translations'}
               </button>
               <button className="btn btn-glass btn-md" onClick={() => navigate('finance-summary')}>
-                {isAr ? 'تخطي للملخص' : 'Skip to Summary'}
+                {isAr ? 'تخطي إلى الملخص' : 'Skip to Summary'}
               </button>
             </motion.div>
           </motion.div>
@@ -421,7 +421,7 @@ export default function FinanceChatScreen() {
                 </div>
                 {!t.accepted ? (
                   <button className="btn btn-glass btn-xs" onClick={() => acceptTranslation(i)}>
-                    <CheckLeafIcon size={12} /> {isAr ? 'قبول' : 'Accept'}
+                    <CheckLeafIcon size={12} /> {isAr ? 'اعتماد' : 'Accept'}
                   </button>
                 ) : (
                   <span className="translation-accepted-badge">
@@ -440,7 +440,7 @@ export default function FinanceChatScreen() {
             >
               {translations.some(t => !t.accepted) && (
                 <button className="btn btn-outline btn-md" onClick={acceptAllTranslations}>
-                  <CheckLeafIcon size={16} /> {isAr ? 'قبول الكل' : 'Accept All'}
+                  <CheckLeafIcon size={16} /> {isAr ? 'اعتماد الكل' : 'Accept All'}
                 </button>
               )}
               <button className="btn btn-primary btn-lg btn-full glow-mint" onClick={() => navigate('finance-summary')}>
@@ -472,7 +472,7 @@ export default function FinanceChatScreen() {
       >
         <div className="running-total-inner">
           <div className="running-total-info">
-            <span className="running-label">{isAr ? 'الإجمالي' : 'Running Total'}</span>
+            <span className="running-label">{isAr ? 'الإجمالي الحالي' : 'Running Total'}</span>
             <span className="running-count">{confirmedCount}/{items.length} {isAr ? 'بنود' : 'items'}</span>
           </div>
           <span className="running-amount">{total.toLocaleString()} <small>{isAr ? 'ر.س' : 'SAR'}</small></span>

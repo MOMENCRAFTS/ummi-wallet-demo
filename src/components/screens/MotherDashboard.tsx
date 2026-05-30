@@ -6,10 +6,12 @@
  */
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
+import { useFamilyState } from '../../familyState';
 import {
   WalletRoseIcon, FloatingPetals, MoneyLeafIcon, MedicalHerbIcon,
   SeedlingIcon, RoseSOSIcon, HeartLeafIcon, TulipIcon, ArrowLeafIcon,
-  SparkleAccent, PendingBudIcon, LeafBillIcon, NewsScrollIcon, c,
+  SparkleAccent, PendingBudIcon, LeafBillIcon, NewsScrollIcon, ChatBubbleLeafIcon,
+  BalanceLeavesIcon, CheckLeafIcon, PersonFloralIcon, CrownFloralIcon, c,
 } from '../icons/FloralIcons';
 
 const BALANCE = 4825;
@@ -29,14 +31,22 @@ const BARAKAH = {
 
 export default function MotherDashboard() {
   const { navigate, lang } = useNavigation();
+  const { chatUnread, splitProposals, requests } = useFamilyState();
   const isAr = lang === 'ar';
+  const totalChatUnread = Object.values(chatUnread).reduce((a, b) => a + b, 0);
   const pct = ALLOCATED > 0 ? Math.round((BALANCE / ALLOCATED) * 100) : 0;
+
+  // Mother transparency: approved and in-progress splits
+  const approvedSplits = splitProposals.filter(p => p.status === 'accepted');
+  const pendingSplits = splitProposals.filter(p => 
+    p.status === 'proposed' || p.status === 'partially_accepted' || p.status === 'counter_review'
+  );
 
   return (
     <div className="screen mother-dashboard-true" dir={isAr ? 'rtl' : 'ltr'}>
       <FloatingPetals count={4} />
       <button className="dashboard-logout" onClick={() => navigate('landing' as any)}>
-        <ArrowLeafIcon size={14} /> {isAr ? 'خروج' : 'Logout'}
+        <ArrowLeafIcon size={14} /> {isAr ? 'تسجيل الخروج' : 'Logout'}
       </button>
 
       <div className="mother-scroll">
@@ -61,7 +71,7 @@ export default function MotherDashboard() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <p className="mother-balance-label-text">{isAr ? 'رصيدك لهالشهر' : 'Available This Month'}</p>
+          <p className="mother-balance-label-text">{isAr ? 'رصيدك لهذا الشهر' : 'Available This Month'}</p>
           <div className="mother-balance-row">
             <span className="mother-balance-amount">{BALANCE.toLocaleString()}</span>
             <SparkleAccent size={12} style={{ position: 'relative', top: -8 }} />
@@ -83,6 +93,93 @@ export default function MotherDashboard() {
           )}
         </motion.div>
 
+        {/* ═══ Split Transparency: Approved Requests ═══ */}
+        {approvedSplits.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.13, type: 'spring', stiffness: 260, damping: 20 }}
+          >
+            <div className="section-header-row" style={{ marginTop: 4 }}>
+              <CheckLeafIcon size={18} color={c.success} />
+              <h3 className="section-title" style={{ marginBottom: 0 }}>
+                {isAr ? 'طلبات تمّت الموافقة' : 'Approved Requests'}
+              </h3>
+            </div>
+            {approvedSplits.map(proposal => {
+              const req = requests.find(r => r.id === proposal.contextId);
+              return (
+                <div key={proposal.id} className="card" style={{ marginBottom: 6 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <span style={{ fontWeight: 700, color: c.brown, fontSize: 15 }}>
+                      {proposal.totalAmount.toLocaleString()} <small style={{ color: c.muted, fontWeight: 500 }}>{isAr ? 'ر.س' : 'SAR'}</small>
+                    </span>
+                    <span className="badge badge-approved" style={{ background: c.success + '20', color: c.success }}>
+                      <CheckLeafIcon size={10} color={c.success} /> {isAr ? 'موافق عليه' : 'Approved'}
+                    </span>
+                  </div>
+                  {req && (
+                    <p style={{ fontSize: 12, color: c.muted, marginBottom: 8 }}>
+                      {isAr ? req.reasonAr : req.reason}
+                    </p>
+                  )}
+                  <div className="split-others-section" style={{ marginBottom: 0 }}>
+                    <span className="split-others-title">{isAr ? 'من يدفع' : 'Who\'s paying'}</span>
+                    {proposal.items.filter(i => !i.isExempt).map(item => (
+                      <div key={item.userId} className="split-other-row">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                          {item.userId === 'admin'
+                            ? <CrownFloralIcon size={12} />
+                            : <PersonFloralIcon size={12} />
+                          }
+                          <span className="split-other-name">{isAr ? item.userNameAr : item.userName}</span>
+                        </div>
+                        <span className="split-other-amount">
+                          {item.proposedAmount.toLocaleString()} <small style={{ color: c.muted }}>{isAr ? 'ر.س' : 'SAR'}</small>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+
+        {/* ═══ Pending Splits (mother can see they’re being processed) ═══ */}
+        {pendingSplits.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.14, type: 'spring', stiffness: 260, damping: 20 }}
+          >
+            {pendingSplits.map(proposal => {
+              const accepted = proposal.items.filter(i => !i.isExempt && (i.status === 'accepted' || i.status === 'auto_accepted')).length;
+              const total = proposal.items.filter(i => !i.isExempt).length;
+              const req = requests.find(r => r.id === proposal.contextId);
+              return (
+                <div key={proposal.id} className="card" style={{ borderLeft: `3px solid ${c.yellow}`, marginBottom: 6 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <span style={{ fontWeight: 700, color: c.brown, fontSize: 14 }}>
+                        {proposal.totalAmount.toLocaleString()} <small style={{ color: c.muted }}>{isAr ? 'ر.س' : 'SAR'}</small>
+                      </span>
+                      {req && (
+                        <p style={{ fontSize: 12, color: c.muted, margin: '2px 0 0' }}>
+                          {isAr ? req.reasonAr : req.reason}
+                        </p>
+                      )}
+                    </div>
+                    <span className="badge badge-pending">
+                      <PendingBudIcon size={10} /> {accepted}/{total} {isAr ? 'وافقوا' : 'accepted'}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+
         {/* ═══ IBAN Banner ═══ */}
         <motion.div
           className="card iban-banner"
@@ -90,9 +187,9 @@ export default function MotherDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <p className="iban-title">{isAr ? 'أضيفي بيانات البنك' : 'Add Your Bank Details'}</p>
-          <p className="iban-hint">{isAr ? 'روحي للإعدادات وضيفي الآيبان عشان يقدرون يحوّلون لك مباشرة' : 'Go to Settings to add your IBAN so your family can transfer directly.'}</p>
-          <button className="btn btn-glass btn-sm" style={{ marginTop: 8 }}>
+          <p className="iban-title">{isAr ? 'أضيفي بياناتك البنكية' : 'Add Your Bank Details'}</p>
+          <p className="iban-hint">{isAr ? 'انتقلي إلى الإعدادات وأضيفي رقم الآيبان ليتمكن أفراد العائلة من التحويل لك مباشرة.' : 'Go to Settings to add your IBAN so your family can transfer directly.'}</p>
+          <button className="btn btn-glass btn-sm" style={{ marginTop: 8 }} onClick={() => navigate('mother-settings')}>
             {isAr ? 'الإعدادات' : 'Settings'}
           </button>
         </motion.div>
@@ -133,6 +230,11 @@ export default function MotherDashboard() {
             <HeartLeafIcon size={44} />
             <span className="mother-action-label">{isAr ? 'شكر وامتنان' : 'Gratitude'}</span>
           </button>
+          <button className="mother-action-card" style={{ background: c.sage + '20', borderColor: c.sage, position: 'relative' }} onClick={() => navigate('chat-list')}>
+            <ChatBubbleLeafIcon size={44} />
+            <span className="mother-action-label">{isAr ? 'المحادثات' : 'Chat'}</span>
+            {totalChatUnread > 0 && <span className="admin-chat-badge" style={{ position: 'absolute', top: 6, right: 6 }}>{totalChatUnread}</span>}
+          </button>
         </motion.div>
 
         {/* ═══ Family Feed ═══ */}
@@ -141,7 +243,7 @@ export default function MotherDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <h3 className="section-title">{isAr ? 'أخبار العيلة' : 'Family Feed'}</h3>
+          <h3 className="section-title">{isAr ? 'آخر أخبار العائلة' : 'Family Feed'}</h3>
           <div className="card mother-feed-card">
             {FEED.map((f, i) => (
               <div key={f.id}>

@@ -46,13 +46,23 @@ test.describe('Admin (الابن المسؤول) Journey', () => {
     await page.waitForTimeout(500);
     await takeScreenshot(page, '02-login');
 
-    // 3. Click Google OAuth → triggers transition → Onboarding
+    // 3. Click Google OAuth → triggers transition → Phone Verify
     const googleBtn = page.locator('.oauth-btn').first();
     await googleBtn.click();
     await page.waitForTimeout(2500); // OAuth transition video
+
+    // 4. Phone Verify — click send, wait for OTP step, then auto-fill completes
+    await waitForScreen(page, 'رقم الجوال', 8000);
+    const sendBtn = page.locator('button', { hasText: 'إرسال رمز التحقق' });
+    await sendBtn.click();
+    await page.waitForTimeout(800); // exit animation
+    // OTP screen should appear, auto-fill fires after 2s, success after 2.5s
+    await waitForScreen(page, 'رمز التحقق', 5000);
+    // Wait for auto-fill + verify + success + navigate to onboarding
+    await waitForScreen(page, 'تم التحقق', 8000);
     
-    // 4. Onboarding Step 1: Welcome
-    await waitForScreen(page, 'الابن المسؤول', 8000);
+    // 5. Onboarding Step 1: Welcome — wait longer since success → navigate takes 2s
+    await waitForScreen(page, 'الابن المسؤول', 10000);
     await takeScreenshot(page, '03-onboarding-welcome');
     await clickButton(page, 'يلّا نبدأ');
 
@@ -117,8 +127,16 @@ test.describe('Mother (الوالدة) Journey', () => {
     await googleBtn.click();
     await page.waitForTimeout(2500);
 
+    // Phone Verify
+    await waitForScreen(page, 'رقم الجوال', 8000);
+    const sendBtnM = page.locator('button', { hasText: 'إرسال رمز التحقق' });
+    await sendBtnM.click();
+    await page.waitForTimeout(800);
+    await waitForScreen(page, 'رمز التحقق', 5000);
+    await waitForScreen(page, 'تم التحقق', 8000);
+
     // Onboarding - Welcome
-    await waitForScreen(page, 'أهلاً يا أمي', 8000);
+    await waitForScreen(page, 'أهلاً يا أمي', 10000);
     await takeScreenshot(page, '11-mother-welcome');
     await clickButton(page, 'يلّا نبدأ');
 
@@ -175,8 +193,16 @@ test.describe('Brother (الأخ المساهم) Journey', () => {
     await googleBtn.click();
     await page.waitForTimeout(2500);
 
+    // Phone Verify
+    await waitForScreen(page, 'رقم الجوال', 8000);
+    const sendBtnB = page.locator('button', { hasText: 'إرسال رمز التحقق' });
+    await sendBtnB.click();
+    await page.waitForTimeout(800);
+    await waitForScreen(page, 'رمز التحقق', 5000);
+    await waitForScreen(page, 'تم التحقق', 8000);
+
     // Onboarding
-    await waitForScreen(page, 'أهلاً يا أخي', 8000);
+    await waitForScreen(page, 'أهلاً يا أخي', 10000);
     await takeScreenshot(page, '16-brother-welcome');
     await clickButton(page, 'يلّا نبدأ');
 
@@ -186,19 +212,14 @@ test.describe('Brother (الأخ المساهم) Journey', () => {
     await waitForScreen(page, 'كل شي جاهز');
     await clickButton(page, 'افتح لوحة التحكم');
 
-    // Brother Dashboard
+    // Brother Dashboard — shows LOCKED state (plan not published)
     await page.waitForTimeout(800);
-    await takeScreenshot(page, '17-brother-dashboard');
+    await waitForScreen(page, 'الخطة لم تنشر بعد', 5000);
+    await takeScreenshot(page, '17-brother-locked');
 
-    // Audit button
-    const auditBtn = page.getByText('مراجعة الخطة').first();
-    if (await auditBtn.isVisible()) {
-      await auditBtn.click();
-      await page.waitForTimeout(600);
-      await takeScreenshot(page, '18-brother-audit');
-      await page.locator('.back-btn').first().click();
-      await page.waitForTimeout(400);
-    }
+    // Chat button should still be available
+    const chatBtn = page.getByText('المحادثات').first();
+    await expect(chatBtn).toBeVisible();
 
     // Check logout
     const logoutBtn = page.locator('.dashboard-logout');
@@ -226,8 +247,16 @@ test.describe('Observer (الأخت المتابعة) Journey', () => {
     await googleBtn.click();
     await page.waitForTimeout(2500);
 
+    // Phone Verify
+    await waitForScreen(page, 'رقم الجوال', 8000);
+    const sendBtnO = page.locator('button', { hasText: 'إرسال رمز التحقق' });
+    await sendBtnO.click();
+    await page.waitForTimeout(800);
+    await waitForScreen(page, 'رمز التحقق', 5000);
+    await waitForScreen(page, 'تم التحقق', 8000);
+
     // Onboarding
-    await waitForScreen(page, 'أهلاً يا أختي', 8000);
+    await waitForScreen(page, 'أهلاً يا أختي', 10000);
     await takeScreenshot(page, '20-observer-welcome');
     await clickButton(page, 'يلّا نبدأ');
 
@@ -237,14 +266,18 @@ test.describe('Observer (الأخت المتابعة) Journey', () => {
     await waitForScreen(page, 'كل شي جاهز');
     await clickButton(page, 'افتح لوحة التحكم');
 
-    // Observer Dashboard
-    await waitForScreen(page, 'أهلاً يا أختي', 5000);
-    await takeScreenshot(page, '21-observer-dashboard');
+    // Observer Dashboard — shows LOCKED state (plan not published)
+    await page.waitForTimeout(800);
+    await waitForScreen(page, 'بانتظار نشر الخطة', 5000);
+    await takeScreenshot(page, '21-observer-locked');
 
-    // Verify read-only (no action buttons with navigate)
-    const actionButtons = page.locator('.btn-primary:visible');
-    const count = await actionButtons.count();
-    // Observer should have minimal/no action buttons
+    // Chat button should be available
+    const chatBtn = page.getByText('المحادثات').first();
+    await expect(chatBtn).toBeVisible();
+
+    // Check logout
+    const logoutBtn = page.locator('.dashboard-logout');
+    await expect(logoutBtn).toBeVisible();
     await takeScreenshot(page, '22-observer-final');
   });
 });

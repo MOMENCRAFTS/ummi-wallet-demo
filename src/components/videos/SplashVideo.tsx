@@ -61,6 +61,8 @@ export default function SplashVideo({ onComplete }: SplashVideoProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
+        onClick={finish}
+        style={{ cursor: 'pointer' }}
       >
         <motion.div
           className="splash-video-wrap"
