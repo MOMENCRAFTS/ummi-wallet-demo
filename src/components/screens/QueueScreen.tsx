@@ -93,7 +93,7 @@ export default function QueueScreen() {
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: 40 }}>
             <CheckLeafIcon size={36} color={c.success} />
-            <p style={{ color: c.muted, marginTop: 12 }}>{isAr ? 'لا يوجد شيء معلّق — الحمد لله' : 'All clear!'}</p>
+            <p style={{ color: c.muted, marginTop: 12 }}>{isAr ? 'لا توجد مهام معلّقة — الحمد لله' : 'All clear!'}</p>
           </div>
         )}
 

@@ -31,7 +31,7 @@ export default function BrotherSuggestionsScreen() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setVoted(prev => { const n = new Set(prev); n.has(idea.id) ? n.delete(idea.id) : n.add(idea.id); return n; })}
               >
-                <HeartLeafIcon size={14} color={voted.has(idea.id) ? '#fff' : c.pink} /> {voted.has(idea.id) ? (isAr ? 'أعجبك' : 'Liked') : (isAr ? 'إعجاب' : 'Like')}
+                <HeartLeafIcon size={14} color={voted.has(idea.id) ? '#fff' : c.pink} /> {voted.has(idea.id) ? (isAr ? 'تم الإعجاب' : 'Liked') : (isAr ? 'إعجاب' : 'Like')}
               </motion.button>
               <span style={{ color: c.muted, fontSize: 12 }}>{idea.votes + (voted.has(idea.id) ? 1 : 0)} {isAr ? 'إعجابات' : 'likes'}</span>
             </div>

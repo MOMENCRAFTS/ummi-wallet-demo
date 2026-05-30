@@ -34,7 +34,7 @@ const STATS = [
 ];
 
 const POCKETS = [
-  { name: 'Mother Personal', nameAr: 'مصروف الوالدة', allocated: 1200, current: 950 },
+  { name: 'Mother Personal', nameAr: 'مصروف الوالدة الشخصي', allocated: 1200, current: 950 },
   { name: 'Groceries', nameAr: 'البقالة', allocated: 800, current: 320 },
   { name: 'Medical', nameAr: 'الأدوية', allocated: 500, current: 480 },
   { name: 'Utilities', nameAr: 'الخدمات والفواتير', allocated: 800, current: 200 },
@@ -44,7 +44,7 @@ const POCKETS = [
 const QUEUE = [
   { id: '1', title: 'Electricity bill — May', titleAr: 'فاتورة الكهرباء — مايو', priority: 'urgent', priorityAr: 'عاجل', due: 'Jun 1', dueAr: '١ يونيو', status: 'overdue' },
   { id: '2', title: 'Driver salary', titleAr: 'راتب السائق', priority: 'high', priorityAr: 'مهم', due: 'Jun 5', dueAr: '٥ يونيو', status: 'scheduled' },
-  { id: '3', title: 'Pharmacy reimbursement', titleAr: 'استرجاع مصاريف الصيدلية', priority: 'medium', priorityAr: 'متوسط', due: 'Jun 8', dueAr: '٨ يونيو', status: 'to_review' },
+  { id: '3', title: 'Pharmacy reimbursement', titleAr: 'تعويض مصاريف الصيدلية', priority: 'medium', priorityAr: 'متوسط', due: 'Jun 8', dueAr: '٨ يونيو', status: 'to_review' },
   { id: '4', title: 'AC maintenance follow-up', titleAr: 'متابعة صيانة المكيّف', priority: 'low', priorityAr: 'عادي', due: 'Jun 15', dueAr: '١٥ يونيو', status: 'scheduled' },
 ];
 
@@ -52,7 +52,7 @@ const FEED = [
   { id: '1', message: 'Mother requested 280 SAR for pharmacy', messageAr: 'الوالدة طلبت ٢٨٠ ر.س للصيدلية', time: '2h ago', timeAr: 'قبل ساعتين' },
   { id: '2', message: 'Mohammed approved the support plan', messageAr: 'محمد وافق على خطة الدعم — الله يوفقه', time: '1d ago', timeAr: 'أمس' },
   { id: '3', message: 'Electricity bill auto-paid — 320 SAR', messageAr: 'انسددت فاتورة الكهرباء — ٣٢٠ ر.س', time: '3d ago', timeAr: 'قبل ٣ أيام' },
-  { id: '4', message: 'Sarah joined as Observing Sister', messageAr: 'سارة انضمّت كأخت متابعة — أهلاً وسهلاً', time: '5d ago', timeAr: 'قبل ٥ أيام' },
+  { id: '4', message: 'Sarah joined as Observing Sister', messageAr: 'انضمّت سارة بصفتها الأخت المتابعة — أهلًا بها', time: '5d ago', timeAr: 'قبل ٥ أيام' },
 ];
 
 // Service categories for the manage grid
@@ -368,7 +368,7 @@ export default function AdminDashboard() {
         >
           <div className="section-header-row">
             <NewsScrollIcon size={20} />
-            <h3 className="section-title" style={{ marginBottom: 0 }}>{isAr ? 'آخر النشاطات' : 'Recent Activity'}</h3>
+            <h3 className="section-title" style={{ marginBottom: 0 }}>{isAr ? 'النشاط الأخير' : 'Recent Activity'}</h3>
           </div>
           {FEED.map((f) => (
             <div key={f.id} className="card feed-card">

@@ -50,7 +50,7 @@ export default function ObserverDashboard() {
             <EyeLeafIcon size={48} color={c.blue} />
           </motion.div>
           <h2 className="onboarding-title">{isAr ? 'بانتظار نشر الخطة' : 'Waiting for Plan'}</h2>
-          <p className="onboarding-subtitle">{isAr ? 'عند نشر الخطة من الابن المسؤول، ستظهر لكِ جميع التفاصيل' : "Once the plan is published, you'll see everything"}</p>
+          <p className="onboarding-subtitle">{isAr ? 'بمجرد نشر الخطة، ستتمكنين من رؤية كل شيء' : "Once the plan is published, you'll see everything"}</p>
           <div className="pending-dots-row">
             {[0, 1, 2].map(i => (
               <motion.div key={i} className="pending-bounce-dot" animate={{ y: [0, -8, 0] }} transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.2 }} />
@@ -86,7 +86,7 @@ export default function ObserverDashboard() {
             <EyeLeafIcon size={28} />
             <SparkleStarIcon size={14} />
           </div>
-          <p className="observer-greeting">{isAr ? 'أهلًا يا أختي' : 'Welcome, Sister'}</p>
+          <p className="observer-greeting">{isAr ? 'أهلًا بكِ' : 'Welcome, Sister'}</p>
           <p className="observer-subtitle">{isAr ? 'يمكنكِ متابعة الخطة ومشاركة التقدير' : 'Follow the plan and share gratitude'}</p>
         </motion.div>
       </div>

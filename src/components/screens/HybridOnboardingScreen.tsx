@@ -371,7 +371,7 @@ export default function HybridOnboardingScreen() {
     <motion.div key="staff" className="hybrid-card" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={spring}>
       <WrenchVineIcon size={36} color={c.muted} />
       <h2 className="hybrid-title">{isAr ? 'العمالة المنزلية' : 'Household Staff'}</h2>
-      <p className="hybrid-subtitle">{isAr ? 'اختر العمالة وحدد الرواتب' : 'Select staff and set their salaries'}</p>
+      <p className="hybrid-subtitle">{isAr ? 'اختر طاقم المنزل وحدد رواتبهم' : 'Select staff and set their salaries'}</p>
       <div className="hybrid-form">
         {staffList.map((s, i) => {
           const info = STAFF_ROLES.find(r => r.key === s.role)!;
@@ -603,7 +603,7 @@ export default function HybridOnboardingScreen() {
         <WalletRoseIcon size={32} />
         <div>
           <h3 style={{ margin: 0, color: c.brown, fontSize: 16, fontWeight: 700 }}>{isAr ? 'إنشاء عائلتك' : 'Create Your Family'}</h3>
-          <p style={{ margin: 0, color: c.muted, fontSize: 12 }}>{isAr ? 'إعداد محفظة أمي لدائرة عائلتك' : 'Set up Ummi Wallet for your family circle'}</p>
+          <p style={{ margin: 0, color: c.muted, fontSize: 12 }}>{isAr ? 'إعداد Ummi Wallet لدائرة عائلتك' : 'Set up Ummi Wallet for your family circle'}</p>
         </div>
       </div>
 

@@ -18,7 +18,7 @@ export default function FinanceRevisionScreen() {
     <div className="screen" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="screen-header">
         <button className="back-btn" onClick={goBack}><ArrowLeafIcon size={20} /></button>
-        <span className="header-title"><SeedlingIcon size={20} /> {isAr ? 'التعديلات' : 'Revisions'}</span>
+        <span className="header-title"><SeedlingIcon size={20} /> {isAr ? 'طلبات التعديل' : 'Revisions'}</span>
       </div>
       <div className="screen-body">
         <p style={{ color: c.muted, fontSize: 13, marginBottom: 12 }}>{isAr ? 'التعديلات المطلوبة على الخطة' : 'Requested changes to the plan'}</p>

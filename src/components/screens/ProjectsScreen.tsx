@@ -38,7 +38,7 @@ export default function ProjectsScreen() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <p style={{ fontWeight: 600, color: c.brown, fontSize: 14 }}>{isAr ? p.nameAr : p.name}</p>
-                  <p style={{ color: c.muted, fontSize: 12 }}>{p.contributors} {isAr ? 'مساهمون' : 'contributors'}</p>
+                  <p style={{ color: c.muted, fontSize: 12 }}>{p.contributors} {isAr ? 'مساهمًا' : 'contributors'}</p>
                 </div>
                 <span className={`badge ${done ? 'badge-approved' : 'badge-pending'}`} style={done ? { background: c.success + '20', color: c.success } : {}}>
                   {isAr ? p.statusAr : p.status}

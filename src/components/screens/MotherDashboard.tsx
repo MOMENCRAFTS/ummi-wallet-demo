@@ -71,7 +71,7 @@ export default function MotherDashboard() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 20 }}
         >
-          <p className="mother-balance-label-text">{isAr ? 'رصيدك لهذا الشهر' : 'Available This Month'}</p>
+          <p className="mother-balance-label-text">{isAr ? 'المتاح هذا الشهر' : 'Available This Month'}</p>
           <div className="mother-balance-row">
             <span className="mother-balance-amount">{BALANCE.toLocaleString()}</span>
             <SparkleAccent size={12} style={{ position: 'relative', top: -8 }} />

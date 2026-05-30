@@ -94,7 +94,7 @@ export default function LandingScreen() {
           </div>
           <div className="landing-stat-dot">·</div>
           <div className="landing-stat">
-            <span className="landing-stat-num">{isAr ? 'عربي/English' : 'AR/EN'}</span>
+            <span className="landing-stat-num">{isAr ? 'عربي/إنجليزي' : 'AR/EN'}</span>
             <span className="landing-stat-label">{isAr ? 'ثنائي اللغة' : 'Bilingual'}</span>
           </div>
         </motion.div>

@@ -73,7 +73,7 @@ export default function FinanceSummaryScreen() {
         {/* Actions */}
         <div className="action-buttons">
           <button className="btn btn-primary btn-lg glow-mint" onClick={() => navigate('finance-waiting')}>
-            <NewsScrollIcon size={18} /> {isAr ? 'إرسال الخطة للعائلة' : 'Dispatch to Family'}
+            <NewsScrollIcon size={18} /> {isAr ? 'إرسال إلى العائلة' : 'Dispatch to Family'}
           </button>
           <button className="btn btn-outline" onClick={() => navigate('finance-chat')}>
             <DocumentLeafIcon size={16} /> {isAr ? 'تعديل' : 'Edit'}

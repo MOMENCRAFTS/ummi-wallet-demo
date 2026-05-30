@@ -106,7 +106,7 @@ export default function FinanceChatScreen() {
       ? 'أهلاً! أنا مساعد أمي الذكي\n\nأمي شاركت احتياجاتها الشهرية. خلّنا نبني خطة مفصّلة.\n\nنبدأ بالمصروف الشخصي:'
       : "Welcome! I'm Ummi's AI assistant\n\nMother shared her monthly needs. Let me help you build a detailed plan.\n\nLet's start with personal allowance:";
     if (idx === 1) return isAr ? 'تمام! نبدأ برواتب العمالة المنزلية — راتب العاملة المنزلية أولًا:' : 'Now household staff — maid salary first:';
-    if (idx === 2) return isAr ? 'ممتاز. كم راتب السائق؟' : 'Great! And the driver salary?';
+    if (idx === 2) return isAr ? 'ممتاز. ما راتب السائق؟' : 'Great! And the driver salary?';
     if (idx === 3) return isAr ? 'الآن الفواتير — كهرباء، ماء، إنترنت. كم المتوسط الشهري؟' : 'Now utilities — electricity, water, internet. Monthly average?';
     if (idx === 4) return isAr ? 'حسنًا، البقالة والمواد الغذائية:' : 'Alright, groceries and food supplies:';
     if (idx === 5) return isAr ? 'الرعاية الصحية — الميزانية الشهرية:' : 'Medical care — monthly budget:';
@@ -375,7 +375,7 @@ export default function FinanceChatScreen() {
                 <GlobeFlowerIcon size={18} /> {isAr ? 'مراجعة الترجمات' : 'Review Translations'}
               </button>
               <button className="btn btn-glass btn-md" onClick={() => navigate('finance-summary')}>
-                {isAr ? 'تخطي إلى الملخص' : 'Skip to Summary'}
+                {isAr ? 'الانتقال إلى الملخص' : 'Skip to Summary'}
               </button>
             </motion.div>
           </motion.div>

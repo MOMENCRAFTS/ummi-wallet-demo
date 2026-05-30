@@ -68,7 +68,7 @@ function PhoneEntryStep({ isAr, onSubmit }: { isAr: boolean; onSubmit: (phone: s
 
   const handleSend = () => {
     if (phone.length < 9 || !phone.startsWith('5')) {
-      setError(isAr ? 'رقم الجوال السعودي غير صالح — يجب أن يبدأ بـ 5' : 'Invalid Saudi mobile — must start with 5');
+      setError(isAr ? 'رقم جوال سعودي غير صالح — يجب أن يبدأ بـ 5' : 'Invalid Saudi mobile — must start with 5');
       return;
     }
     onSubmit(phone);

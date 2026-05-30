@@ -26,7 +26,7 @@ export default function MotherCelebrationsScreen() {
           </motion.div>
         ))}
         <motion.button className="btn btn-glass btn-md btn-full" style={{ marginTop: 16 }} whileTap={{ scale: 0.97 }}>
-          <HeartLeafIcon size={16} color={c.pink} /> {isAr ? 'إرسال دعاء' : 'Send Blessing'}
+          <HeartLeafIcon size={16} color={c.pink} /> {isAr ? 'إرسال تهنئة' : 'Send Blessing'}
         </motion.button>
       </div>
     </div>

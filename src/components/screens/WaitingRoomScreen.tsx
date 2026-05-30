@@ -94,7 +94,7 @@ export default function WaitingRoomScreen() {
             transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 20 }}
             style={{ width: '100%', marginTop: 16 }}
           >
-            <CheckLeafIcon size={18} /> {isAr ? 'تفعيل الآن' : 'Force Activate'}
+            <CheckLeafIcon size={18} /> {isAr ? 'تفعيل الخطة الآن' : 'Force Activate'}
           </motion.button>
         </div>
       </div>

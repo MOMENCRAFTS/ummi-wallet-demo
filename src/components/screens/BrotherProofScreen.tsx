@@ -20,7 +20,7 @@ export default function BrotherProofScreen() {
             <div style={{ width: 120, height: 120, borderRadius: 16, border: `2px dashed ${c.divider}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
               <DocumentLeafIcon size={48} color={c.muted} />
             </div>
-            <p style={{ color: c.muted, fontSize: 13, marginTop: 12 }}>{isAr ? 'أرفق لقطة شاشة للتحويل أو إيصال الدفع' : 'Attach transfer screenshot or receipt'}</p>
+            <p style={{ color: c.muted, fontSize: 13, marginTop: 12 }}>{isAr ? 'أرفق صورة الحوالة أو إيصال الدفع' : 'Attach transfer screenshot or receipt'}</p>
             <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 16 }}>
               <motion.button className="btn btn-primary btn-md" whileTap={{ scale: 0.97 }} onClick={() => setUploaded(true)}>
                 {isAr ? 'الكاميرا' : 'Camera'}
