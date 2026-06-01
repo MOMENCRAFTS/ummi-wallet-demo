@@ -80,6 +80,16 @@ import ObserverCelebrationsScreen from './screens/ObserverCelebrationsScreen';
 // Phase 4 — Cross-cutting
 import SettingsScreen from './screens/SettingsScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
+// Phase 5 — New screens (demo sync)
+import BarakahGardenScreen from './screens/BarakahGardenScreen';
+import AssetsScreen from './screens/AssetsScreen';
+import InsurancePoliciesScreen from './screens/InsurancePoliciesScreen';
+import MotherAuditScreen from './screens/MotherAuditScreen';
+import DisputeScreen from './screens/DisputeScreen';
+import TransferToMotherScreen from './screens/TransferToMotherScreen';
+import InviteCaregiverScreen from './screens/InviteCaregiverScreen';
+import FinancialPulseScreen from './screens/FinancialPulseScreen';
+import LegalScreen from './screens/LegalScreen';
 
 const screenMap: Record<string, React.ComponentType> = {
   'landing': LandingScreen,
@@ -147,6 +157,16 @@ const screenMap: Record<string, React.ComponentType> = {
   // Phase 4 — Cross-cutting
   'settings': SettingsScreen,
   'notifications': NotificationsScreen,
+  // Phase 5 — New screens
+  'barakah-garden': BarakahGardenScreen,
+  'assets': AssetsScreen,
+  'insurance': InsurancePoliciesScreen,
+  'mother-audit': MotherAuditScreen,
+  'disputes': DisputeScreen,
+  'transfer-mother': TransferToMotherScreen,
+  'invite-caregiver': InviteCaregiverScreen,
+  'financial-pulse': FinancialPulseScreen,
+  'legal': LegalScreen,
 };
 
 // Map screens to their ambient music tracks
@@ -170,7 +190,10 @@ function getTrackForScreen(screen: ScreenName): TrackName | null {
       screen === 'maintenance' || screen === 'reservoir-detail' ||
       screen === 'settlement' || screen === 'pulse' || screen === 'reports' ||
       screen === 'members' || screen === 'projects-list' ||
-      screen === 'celebrations-list' || screen === 'documents') {
+      screen === 'celebrations-list' || screen === 'documents' ||
+      screen === 'barakah-garden' || screen === 'assets' || screen === 'insurance' ||
+      screen === 'disputes' || screen === 'transfer-mother' || screen === 'invite-caregiver' ||
+      screen === 'financial-pulse' || screen === 'legal') {
     return 'pulse_in_the_hall';
   }
   return null;

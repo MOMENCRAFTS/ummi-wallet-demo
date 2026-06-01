@@ -151,12 +151,16 @@ export default function BrotherDashboard() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 20 }}
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('barakah-garden' as any)}
+          whileTap={{ scale: 0.98 }}
         >
           <div className="barakah-header">
             <SeedlingIcon size={18} />
             <span className="barakah-label">{isAr ? 'بركة اليوم' : 'Daily Barakah'}</span>
           </div>
           <p className="barakah-text">{isAr ? BARAKAH.ar : BARAKAH.en}</p>
+          <span style={{ fontSize: 10, color: c.muted, marginTop: 4, display: 'block' }}>{isAr ? 'اضغط لفتح الحديقة →' : 'Tap to open garden →'}</span>
         </motion.div>
 
         {/* ═══ Split Proposals from Admin ═══ */}
@@ -319,6 +323,9 @@ export default function BrotherDashboard() {
           </button>
           <button className="btn btn-peach btn-lg" style={{ flex: 1 }} onClick={() => navigate('brother-pay-direct')}>
             <BouquetIcon size={20} /> {isAr ? 'دفع مباشر' : 'Pay Direct'}
+          </button>
+          <button className="btn btn-glass btn-lg" style={{ flex: 1 }} onClick={() => navigate('transfer-mother' as any)}>
+            <HeartLeafIcon size={20} /> {isAr ? 'تحويل للوالدة' : 'Transfer'}
           </button>
         </motion.div>
     </div>

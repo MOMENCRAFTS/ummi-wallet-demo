@@ -29,6 +29,7 @@ export type ScreenName =
   | 'mother-bills' | 'mother-history' | 'mother-gratitude'
   | 'mother-balance' | 'mother-celebrations' | 'mother-feed'
   | 'mother-health' | 'mother-homecar' | 'mother-settings' | 'mother-wishes'
+  | 'mother-audit'
   // Brother
   | 'brother-dashboard' | 'brother-audit' | 'brother-contribution'
   | 'brother-history' | 'brother-pay-direct' | 'brother-proof'
@@ -38,7 +39,10 @@ export type ScreenName =
   // Cross-role
   | 'pending' | 'settings' | 'notifications'
   // Chat
-  | 'chat-list' | 'chat-room';
+  | 'chat-list' | 'chat-room'
+  // New screens
+  | 'barakah-garden' | 'assets' | 'insurance' | 'disputes'
+  | 'transfer-mother' | 'invite-caregiver' | 'financial-pulse' | 'legal';
 
 interface NavigationState {
   screen: ScreenName;

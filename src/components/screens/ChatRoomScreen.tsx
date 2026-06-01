@@ -159,6 +159,25 @@ export default function ChatRoomScreen() {
           <h2 className="chat-header-title">{title}</h2>
           <span className="chat-header-members">{messages.length} {isAr ? 'رسائل' : 'messages'}</span>
         </div>
+        <button
+          className="btn btn-glass btn-sm"
+          style={{ fontSize: 10, padding: '4px 8px' }}
+          onClick={() => {
+            const summary: ChatMsg = {
+              id: `ai-${Date.now()}`,
+              senderId: 'admin',
+              senderName: 'AI',
+              senderNameAr: 'الذكاء',
+              text: '📋 Summary: Family discussed pharmacy needs, Mohammed confirmed his transfer, and Sarah reviewed the plan.',
+              textAr: '📋 ملخص: العائلة ناقشت احتياجات الصيدلية، محمد أكد تحويله، وسارة راجعت الخطة.',
+              time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+              type: 'system',
+            };
+            setMessages(prev => [...prev, summary]);
+          }}
+        >
+          ✨ {isAr ? 'ملخص' : 'Summarize'}
+        </button>
       </div>
 
       {/* Messages */}

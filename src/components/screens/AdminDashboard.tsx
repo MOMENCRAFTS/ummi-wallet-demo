@@ -65,6 +65,7 @@ const SERVICE_CATEGORIES = [
       { key: 'admin-bills', label: 'Bills', labelAr: 'الفواتير', Icon: LeafBillIcon, color: c.mint },
       { key: 'maintenance', label: 'Maint.', labelAr: 'الصيانة', Icon: WrenchVineIcon, color: c.muted },
       { key: 'mother-sos', label: 'SOS', labelAr: 'الطوارئ', Icon: RoseSOSIcon, color: c.emergency },
+      { key: 'disputes', label: 'Disputes', labelAr: 'النزاعات', Icon: BalanceLeavesIcon, color: c.peach },
     ],
   },
   {
@@ -73,18 +74,22 @@ const SERVICE_CATEGORIES = [
       { key: 'finance-welcome', label: 'AI Plan', labelAr: 'تخطيط ذكي', Icon: ChatBubbleLeafIcon, color: c.gold },
       { key: 'reservoir-detail', label: 'Reservoir', labelAr: 'الخزنة', Icon: BankGardenIcon, color: c.mint },
       { key: 'settlement', label: 'Settle', labelAr: 'التسوية', Icon: BalanceLeavesIcon, color: c.muted },
-      { key: 'pulse', label: 'Pulse', labelAr: 'النبض', Icon: ChartBloomIcon, color: c.mint },
+      { key: 'financial-pulse', label: 'Pulse', labelAr: 'النبض', Icon: ChartBloomIcon, color: c.mint },
       { key: 'reports', label: 'Reports', labelAr: 'التقارير', Icon: ChartBloomIcon, color: c.blue },
+      { key: 'transfer-mother', label: 'Transfer', labelAr: 'تحويل', Icon: HeartLeafIcon, color: c.peach },
     ],
   },
   {
     title: 'Family', titleAr: 'العائلة', dotColor: c.peach,
     items: [
       { key: 'members', label: 'Members', labelAr: 'الأعضاء', Icon: PersonFloralIcon, color: c.muted },
+      { key: 'assets', label: 'Assets', labelAr: 'الممتلكات', Icon: SunflowerHomeIcon, color: c.brown },
+      { key: 'insurance', label: 'Insurance', labelAr: 'التأمين', Icon: ShieldLeafIcon, color: c.blue },
       { key: 'projects-list', label: 'Projects', labelAr: 'المشاريع', Icon: TulipIcon, color: c.peach },
       { key: 'celebrations-list', label: 'Events', labelAr: 'المناسبات', Icon: CakeBlossomIcon, color: c.peach },
       { key: 'documents', label: 'Docs', labelAr: 'المستندات', Icon: DocumentLeafIcon, color: c.blue },
       { key: 'suggestions', label: 'Ideas', labelAr: 'الأفكار', Icon: LightbulbPetalIcon, color: c.yellow },
+      { key: 'barakah-garden', label: 'Barakah', labelAr: 'البركة', Icon: SeedlingIcon, color: c.mint },
     ],
   },
 ];
@@ -149,12 +154,16 @@ export default function AdminDashboard() {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.08, type: 'spring', stiffness: 260, damping: 20 }}
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate('barakah-garden' as any)}
+        whileTap={{ scale: 0.98 }}
       >
         <div className="barakah-header">
           <SeedlingIcon size={18} />
           <span className="barakah-label">{isAr ? 'بركة اليوم' : 'DAILY BARAKAH'}</span>
         </div>
         <p className="barakah-text">{isAr ? todayQuote.ar : todayQuote.en}</p>
+        <span style={{ fontSize: 10, color: c.muted, marginTop: 4, display: 'block' }}>{isAr ? 'اضغط لفتح الحديقة →' : 'Tap to open garden →'}</span>
       </motion.div>
 
       {/* ═══ Pending Request Banner → Opens Split Sheet ═══ */}

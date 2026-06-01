@@ -8,7 +8,7 @@ import { useNavigation } from '../../navigation';
 import { useFamilyState } from '../../familyState';
 import {
   CakeBlossomIcon, NewsScrollIcon, SeedlingIcon, HeartLeafIcon,
-  EyeLeafIcon, SparkleStarIcon, ArrowLeafIcon, ChatBubbleLeafIcon, ShieldLeafIcon, c,
+  EyeLeafIcon, SparkleStarIcon, ArrowLeafIcon, ChatBubbleLeafIcon, ShieldLeafIcon, TulipIcon, c,
 } from '../icons/FloralIcons';
 
 const CELEBRATIONS = [
@@ -174,6 +174,10 @@ export default function ObserverDashboard() {
           <button className="btn btn-glass btn-md" style={{ flex: 1 }} onClick={() => navigate('observer-celebrations')}>
             <CakeBlossomIcon size={18} />
             <span>{isAr ? 'المناسبات' : 'Events'}</span>
+          </button>
+          <button className="btn btn-glass btn-md" style={{ flex: 1 }} onClick={() => navigate('barakah-garden' as any)}>
+            <SeedlingIcon size={18} />
+            <span>{isAr ? 'البركة' : 'Barakah'}</span>
           </button>
         </div>
       </div>

@@ -6,14 +6,15 @@ import { useNavigation } from '../../navigation';
 import { ArrowLeafIcon, PersonFloralIcon, CrownFloralIcon, HeartLeafIcon, EyeLeafIcon, c } from '../icons/FloralIcons';
 
 const MEMBERS = [
-  { name: 'Ahmed', nameAr: 'أحمد', role: 'admin', roleLabel: 'Responsible Son', roleLabelAr: 'الابن المسؤول', phone: '+966 51 234 5678', joined: 'Jan 2024', joinedAr: 'يناير ٢٠٢٤', Icon: CrownFloralIcon, color: c.gold },
-  { name: 'Umm Ahmed', nameAr: 'أم أحمد', role: 'mother', roleLabel: 'Mother', roleLabelAr: 'الوالدة', phone: '+966 50 111 2222', joined: 'Jan 2024', joinedAr: 'يناير ٢٠٢٤', Icon: HeartLeafIcon, color: c.pink },
-  { name: 'Mohammed', nameAr: 'محمد', role: 'brother', roleLabel: 'Contributing Brother', roleLabelAr: 'الأخ المساهم', phone: '+966 55 333 4444', joined: 'Feb 2024', joinedAr: 'فبراير ٢٠٢٤', Icon: PersonFloralIcon, color: c.mint },
-  { name: 'Sara', nameAr: 'سارة', role: 'observer', roleLabel: 'Observing Sister', roleLabelAr: 'الأخت المتابعة', phone: '+966 54 555 6666', joined: 'Mar 2024', joinedAr: 'مارس ٢٠٢٤', Icon: EyeLeafIcon, color: c.blue },
+  { name: 'Ahmed', nameAr: 'أحمد', role: 'admin', roleLabel: 'Responsible Son', roleLabelAr: 'الابن المسؤول', phone: '+966 51 234 5678', joined: 'Jan 2024', joinedAr: 'يناير ٢٠٢٤', Icon: CrownFloralIcon, color: c.gold, linked: true },
+  { name: 'Umm Ahmed', nameAr: 'أم أحمد', role: 'mother', roleLabel: 'Mother', roleLabelAr: 'الوالدة', phone: '+966 50 111 2222', joined: 'Jan 2024', joinedAr: 'يناير ٢٠٢٤', Icon: HeartLeafIcon, color: c.pink, linked: true },
+  { name: 'Mohammed', nameAr: 'محمد', role: 'brother', roleLabel: 'Contributing Brother', roleLabelAr: 'الأخ المساهم', phone: '+966 55 333 4444', joined: 'Feb 2024', joinedAr: 'فبراير ٢٠٢٤', Icon: PersonFloralIcon, color: c.mint, linked: true },
+  { name: 'Khalid', nameAr: 'خالد', role: 'brother', roleLabel: 'Contributing Brother', roleLabelAr: 'الأخ المساهم', phone: '+966 56 777 8888', joined: 'Mar 2024', joinedAr: 'مارس ٢٠٢٤', Icon: PersonFloralIcon, color: c.mint, linked: false },
+  { name: 'Sara', nameAr: 'سارة', role: 'observer', roleLabel: 'Observing Sister', roleLabelAr: 'الأخت المتابعة', phone: '+966 54 555 6666', joined: 'Mar 2024', joinedAr: 'مارس ٢٠٢٤', Icon: EyeLeafIcon, color: c.blue, linked: false },
 ];
 
 export default function MembersScreen() {
-  const { goBack, lang } = useNavigation();
+  const { goBack, lang, navigate } = useNavigation();
   const isAr = lang === 'ar';
 
   return (
@@ -39,6 +40,9 @@ export default function MembersScreen() {
               <p style={{ fontWeight: 600, color: c.brown, fontSize: 14 }}>{isAr ? m.nameAr : m.name}</p>
               <p style={{ color: m.color, fontSize: 12, fontWeight: 500 }}>{isAr ? m.roleLabelAr : m.roleLabel}</p>
               <p style={{ color: c.muted, fontSize: 11 }}>{m.phone} · {isAr ? m.joinedAr : m.joined}</p>
+              <span style={{ fontSize: 10, color: m.linked ? c.success : c.peach, fontWeight: 500, marginTop: 2, display: 'inline-block' }}>
+                {m.linked ? (isAr ? '✓ مرتبط' : '✓ Linked') : (isAr ? '⏳ بانتظار التسجيل' : '⏳ Pending Login')}
+              </span>
             </div>
           </motion.div>
         ))}
@@ -50,6 +54,7 @@ export default function MembersScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
+          onClick={() => navigate('invite-caregiver' as any)}
         >
           <PersonFloralIcon size={16} color="#fff" /> {isAr ? 'دعوة عضو جديد' : 'Invite Member'}
         </motion.button>

@@ -56,12 +56,16 @@ export default function MotherDashboard() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, type: 'spring', stiffness: 260, damping: 20 }}
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('barakah-garden' as any)}
+          whileTap={{ scale: 0.98 }}
         >
           <div className="barakah-header">
             <SeedlingIcon size={18} />
             <span className="barakah-label">{isAr ? 'بركة اليوم' : 'Daily Barakah'}</span>
           </div>
           <p className="barakah-text">{isAr ? BARAKAH.ar : BARAKAH.en}</p>
+          <span style={{ fontSize: 10, color: c.muted, marginTop: 4, display: 'block' }}>{isAr ? 'اضغطي لفتح الحديقة →' : 'Tap to open garden →'}</span>
         </motion.div>
 
         {/* ═══ Available Balance Card ═══ */}
@@ -234,6 +238,10 @@ export default function MotherDashboard() {
             <ChatBubbleLeafIcon size={44} />
             <span className="mother-action-label">{isAr ? 'المحادثات' : 'Chat'}</span>
             {totalChatUnread > 0 && <span className="admin-chat-badge" style={{ position: 'absolute', top: 6, right: 6 }}>{totalChatUnread}</span>}
+          </button>
+          <button className="mother-action-card" style={{ background: c.gold + '12', borderColor: c.gold }} onClick={() => navigate('mother-audit' as any)}>
+            <BalanceLeavesIcon size={44} />
+            <span className="mother-action-label">{isAr ? 'مراجعة' : 'Review'}</span>
           </button>
         </motion.div>
 
