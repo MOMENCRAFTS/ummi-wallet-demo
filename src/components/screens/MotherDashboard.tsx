@@ -11,7 +11,8 @@ import {
   WalletRoseIcon, FloatingPetals, MoneyLeafIcon, MedicalHerbIcon,
   SeedlingIcon, RoseSOSIcon, HeartLeafIcon, TulipIcon, ArrowLeafIcon,
   SparkleAccent, PendingBudIcon, LeafBillIcon, NewsScrollIcon, ChatBubbleLeafIcon,
-  BalanceLeavesIcon, CheckLeafIcon, PersonFloralIcon, CrownFloralIcon, c,
+  BalanceLeavesIcon, CheckLeafIcon, PersonFloralIcon, CrownFloralIcon,
+  ClockPetalIcon, c,
 } from '../icons/FloralIcons';
 
 const BALANCE = 4825;
@@ -209,6 +210,28 @@ export default function MotherDashboard() {
           <span className="last-transfer-text">
             {isAr ? 'آخر تحويل: ٥,٣٠٠ ر.س — قبل ٥ أيام' : 'Last received: 5,300 SAR — 5d ago'}
           </span>
+        </motion.div>
+
+        {/* ═══ Recent Medical Visit Card ═══ */}
+        <motion.div
+          className="card mh-recent-visit-card"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.22, type: 'spring', stiffness: 260, damping: 20 }}
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('mother-health')}
+          whileTap={{ scale: 0.98 }}
+        >
+          <div className="mhrv-header">
+            <MedicalHerbIcon size={16} color={c.mint} />
+            <span className="mhrv-label">{isAr ? 'آخر زيارة طبية' : 'Last Medical Visit'}</span>
+            <span className="mhrv-status">{isAr ? 'معتمد' : 'Approved'}</span>
+          </div>
+          <p className="mhrv-doctor">{isAr ? 'د. أحمد الغامدي — القلب' : 'Dr. Ahmad Al-Ghamdi — Cardiology'}</p>
+          <div className="mhrv-footer-row">
+            <span className="mhrv-date"><ClockPetalIcon size={12} color={c.muted} /> {isAr ? '١٤ مايو ٢٠٢٦ · ٣ بنود معتمدة' : 'May 14, 2026 · 3 items approved'}</span>
+            <span className="mhrv-arrow">{isAr ? '→' : '→'}</span>
+          </div>
         </motion.div>
 
         {/* ═══ Action Cards Grid ═══ */}

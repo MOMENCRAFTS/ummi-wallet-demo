@@ -49,17 +49,16 @@ function PhoneEntryStep({ isAr, onSubmit }: { isAr: boolean; onSubmit: (phone: s
   const [phone, setPhone] = useState('512345678');
   const [error, setError] = useState('');
 
-  const formatDisplay = (raw: string, arabic: boolean) => {
+  const formatDisplay = (raw: string) => {
+    // Always Western digits, formatted as: 5X XXX XXXX
     const digits = raw.replace(/\D/g, '').slice(0, 9);
-    let formatted: string;
-    if (digits.length <= 2) formatted = digits;
-    else if (digits.length < 5) formatted = `${digits.slice(0, 2)} ${digits.slice(2)}`;
-    else formatted = `${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5)}`;
-    return arabic ? toIndic(formatted) : formatted;
+    if (digits.length <= 2) return digits;
+    if (digits.length < 5) return `${digits.slice(0, 2)} ${digits.slice(2)}`;
+    return `${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5)}`;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Convert Eastern Arabic digits back to Western for storage
+    // Normalise Eastern Arabic → Western digits, strip non-digits
     const westernized = e.target.value.replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660));
     const raw = westernized.replace(/\D/g, '').slice(0, 9);
     setPhone(raw);
@@ -89,22 +88,27 @@ function PhoneEntryStep({ isAr, onSubmit }: { isAr: boolean; onSubmit: (phone: s
         {isAr ? 'أدخل رقمك للانضمام إلى عائلتك' : 'Enter your number to join your family'}
       </p>
 
-      <div className="phone-entry-card">
-        <div className="phone-row">
+      {/* Phone input — always LTR regardless of app language */}
+      <div className="pv-phone-card" dir="ltr">
+        <div className="pv-phone-row">
+          {/* Country code pill */}
+          <div className="pv-country-pill">
+            <SaudiFlag size={18} />
+            <span className="pv-country-code">+966</span>
+          </div>
+          {/* Divider */}
+          <div className="pv-divider" />
+          {/* Number input — always Western digits, always LTR */}
           <input
-            className="phone-input"
+            className="pv-phone-input"
             type="tel"
             inputMode="numeric"
             dir="ltr"
-            value={formatDisplay(phone, isAr)}
+            value={formatDisplay(phone)}
             onChange={handleChange}
-            placeholder={isAr ? toIndic('5XX XXX XXXX') : '5XX XXX XXXX'}
+            placeholder="5X XXX XXXX"
             autoFocus
           />
-          <div className="country-code">
-            <span className="code-text">{isAr ? toIndic('+966') : '+966'}</span>
-            <SaudiFlag size={20} />
-          </div>
         </div>
       </div>
 

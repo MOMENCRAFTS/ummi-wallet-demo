@@ -42,7 +42,9 @@ export type ScreenName =
   | 'chat-list' | 'chat-room'
   // New screens
   | 'barakah-garden' | 'assets' | 'insurance' | 'disputes'
-  | 'transfer-mother' | 'invite-caregiver' | 'financial-pulse' | 'legal';
+  | 'transfer-mother' | 'invite-caregiver' | 'financial-pulse' | 'legal'
+  // Care Calendar (039)
+  | 'mother-visit' | 'admin-medical-review';
 
 interface NavigationState {
   screen: ScreenName;

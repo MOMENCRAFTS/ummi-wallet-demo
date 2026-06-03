@@ -90,6 +90,9 @@ import TransferToMotherScreen from './screens/TransferToMotherScreen';
 import InviteCaregiverScreen from './screens/InviteCaregiverScreen';
 import FinancialPulseScreen from './screens/FinancialPulseScreen';
 import LegalScreen from './screens/LegalScreen';
+// Phase 6 — Care Calendar (039)
+import MotherVisitScreen from './screens/MotherVisitScreen';
+import AdminMedicalReviewScreen from './screens/AdminMedicalReviewScreen';
 
 const screenMap: Record<string, React.ComponentType> = {
   'landing': LandingScreen,
@@ -167,6 +170,9 @@ const screenMap: Record<string, React.ComponentType> = {
   'invite-caregiver': InviteCaregiverScreen,
   'financial-pulse': FinancialPulseScreen,
   'legal': LegalScreen,
+  // Phase 6 — Care Calendar
+  'mother-visit': MotherVisitScreen,
+  'admin-medical-review': AdminMedicalReviewScreen,
 };
 
 // Map screens to their ambient music tracks
