@@ -5940,3 +5940,512 @@ svg[viewBox="0 0 12 12"] {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT — TABLET & MOBILE
+   Tablet  768–1023px : phone + role panel, hide info panel
+   Mobile  <768px     : full-screen native feel + floating pill
+═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet: hide info panel, compact 2-col ── */
+@media (max-width: 1023px) {
+  .demo-info-panel {
+    display: none;
+  }
+
+  .demo-container {
+    gap: 24px;
+    padding: 16px;
+    justify-content: center;
+  }
+
+  /* Scale phone frame to fit shorter viewports */
+  .phone-frame {
+    width: 340px;
+    height: 734px;
+    border-radius: 48px;
+  }
+
+  .phone-frame::before {
+    width: 108px;
+    height: 30px;
+    top: 16px;
+  }
+}
+
+/* ── Mobile: full-screen native ── */
+@media (max-width: 767px) {
+  body {
+    overflow: hidden;
+  }
+
+  #root {
+    background: var(--bg-cream);
+  }
+
+  /* Mobile demo container — stack phone + pill */
+  .demo-container-mobile {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--bg-cream);
+  }
+
+  /* Mobile phone wrapper — fill all space */
+  .phone-frame-mobile {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .phone-screen-mobile {
+    flex: 1;
+    background: var(--bg-cream);
+    overflow: hidden;
+    position: relative;
+    /* Safe area for notched phones */
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Inside the mobile screen, screens get safe-area padding */
+  .phone-screen-mobile .screen {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
+  }
+
+  /* Desktop layout hidden on mobile */
+  .demo-container {
+    display: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE ROLE PILL — floating bar at bottom
+═══════════════════════════════════════════════════════════ */
+.mobile-role-pill {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  background: rgba(20, 18, 14, 0.88);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 252, 242, 0.12);
+  border-radius: 100px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 252, 242, 0.06);
+
+  /* Entrance animation */
+  animation: pillSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: 0.3s;
+}
+
+@keyframes pillSlideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(24px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Side icon buttons (tour + music) ── */
+.mobile-pill-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: rgba(255, 252, 242, 0.5);
+  cursor: pointer;
+  border-radius: 100px;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.mobile-pill-btn:active {
+  background: rgba(255, 252, 242, 0.06);
+}
+
+.mobile-pill-btn.active {
+  color: var(--mint);
+}
+
+.mobile-pill-tour.active {
+  animation: tourPillPulse 2s ease-in-out infinite;
+}
+
+@keyframes tourPillPulse {
+  0%, 100% { color: var(--mint); }
+  50% { color: var(--mint-light); }
+}
+
+/* ── Center role button ── */
+.mobile-pill-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: none;
+  background: rgba(255, 252, 242, 0.06);
+  border-left: 1px solid rgba(255, 252, 242, 0.08);
+  border-right: 1px solid rgba(255, 252, 242, 0.08);
+  color: #FFFCF2;
+  cursor: pointer;
+  min-width: 160px;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.mobile-pill-role:active {
+  background: rgba(255, 252, 242, 0.1);
+}
+
+.mobile-pill-role-icon {
+  display: flex;
+  align-items: center;
+  color: var(--mint);
+  flex-shrink: 0;
+}
+
+.mobile-pill-role-label {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  white-space: nowrap;
+  color: #FFFCF2;
+}
+
+.mobile-pill-chevron {
+  color: rgba(255, 252, 242, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE ROLE SHEET — slides up from bottom
+═══════════════════════════════════════════════════════════ */
+
+/* Backdrop */
+.mobile-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 14, 0);
+  z-index: 600;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.mobile-sheet-backdrop.open {
+  background: rgba(20, 18, 14, 0.6);
+  pointer-events: all;
+}
+
+/* Sheet panel */
+.mobile-role-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 700;
+
+  background: rgba(28, 24, 18, 0.97);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border-top: 1px solid rgba(255, 252, 242, 0.1);
+  border-radius: 28px 28px 0 0;
+  padding: 12px 24px calc(env(safe-area-inset-bottom, 0px) + 32px);
+
+  transform: translateY(100%);
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.mobile-role-sheet.open {
+  transform: translateY(0);
+}
+
+/* Drag handle */
+.mobile-sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 252, 242, 0.2);
+  margin: 0 auto 20px;
+}
+
+.mobile-sheet-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFCF2;
+  margin: 0 0 4px 0;
+}
+
+.mobile-sheet-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+/* 2×2 role grid */
+.mobile-role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mobile-role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px;
+  background: rgba(255, 252, 242, 0.04);
+  border: 1px solid rgba(255, 252, 242, 0.08);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  font-family: inherit;
+}
+
+.mobile-role-card:active {
+  transform: scale(0.97);
+}
+
+.mobile-role-card.active {
+  background: rgba(143, 207, 179, 0.1);
+  border-color: rgba(143, 207, 179, 0.35);
+  box-shadow: 0 0 20px rgba(143, 207, 179, 0.08);
+}
+
+.mobile-role-card-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 252, 242, 0.06);
+  border-radius: 16px;
+  transition: background 0.2s;
+  color: rgba(255, 252, 242, 0.7);
+}
+
+.mobile-role-card.active .mobile-role-card-icon {
+  background: rgba(143, 207, 179, 0.15);
+  color: var(--mint-light);
+}
+
+.mobile-role-card-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFCF2;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.mobile-role-card-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 6px var(--mint);
+  animation: role-dot-pulse 2s ease-in-out infinite;
+}
+
+/* Language toggle in sheet */
+.mobile-sheet-lang {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 252, 242, 0.04);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.mobile-lang-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-light);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.mobile-lang-btn.active {
+  background: rgba(143, 207, 179, 0.15);
+  color: #FFFCF2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-lang-btn:hover:not(.active) {
+  background: rgba(255, 252, 242, 0.06);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ROLE NUDGE — Two-phase mismatch guidance animation
+   Phase 1: red flash + shake on wrong card  (0–800ms)
+   Phase 2: mint glow + bounce on correct card (800ms–4s)
+═══════════════════════════════════════════════════════════ */
+
+/* ── Phase 1: Wrong role card — red shake + flash ── */
+.role-card.nudge-wrong {
+  border-color: rgba(232, 111, 97, 0.65) !important;
+  animation:
+    nudgeShake    0.55s cubic-bezier(.36,.07,.19,.97) both,
+    nudgeRedFlash 0.8s ease forwards;
+}
+
+@keyframes nudgeShake {
+  0%          { transform: translateX(0); }
+  10%, 90%    { transform: translateX(-3px); }
+  20%, 80%    { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60%    { transform: translateX(4px); }
+  100%        { transform: translateX(0); }
+}
+
+@keyframes nudgeRedFlash {
+  0%   { box-shadow: 0 0 0 0   rgba(232, 111, 97, 0); }
+  25%  { box-shadow: 0 0 0 5px rgba(232, 111, 97, 0.4); }
+  60%  { box-shadow: 0 0 0 3px rgba(232, 111, 97, 0.2); }
+  100% { box-shadow: 0 0 0 0   rgba(232, 111, 97, 0); }
+}
+
+/* ── Phase 2: Correct role card — mint glow + bounce ── */
+.role-card.nudge-correct {
+  border-color: rgba(143, 207, 179, 0.65) !important;
+  background:   rgba(143, 207, 179, 0.1)  !important;
+  animation:
+    nudgeBounce   0.5s  cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    nudgeMintGlow 2.5s  ease-in-out infinite;
+}
+
+@keyframes nudgeBounce {
+  0%   { transform: scale(0.96); }
+  60%  { transform: scale(1.02); }
+  100% { transform: scale(1.0);  }
+}
+
+@keyframes nudgeMintGlow {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(143, 207, 179, 0.35); }
+  50%      { box-shadow: 0 0 0 10px rgba(143, 207, 179, 0); }
+}
+
+.role-card.nudge-correct .role-card-icon {
+  background: rgba(143, 207, 179, 0.2);
+}
+
+/* Mobile role card nudge-correct (inside sheet) */
+.mobile-role-card.nudge-correct {
+  border-color: rgba(143, 207, 179, 0.65) !important;
+  background:   rgba(143, 207, 179, 0.1)  !important;
+  animation:
+    nudgeBounce   0.5s  cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    nudgeMintGlow 2.5s  ease-in-out infinite;
+}
+
+/* ── Nudge Badge — "Switch to see this screen" tab ── */
+.nudge-badge {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: var(--mint-dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px 4px;
+  border-radius: 0 0 10px 10px;
+  white-space: nowrap;
+  z-index: 20;
+  letter-spacing: 0.01em;
+  animation: nudgeBadgeIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  pointer-events: none;
+  box-shadow: 0 3px 8px rgba(107, 184, 154, 0.35);
+}
+
+.nudge-badge-mobile {
+  font-size: 10px;
+  padding: 2px 8px 3px;
+  border-radius: 0 0 8px 8px;
+}
+
+@keyframes nudgeBadgeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(70%); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(100%); }
+}
+
+/* ── Mobile pill — Phase 1 red pulse ── */
+.mobile-pill-role.nudge-red {
+  animation: pillRedPulse 0.85s ease forwards;
+}
+
+@keyframes pillRedPulse {
+  0%   { border-color: rgba(255, 252, 242, 0.08); background: rgba(255, 252, 242, 0.06); }
+  35%  { border-color: rgba(232, 111, 97, 0.7);   background: rgba(232, 111, 97, 0.12);  }
+  70%  { border-color: rgba(232, 111, 97, 0.4);   background: rgba(232, 111, 97, 0.06);  }
+  100% { border-color: rgba(255, 252, 242, 0.08); background: rgba(255, 252, 242, 0.06); }
+}
+
+/* ── Mobile pill — Phase 2 suggest state ── */
+.mobile-pill-role.nudge-suggest {
+  border-color: rgba(143, 207, 179, 0.4) !important;
+  background: rgba(143, 207, 179, 0.08) !important;
+  animation: pillMintPulse 2s ease-in-out infinite;
+}
+
+@keyframes pillMintPulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(143, 207, 179, 0.3); }
+  50%      { box-shadow: 0 0 0 6px rgba(143, 207, 179, 0);   }
+}
+
+/* ── Suggest morphed pill content ── */
+.mobile-pill-suggest {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  animation: pillSuggestIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pillSuggestIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+/* ── Bouncing arrow ── */
+.nudge-arrow {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mint);
+  display: inline-block;
+  animation: arrowBounce 0.9s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0);   }
+  50%      { transform: translateX(4px); }
+}
