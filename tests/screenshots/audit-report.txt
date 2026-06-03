@@ -2,9 +2,9 @@
  UMMI WALLET DEMO — AUDIT REPORT
 ═══════════════════════════════════════════════
   Total checks : 47
-  Passed        : 45
+  Passed        : 47
   Failed        : 0
-  Warnings      : 2
+  Warnings      : 0
   Console errors: 0
 ───────────────────────────────────────────────
 ✅ Screen: landing
@@ -40,6 +40,7 @@
 ✅ Role Nudge Phase 2: nudge-correct class applied
 ✅ Role Nudge Badge: .nudge-badge visible
 ✅ Role Nudge Auto-dismiss: cleared after 4s
+✅ Role Nudge: skipped during auto-tour
 ✅ Mobile: .demo-container hidden (correct)
 ✅ Mobile: .demo-container-mobile present
 ✅ Mobile: .mobile-role-pill visible
@@ -49,11 +50,8 @@
 ✅ Mobile Nudge Phase 2: pill morphs to suggest
 ✅ Language: default Arabic renders correctly
 ✅ Language: English switch works
-📊 TTFB: 2ms
-📊 DOMContentLoaded: 1049ms
-📊 Load complete: 1050ms
-
-─── WARNINGS ───
-⚠️  Role Nudge: fired during auto-tour (check autoPlay state)
-⚠️  Load time: 3809ms (over 3s — consider code splitting)
+📊 TTFB: 3ms
+📊 DOMContentLoaded: 370ms
+📊 Load complete: 371ms
+✅ Load time: 1511ms (under 3s)
 ═══════════════════════════════════════════════

@@ -303,12 +303,11 @@ function RolePanel({ nudge, dismiss }: { nudge: NudgeState; dismiss: () => void 
 }
 
 /* ─── Info Panel (left side — desktop only) ─── */
-function InfoPanel() {
+function InfoPanel({ autoPlay, toggleTour }: { autoPlay: boolean; toggleTour: () => void }) {
   const { lang, screen } = useNavigation();
   const isAr = lang === 'ar';
   const [musicEnabled, setMusicEnabled] = useState(audioService.isEnabled());
   const [currentTrack, setCurrentTrack] = useState(audioService.getCurrentTrack());
-  const { autoPlay, toggleTour } = useAutoTour();
 
   useEffect(() => {
     const unsub = audioService.subscribe(() => {
@@ -474,12 +473,11 @@ function MobileRoleSheet({
 }
 
 /* ─── Mobile Role Pill (floating bar at bottom) ─── */
-function MobileRolePill({ nudge, dismiss }: { nudge: NudgeState; dismiss: () => void }) {
+function MobileRolePill({ nudge, dismiss, autoPlay, toggleTour }: { nudge: NudgeState; dismiss: () => void; autoPlay: boolean; toggleTour: () => void }) {
   const { role, setRole, lang } = useNavigation();
   const isAr = lang === 'ar';
   const [sheetOpen, setSheetOpen] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(audioService.isEnabled());
-  const { autoPlay, toggleTour } = useAutoTour();
 
   useEffect(() => {
     const unsub = audioService.subscribe(() => setMusicEnabled(audioService.isEnabled()));
@@ -579,19 +577,20 @@ function MobileRolePill({ nudge, dismiss }: { nudge: NudgeState; dismiss: () => 
 ═══════════════════════════════════════════════ */
 function AppInner() {
   const isMobile = useIsMobile();
-  const { autoPlay } = useAutoTour();
+  // Single source of truth for tour state — passed to both InfoPanel and MobileRolePill
+  const { autoPlay, toggleTour } = useAutoTour();
   const { nudge, dismiss } = useRoleNudge(autoPlay);
 
   return isMobile ? (
     /* ── Mobile: full-screen phone + floating pill ── */
     <div className="demo-container-mobile">
       <PhoneFrame><ScreenRouter /></PhoneFrame>
-      <MobileRolePill nudge={nudge} dismiss={dismiss} />
+      <MobileRolePill nudge={nudge} dismiss={dismiss} autoPlay={autoPlay} toggleTour={toggleTour} />
     </div>
   ) : (
     /* ── Desktop: 3-column shell ── */
     <div className="demo-container">
-      <InfoPanel />
+      <InfoPanel autoPlay={autoPlay} toggleTour={toggleTour} />
       <PhoneFrame><ScreenRouter /></PhoneFrame>
       <RolePanel nudge={nudge} dismiss={dismiss} />
     </div>

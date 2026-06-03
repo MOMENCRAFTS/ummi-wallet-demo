@@ -144,7 +144,7 @@ async function setRole(page, role) {
       // Start tour programmatically
       document.querySelector('.demo-tour-btn')?.click();
     });
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(800); // wait for React to commit autoPlay=true
     await navigate(page, 'mother-dashboard'); // wrong role but tour "active"
     await page.waitForTimeout(300);
     const nudgeDuringTour = await page.locator('.role-card.nudge-wrong').count();
@@ -215,11 +215,12 @@ async function setRole(page, role) {
     }
 
     // Mobile nudge: set observer, nav to admin
+    // NOTE: bypass navigate() helper (it waits 600ms internally, beyond the 800ms phase-1 window)
     await page.keyboard.press('Escape');
     await page.waitForTimeout(300);
     await setRole(page, 'observer');
-    await navigate(page, 'admin-dashboard');
-    await page.waitForTimeout(200);
+    await page.evaluate((s) => { if (window.__ummiNavigate__) window.__ummiNavigate__(s); }, 'admin-dashboard');
+    await page.waitForTimeout(350); // check at 350ms — inside the 0–800ms red phase window
     const mobileNudgeRed = await page.locator('.mobile-pill-role.nudge-red').count();
     if (mobileNudgeRed > 0) {
       results.pass.push('✅ Mobile Nudge Phase 1: pill turns red');
