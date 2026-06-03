@@ -22,13 +22,14 @@ import {
 const ROLES: {
   id: AppRole;
   label: string; labelAr: string;
+  persona: string; personaAr: string;
   desc: string; descAr: string;
   Icon: React.ComponentType<{ size?: number }>;
 }[] = [
-  { id: 'admin',    label: 'Responsible Son',      labelAr: 'الابن المسؤول',   desc: 'Manages budget, approves requests, oversees the family plan', descAr: 'يدير الميزانية، ويعتمد الطلبات، ويشرف على خطة العائلة', Icon: CrownFloralIcon },
-  { id: 'mother',   label: 'Mother',               labelAr: 'الوالدة',          desc: 'Requests money, pays bills, sends gratitude',                 descAr: 'تطلب مبالغ، وتدفع الفواتير، وترسل الشكر',              Icon: HeartLeafIcon },
-  { id: 'brother',  label: 'Contributing Brother', labelAr: 'الأخ المساهم',    desc: 'Pays his share, views pending approvals',                     descAr: 'يسدد حصته ويتابع الموافقات المعلّقة',                   Icon: PersonFloralIcon },
-  { id: 'observer', label: 'Observing Sister',     labelAr: 'الأخت المتابعة',  desc: 'Views family feed, celebrations, gratitude',                  descAr: 'تتابع أخبار العائلة والمناسبات ورسائل الشكر',           Icon: EyeLeafIcon },
+  { id: 'admin',    label: 'Responsible Son',      labelAr: 'الابن المسؤول',   persona: 'Momen',      personaAr: 'مؤمن',        desc: 'Manages budget, approves requests, oversees the family plan', descAr: 'يدير الميزانية، ويعتمد الطلبات، ويشرف على خطة العائلة', Icon: CrownFloralIcon },
+  { id: 'mother',   label: 'Mother',               labelAr: 'الوالدة',          persona: 'Um Sousan',  personaAr: 'الأم سوسن',   desc: 'Requests money, pays bills, sends gratitude',                 descAr: 'تطلب مبالغ، وتدفع الفواتير، وترسل الشكر',              Icon: HeartLeafIcon },
+  { id: 'brother',  label: 'Contributing Brother', labelAr: 'الأخ المساهم',    persona: 'Mazen',      personaAr: 'مازن',        desc: 'Pays his share, views pending approvals',                     descAr: 'يسدد حصته ويتابع الموافقات المعلّقة',                   Icon: PersonFloralIcon },
+  { id: 'observer', label: 'Observing Sister',     labelAr: 'الأخت المتابعة',  persona: 'Noor',       personaAr: 'نور',         desc: 'Views family feed, celebrations, gratitude',                  descAr: 'تتابع أخبار العائلة والمناسبات ورسائل الشكر',           Icon: EyeLeafIcon },
 ];
 
 /* ─── Tour Steps ─── */
@@ -274,6 +275,7 @@ function RolePanel({ nudge, dismiss }: { nudge: NudgeState; dismiss: () => void 
                 <r.Icon size={24} />
               </div>
               <div className="role-card-text">
+                <span className="role-card-persona">{isAr ? r.personaAr : r.persona}</span>
                 <span className="role-card-label">{isAr ? r.labelAr : r.label}</span>
                 <span className="role-card-desc">{isAr ? r.descAr : r.desc}</span>
               </div>
@@ -451,6 +453,7 @@ function MobileRoleSheet({
                 onClick={() => handleRoleSelect(r.id)}
               >
                 <div className="mobile-role-card-icon"><r.Icon size={28} /></div>
+                <span className="mobile-role-card-persona">{isAr ? r.personaAr : r.persona}</span>
                 <span className="mobile-role-card-label">{isAr ? r.labelAr : r.label}</span>
                 {role === r.id && <div className="mobile-role-card-dot" />}
                 {isCorrect && (
