@@ -394,7 +394,7 @@ body {
   cursor: pointer;
   transition: all 0.25s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* must be visible so .nudge-badge can peek below */
   text-align: left;
   color: inherit;
   font-family: inherit;
@@ -411,6 +411,8 @@ body {
     rgba(184, 218, 196, 0.08),
     rgba(245, 203, 167, 0.06)
   );
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .role-card:hover {

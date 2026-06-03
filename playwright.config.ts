@@ -8,7 +8,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list']],
   use: {
-    baseURL: 'http://localhost:8081',
+    baseURL: 'http://localhost:3002/ummi-wallet-demo/',
     browserName: 'chromium',
     headless: false,
     viewport: { width: 1280, height: 720 },

@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════
+ UMMI WALLET DEMO — AUDIT REPORT
+═══════════════════════════════════════════════
+  Total checks : 47
+  Passed        : 45
+  Failed        : 0
+  Warnings      : 2
+  Console errors: 0
+───────────────────────────────────────────────
+✅ Screen: landing
+✅ Screen: login
+✅ Screen: phone-verify
+✅ Screen: onboarding
+✅ Screen: admin-dashboard
+✅ Screen: queue
+✅ Screen: payroll
+✅ Screen: admin-bills
+✅ Screen: maintenance
+✅ Screen: finance-welcome
+✅ Screen: finance-chat
+✅ Screen: finance-summary
+✅ Screen: finance-dispatch
+✅ Screen: finance-waiting
+✅ Screen: finance-celebration
+✅ Screen: mother-dashboard
+✅ Screen: mother-request
+✅ Screen: mother-bills
+✅ Screen: mother-balance
+✅ Screen: mother-gratitude
+✅ Screen: mother-sos
+✅ Screen: brother-dashboard
+✅ Screen: brother-audit
+✅ Screen: brother-contribution
+✅ Screen: observer-dashboard
+✅ Screen: observer-feed
+✅ Screen: observer-celebrations
+✅ Screen: settings
+✅ Screen: notifications
+✅ Role Nudge Phase 1: nudge-wrong class applied
+✅ Role Nudge Phase 2: nudge-correct class applied
+✅ Role Nudge Badge: .nudge-badge visible
+✅ Role Nudge Auto-dismiss: cleared after 4s
+✅ Mobile: .demo-container hidden (correct)
+✅ Mobile: .demo-container-mobile present
+✅ Mobile: .mobile-role-pill visible
+✅ Mobile: phone frame removed (frameless mode)
+✅ Mobile: role sheet opens on pill tap
+✅ Mobile Nudge Phase 1: pill turns red
+✅ Mobile Nudge Phase 2: pill morphs to suggest
+✅ Language: default Arabic renders correctly
+✅ Language: English switch works
+📊 TTFB: 2ms
+📊 DOMContentLoaded: 1049ms
+📊 Load complete: 1050ms
+
+─── WARNINGS ───
+⚠️  Role Nudge: fired during auto-tour (check autoPlay state)
+⚠️  Load time: 3809ms (over 3s — consider code splitting)
+═══════════════════════════════════════════════

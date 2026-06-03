@@ -117,6 +117,7 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   }, []);
   if (typeof window !== 'undefined') {
     (window as any).__setDemoRole__ = setRoleOnly;
+    (window as any).__ummiNavigate__ = navigate;
   }
 
   const setLang = useCallback((lang: 'en' | 'ar') => {

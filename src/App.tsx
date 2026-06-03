@@ -172,6 +172,10 @@ function useRoleNudge(autoPlay: boolean) {
   const phaseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Keep a ref always in sync — avoids stale closure in the screen-change effect
+  const autoPlayRef = useRef(autoPlay);
+  useEffect(() => { autoPlayRef.current = autoPlay; }, [autoPlay]);
+
   // Reset nudgedScreens when role changes manually (fresh start)
   const prevRoleRef = useRef(role);
   useEffect(() => {
@@ -183,8 +187,8 @@ function useRoleNudge(autoPlay: boolean) {
   }, [role]);
 
   useEffect(() => {
-    // Skip during auto-tour
-    if (autoPlay) return;
+    // Always read the ref — not the closed-over prop value
+    if (autoPlayRef.current) return;
 
     const correctRole = getRoleForScreen(screen);
 
@@ -219,7 +223,7 @@ function useRoleNudge(autoPlay: boolean) {
       if (phaseTimer.current) clearTimeout(phaseTimer.current);
       if (dismissTimer.current) clearTimeout(dismissTimer.current);
     };
-  }, [screen, autoPlay]); // note: intentionally exclude role & nudge.phase
+  }, [screen]); // only re-run on screen change; autoPlay read via ref
 
   const dismiss = useCallback(() => {
     if (phaseTimer.current) clearTimeout(phaseTimer.current);
