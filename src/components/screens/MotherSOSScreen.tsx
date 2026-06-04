@@ -7,6 +7,7 @@ import { useNavigation } from '../../navigation';
 import {
   RoseSOSIcon, MedicalHerbIcon, WrenchVineIcon, ArrowLeafIcon,
 } from '../icons/FloralIcons';
+import { hapticsService } from '../../lib/hapticsService';
 
 // Alert Tulip (inline since not yet exported)
 function CarIcon({ size = 18 }: { size?: number }) {
@@ -76,6 +77,7 @@ export default function MotherSOSScreen() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, type: 'spring', stiffness: 260, damping: 20 }}
+          onClick={() => hapticsService.warning()}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

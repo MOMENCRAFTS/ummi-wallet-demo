@@ -35,9 +35,12 @@ const LOOPING_TRACKS: TrackName[] = [
   'blessing_hush',
 ];
 
+// ─── One-shot tracks (never loop, restart on replay) ───
+const ONE_SHOT_TRACKS: TrackName[] = ['celebration_bloom', 'step_complete'];
+
 // ─── Constants ───
 const STORAGE_KEY = 'ummi_music_enabled';
-const DEFAULT_VOLUME = 0.25; // Slightly lower than mobile (0.3) for laptop speakers
+const DEFAULT_VOLUME = 0.25;
 const FADE_STEP_MS = 40;
 
 // Asymmetric transitions: slow volume-up, fast volume-down
@@ -55,7 +58,10 @@ let enabled = true;
 let globalVolume = DEFAULT_VOLUME;
 let initialized = false;
 let unlocked = false; // Browser autoplay gate
-let crossfadeId = 0;  // Cancellation counter for stale crossfades
+
+// ─── Ramp cancellation token ───
+// Each new crossfade/fade increments this. rampVolume checks it to abort.
+let rampEpoch = 0;
 
 // ─── Listeners for UI updates ───
 type Listener = () => void;
@@ -68,16 +74,18 @@ function easeInOutCubic(t: number): number {
     : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-// ─── Volume Ramping Utility (with easing) ───
+// ─── Volume Ramping Utility (with epoch-based cancellation) ───
 async function rampVolume(
   player: HTMLAudioElement,
   from: number,
   to: number,
-  durationMs: number
+  durationMs: number,
+  epoch: number   // pass the epoch captured at ramp-start; abort if it changes
 ): Promise<void> {
   const steps = Math.max(1, Math.round(durationMs / FADE_STEP_MS));
 
   for (let i = 0; i <= steps; i++) {
+    if (epoch !== rampEpoch) return; // another crossfade started — abort
     const t = i / steps;
     const eased = easeInOutCubic(t);
     const vol = Math.max(0, Math.min(1, from + (to - from) * eased));
@@ -89,6 +97,21 @@ async function rampVolume(
     if (i < steps) {
       await new Promise((r) => setTimeout(r, FADE_STEP_MS));
     }
+  }
+}
+
+// ─── Stop all players that are NOT the given track ───
+function stopOthers(keepTrack?: TrackName) {
+  for (const [name, player] of Object.entries(players)) {
+    if (!player) continue;
+    if (name === keepTrack) continue;
+    try {
+      player.volume = 0;
+      player.pause();
+      if (!ONE_SHOT_TRACKS.includes(name as TrackName)) {
+        player.currentTime = 0;
+      }
+    } catch {/* ignore */}
   }
 }
 
@@ -115,13 +138,11 @@ export const audioService = {
     if (initialized) return;
 
     try {
-      // Load user preference
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored !== null) {
         enabled = stored === 'true';
       }
 
-      // Create all audio elements
       const entries = Object.entries(TRACKS) as [TrackName, string][];
       for (const [name, src] of entries) {
         try {
@@ -136,9 +157,7 @@ export const audioService = {
         }
       }
 
-      // Listen for page visibility changes
       document.addEventListener('visibilitychange', handleVisibility);
-
       initialized = true;
     } catch (err) {
       console.warn('[Audio] Preload failed:', err);
@@ -147,12 +166,10 @@ export const audioService = {
 
   /**
    * Unlock audio playback — must be called from a user gesture handler.
-   * Browsers require at least one user-initiated play() before allowing programmatic playback.
    */
   async unlock(): Promise<void> {
     if (unlocked) return;
 
-    // Play and immediately pause each track to unlock them
     const promises = Object.values(players).map(async (player) => {
       if (!player) return;
       try {
@@ -160,9 +177,7 @@ export const audioService = {
         await player.play();
         player.pause();
         player.currentTime = 0;
-      } catch {
-        // Some browsers may still block — that's ok
-      }
+      } catch {/* browsers may still block */}
     });
 
     await Promise.all(promises);
@@ -170,23 +185,28 @@ export const audioService = {
   },
 
   /**
-   * Play a track immediately at the given volume.
+   * Play a looping track immediately, stopping all others first.
+   * Use for first-play after splash. For subsequent changes use crossfadeTo().
    */
-  async play(
-    track: TrackName,
-    volume: number = globalVolume
-  ): Promise<void> {
+  async play(track: TrackName, volume: number = globalVolume): Promise<void> {
     if (!enabled || !players[track]) return;
 
+    // Cancel any in-progress ramps
+    const epoch = ++rampEpoch;
+
     try {
+      // Hard-stop every other player so nothing stacks
+      stopOthers(track);
+
       const player = players[track]!;
       player.currentTime = 0;
       player.volume = 0;
       await player.play().catch(() => {});
       currentTrack = track;
       notifyListeners();
+
       // Slow fade-in for organic feel
-      rampVolume(player, 0, volume, FADE_IN_MS).catch(() => {});
+      await rampVolume(player, 0, volume, FADE_IN_MS, epoch);
     } catch (err) {
       console.warn(`[Audio] Play ${track} failed:`, err);
     }
@@ -200,8 +220,8 @@ export const audioService = {
     if (!enabled) return;
     if (track === currentTrack) return;
 
-    // Bump crossfade generation so stale transitions abort
-    const thisId = ++crossfadeId;
+    // New epoch cancels any previous rampVolume loops
+    const epoch = ++rampEpoch;
 
     const oldTrack = currentTrack;
     const oldPlayer = oldTrack ? players[oldTrack] : null;
@@ -213,23 +233,26 @@ export const audioService = {
       // 1. Fade OUT old track first (if any)
       if (oldPlayer) {
         const currentVol = oldPlayer.volume || globalVolume;
-        await rampVolume(oldPlayer, currentVol, 0, CROSSFADE_OUT_MS);
-        if (thisId !== crossfadeId) return; // cancelled
+        await rampVolume(oldPlayer, currentVol, 0, CROSSFADE_OUT_MS, epoch);
+        if (epoch !== rampEpoch) return; // newer crossfade took over
         try { oldPlayer.pause(); } catch {}
       }
 
-      if (thisId !== crossfadeId) return; // cancelled
+      // Also silence any other stray players
+      stopOthers(track);
 
-      // 2. Now start and fade IN new track
+      if (epoch !== rampEpoch) return;
+
+      // 2. Fade IN new track
       newPlayer.currentTime = 0;
       newPlayer.volume = 0;
       await newPlayer.play().catch(() => {});
       currentTrack = track;
       notifyListeners();
 
-      if (thisId !== crossfadeId) return; // cancelled
+      if (epoch !== rampEpoch) return;
 
-      await rampVolume(newPlayer, 0, globalVolume, CROSSFADE_IN_MS);
+      await rampVolume(newPlayer, 0, globalVolume, CROSSFADE_IN_MS, epoch);
     } catch (err) {
       console.warn(`[Audio] Crossfade to ${track} failed:`, err);
     }
@@ -241,9 +264,13 @@ export const audioService = {
   async fadeOut(durationMs: number = FADE_OUT_MS): Promise<void> {
     if (!currentTrack || !players[currentTrack]) return;
 
+    const epoch = ++rampEpoch;
+
     try {
       const player = players[currentTrack]!;
-      await rampVolume(player, globalVolume, 0, durationMs);
+      const fromVol = player.volume;
+      await rampVolume(player, fromVol, 0, durationMs, epoch);
+      if (epoch !== rampEpoch) return;
       player.pause();
       currentTrack = null;
       notifyListeners();
@@ -255,15 +282,20 @@ export const audioService = {
   /**
    * Play a one-shot sound effect (celebration, step complete).
    * Does NOT interrupt the current background track.
+   * If already playing, restarts from the beginning instead of stacking.
    */
   async playOneShot(track: TrackName, volume: number = 0.5): Promise<void> {
     if (!enabled || !players[track]) return;
 
     try {
       const player = players[track]!;
+      // Always restart — prevents double-play overlap on rapid calls
       player.currentTime = 0;
       player.volume = volume;
-      await player.play().catch(() => {});
+      if (player.paused || player.ended) {
+        await player.play().catch(() => {});
+      }
+      // If it was already playing, the currentTime reset is enough
     } catch (err) {
       console.warn(`[Audio] OneShot ${track} failed:`, err);
     }
@@ -274,18 +306,24 @@ export const audioService = {
    */
   async duckTo(volume: number, durationMs: number = DUCK_DOWN_MS): Promise<void> {
     if (!currentTrack || !players[currentTrack]) return;
+    const epoch = ++rampEpoch;
     try {
-      await rampVolume(players[currentTrack]!, globalVolume, volume, durationMs);
+      const player = players[currentTrack]!;
+      await rampVolume(player, player.volume, volume, durationMs, epoch);
     } catch {}
   },
 
   /**
    * Restore volume after ducking.
+   * FIX: ramp FROM current volume, not from 0.
    */
   async unduck(durationMs: number = DUCK_UP_MS): Promise<void> {
     if (!currentTrack || !players[currentTrack]) return;
+    const epoch = ++rampEpoch;
     try {
-      await rampVolume(players[currentTrack]!, 0, globalVolume, durationMs);
+      const player = players[currentTrack]!;
+      const fromVol = player.volume; // was: hardcoded 0 — now reads actual
+      await rampVolume(player, fromVol, globalVolume, durationMs, epoch);
     } catch {}
   },
 
@@ -322,38 +360,15 @@ export const audioService = {
     notifyListeners();
   },
 
-  /**
-   * Check if music is enabled.
-   */
-  isEnabled(): boolean {
-    return enabled;
-  },
+  isEnabled(): boolean { return enabled; },
+  isUnlocked(): boolean { return unlocked; },
+  getCurrentTrack(): TrackName | null { return currentTrack; },
 
-  /**
-   * Check if audio has been unlocked by user gesture.
-   */
-  isUnlocked(): boolean {
-    return unlocked;
-  },
-
-  /**
-   * Get the currently playing track name.
-   */
-  getCurrentTrack(): TrackName | null {
-    return currentTrack;
-  },
-
-  /**
-   * Subscribe to state changes (for React components).
-   */
   subscribe(listener: Listener): () => void {
     listeners.add(listener);
     return () => listeners.delete(listener);
   },
 
-  /**
-   * Clean up (not normally needed for web).
-   */
   cleanup(): void {
     document.removeEventListener('visibilitychange', handleVisibility);
     Object.values(players).forEach((p) => {

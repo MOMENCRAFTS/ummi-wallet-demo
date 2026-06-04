@@ -22,11 +22,9 @@ export default function LoginScreen() {
   const toggleLang = () => setLang(lang === 'en' ? 'ar' : 'en');
 
   const handleAuth = useCallback(() => {
-    // Unlock audio on user gesture then show transition
-    audioService.unlock().then(() => {
-      audioService.playOneShot('celebration_bloom', 0.6);
-      setShowTransition(true);
-    });
+    // Unlock audio on user gesture — ScreenRouter handles track transitions
+    audioService.unlock();
+    setShowTransition(true);
   }, []);
 
   const handleTransitionComplete = useCallback(() => {

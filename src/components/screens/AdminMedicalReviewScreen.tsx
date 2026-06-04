@@ -12,6 +12,7 @@ import {
   ClockPetalIcon, SeedlingIcon, HeartLeafIcon, WrenchVineIcon,
   HandPetalIcon, CrownFloralIcon, c,
 } from '../icons/FloralIcons';
+import { hapticsService } from '../../lib/hapticsService';
 
 /* ─── Demo visit items ─── */
 interface VisitItem {
@@ -80,13 +81,15 @@ export default function AdminMedicalReviewScreen() {
   const rejectedCount = items.filter(i => i.status === 'rejected').length;
 
   const updateStatus = (id: string, status: 'approved' | 'rejected') => {
+    if (status === 'approved') hapticsService.success();
+    else hapticsService.error();
     setItems(prev => prev.map(item => item.id === id ? { ...item, status } : item));
-    // Check if all resolved
     const remaining = items.filter(i => i.status === 'pending' && i.id !== id).length;
     if (remaining === 0) setAllDone(true);
   };
 
   const handleApproveAll = () => {
+    hapticsService.success();
     setItems(prev => prev.map(i => ({ ...i, status: 'approved' })));
     setAllDone(true);
   };

@@ -3,22 +3,16 @@
  * Now includes: FlowerVideo (plan_approved.mp4) + celebration audio
  * Zero emoji — BouquetIcon + PetalConfetti as fallback decorations
  */
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigation } from '../../navigation';
 import { BouquetIcon, PetalConfetti, HomeGardenIcon } from '../icons/FloralIcons';
 import FlowerVideo from '../videos/FlowerVideo';
-import { audioService } from '../../lib/audioService';
 
 export default function CelebrationScreen() {
   const { navigate, lang } = useNavigation();
   const isAr = lang === 'ar';
   const [videoComplete, setVideoComplete] = useState(false);
-
-  // Play celebration audio on mount
-  useEffect(() => {
-    audioService.playOneShot('celebration_bloom', 0.6);
-  }, []);
 
   const handleVideoComplete = useCallback(() => {
     setVideoComplete(true);
