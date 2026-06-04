@@ -237,7 +237,7 @@ export default function ScreenRouter() {
 
     if (newTrack && newTrack !== prevTrack) {
       if (!audioInitialized.current) {
-        // First screen after splash — play directly
+        // First screen after splash — play directly (queued if not yet unlocked)
         audioService.play(newTrack);
         audioInitialized.current = true;
       } else {
@@ -245,12 +245,16 @@ export default function ScreenRouter() {
       }
     }
 
-    // Celebration one-shot on top of ambient track
+    // Celebration one-shot — delayed 400ms so it fires when screen is visible
+    let celebTimer: ReturnType<typeof setTimeout> | null = null;
     if (CELEBRATION_SCREENS.includes(screen)) {
-      audioService.playOneShot('celebration_bloom', 0.4);
+      celebTimer = setTimeout(() => {
+        audioService.playOneShot('celebration_bloom', 0.4);
+      }, 400);
     }
 
     prevScreenRef.current = screen;
+    return () => { if (celebTimer) clearTimeout(celebTimer); };
   }, [screen, showSplash]);
 
   const handleSplashComplete = useCallback(() => {

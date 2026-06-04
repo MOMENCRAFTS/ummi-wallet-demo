@@ -58,6 +58,7 @@ let enabled = true;
 let globalVolume = DEFAULT_VOLUME;
 let initialized = false;
 let unlocked = false; // Browser autoplay gate
+let pendingTrack: TrackName | null = null; // Track queued before unlock
 
 // ─── Ramp cancellation token ───
 // Each new crossfade/fade increments this. rampVolume checks it to abort.
@@ -182,6 +183,13 @@ export const audioService = {
 
     await Promise.all(promises);
     unlocked = true;
+
+    // Play any track that was queued before unlock completed
+    if (pendingTrack && enabled) {
+      const track = pendingTrack;
+      pendingTrack = null;
+      audioService.play(track);
+    }
   },
 
   /**
@@ -190,6 +198,12 @@ export const audioService = {
    */
   async play(track: TrackName, volume: number = globalVolume): Promise<void> {
     if (!enabled || !players[track]) return;
+
+    // If audio not yet unlocked by user gesture, queue for auto-play after unlock
+    if (!unlocked) {
+      pendingTrack = track;
+      return;
+    }
 
     // Cancel any in-progress ramps
     const epoch = ++rampEpoch;
