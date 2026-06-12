@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   root: path.resolve(__dirname),
-  base: '/ummi-wallet-demo/',
+  base: '/',
   server: {
     port: 3002,
   },

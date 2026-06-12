@@ -253,7 +253,7 @@ function RolePanel({ nudge, dismiss }: { nudge: NudgeState; dismiss: () => void 
   };
 
   return (
-    <div className="role-panel">
+    <div className="role-panel" dir={isAr ? 'rtl' : 'ltr'}>
       <h3 className="role-panel-title">{isAr ? 'اختر دورك' : 'Choose Role'}</h3>
       <p className="role-panel-subtitle">
         {isAr ? 'استعرض التطبيق من منظور كل فرد في العائلة' : "See the app from each family member's perspective"}
